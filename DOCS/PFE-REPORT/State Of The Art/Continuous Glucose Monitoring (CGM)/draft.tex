@@ -1,0 +1,87 @@
+\documentclass[12pt,a4paper]{article}  % Document class
+\usepackage[utf8]{inputenc}             % UTF-8 encoding
+\usepackage{amsmath, amssymb}           % Math packages
+\usepackage{graphicx}                    % Include images
+\usepackage{geometry}                    % Page margins
+\usepackage{hyperref}   
+\usepackage{placeins}                    % Float barriers
+\usepackage{tabularx}                    % Table with adjustable width
+\geometry{margin=1in}                    % 1-inch margins
+
+\title{State of the Art: Glucose Measurement Techniques}
+\author{Ahmed Omrani}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Continuous Glucose Monitoring (CGM)}
+
+\subsection{Introduction}
+Continuous Glucose Monitoring (CGM) systems provide dynamic, near real-time monitoring of glucose concentrations in the interstitial fluid. Unlike Self-Monitoring of Blood Glucose (SMBG), which provides discrete measurements at specific time points, CGM captures continuous glucose trends over 24 hours and generates alerts for both hypo- and hyperglycemia. These features improve glycemic control, reduce the frequency of undetected extreme glucose events, and aid in the management of insulin therapy \cite{CGM_Ambulatory_Review_2024, CGM_Routine_Care_2024}. Modern CGM devices are typically factory-calibrated or require minimal calibration through SMBG readings, making them more convenient for patient use.
+
+\subsection{Analytical Principles}
+CGM sensors operate on enzymatic detection principles, similar to laboratory methods but miniaturized for subcutaneous interstitial measurements. Two commonly used enzymatic reactions in CGM sensors are the glucose oxidase and glucose dehydrogenase reactions:
+
+\[
+\text{Glucose} + \text{O}_2 \xrightarrow{\text{Glucose Oxidase}} \text{Gluconolactone} + \text{H}_2\text{O}_2
+\]
+
+\[
+\text{Glucose} + \text{NAD(P)}^+ \xrightarrow{\text{GDH}} \text{Gluconolactone} + \text{NAD(P)H}
+\]
+
+The electrochemical detection of the product (\(H_2O_2\) or NAD(P)H) generates an electrical signal proportional to the glucose concentration. The sensor typically samples glucose every 1--5 minutes. Due to physiological diffusion, interstitial glucose exhibits a lag of 5--10 minutes relative to plasma glucose \cite{CGM_ICU_Accuracy_2024}.
+
+\subsection{Performance Characteristics}
+\FloatBarrier
+\begin{table}[h!]
+\centering
+\caption{Performance Characteristics of Contemporary CGM Systems (2024--2025)}
+\begin{tabularx}{\textwidth}{l X}
+\hline
+\textbf{Parameter} & \textbf{Value / Range} \\
+\hline
+Sensor life & 7--14 days \\
+Sample medium & Interstitial fluid \\
+Measurement frequency & 1--5 minutes \\
+Mean Absolute Relative Difference (MARD) & 8--10\% \\
+Calibration & Factory-calibrated or twice-daily SMBG \\
+Lag time vs plasma glucose & 5--10 minutes \\
+Alerts & Customizable for hypo- and hyperglycemia \\
+Reference traceability & Validated against laboratory plasma glucose and ID-MS standards \\
+\hline
+\end{tabularx}
+\label{tab:cgm_performance}
+\end{table}
+\FloatBarrier
+
+This table summarizes the key performance parameters of contemporary CGM systems. The mean absolute relative difference (MARD) quantifies the average deviation from reference plasma glucose values. Devices are validated against laboratory plasma glucose measurements to ensure accuracy and traceability \cite{Sinocare_CGM_2025}.
+
+\subsection{Analytical Accuracy and Clinical Relevance}
+Recent clinical studies indicate that modern CGM devices achieve a MARD of 8--10\% under ambulatory conditions. Sensitivity for detecting hypoglycemia (glucose $<$70 mg/dL) ranges between 85\% and 92\%, while hyperglycemia detection (glucose $>$180 mg/dL) reaches 96--98\% \cite{CGM_Routine_Care_2024}. Continuous alerts allow for timely interventions, reducing the risk of severe hypo- or hyperglycemic events. CGM data are extensively used to adjust insulin doses, guide dietary management, and provide inputs for automated insulin delivery algorithms.
+
+\subsection{Advantages and Limitations}
+CGM offers continuous glucose monitoring with trend visualization, enabling early detection of extreme glucose excursions. Factory-calibrated sensors reduce the reliance on fingerstick SMBG, making management more convenient for patients. Additionally, CGM data can be leveraged for insulin dose optimization and closed-loop system training.  
+
+However, CGM has some limitations. Interstitial measurements are affected by hydration status, local tissue perfusion, temperature, and mechanical compression. A physiological lag of 5--10 minutes exists between interstitial and plasma glucose readings. Sensors must be replaced every 7--14 days, and there are costs and training requirements associated with device use.
+
+\subsection{Figure Placeholder}
+\begin{figure}[h!]
+\centering
+\framebox[0.8\textwidth]{\parbox{0.75\textwidth}{Schematic of a Continuous Glucose Monitoring system showing sensor insertion, transmitter, and data receiver workflow}}
+\caption{Workflow of a CGM system: sensor detects interstitial glucose, transmitter sends signals, and receiver provides real-time glucose trends and alerts.}
+\label{fig:cgm_workflow}
+\end{figure}
+
+\subsection{Conclusion}
+Continuous Glucose Monitoring complements laboratory plasma glucose measurements and SMBG by providing continuous, actionable glucose data. CGM is considered a cornerstone of modern diabetes management and is increasingly integrated with automated insulin delivery systems for closed-loop therapy, enabling safer and more precise glycemic control \cite{CGM_Ambulatory_Review_2024}.
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}

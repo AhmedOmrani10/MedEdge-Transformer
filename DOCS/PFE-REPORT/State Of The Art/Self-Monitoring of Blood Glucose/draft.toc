@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Self-Monitoring of Blood Glucose (SMBG)}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Analytical Principles}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Device Accuracy and Standards}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Sample Handling Workflow}{2}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Advantages and Limitations}{3}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Clinical Use Cases}{3}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Analytical Performance Table}{3}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Figure Placeholder}{3}{subsection.1.8}%

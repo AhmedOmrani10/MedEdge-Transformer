@@ -1,0 +1,86 @@
+\documentclass[12pt,a4paper]{article}  % Document class
+\usepackage[utf8]{inputenc}             % UTF-8 encoding
+\usepackage{amsmath, amssymb}           % Math packages
+\usepackage{graphicx}                    % Include images
+\usepackage{geometry}                    % Page margins
+\usepackage{hyperref}   
+\usepackage{placeins}                 % Hyperlinks
+\geometry{margin=1in}                    % 1-inch margins
+
+\title{State of the Art: Glucose Measurement Techniques}
+\author{Ahmed Omrani}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+\section{Self-Monitoring of Blood Glucose (SMBG)}
+
+\subsection{Introduction}
+Self-Monitoring of Blood Glucose (SMBG) is a critical component of diabetes management, allowing patients to measure their blood glucose levels independently at home or in outpatient settings. SMBG empowers patients to make real-time decisions regarding insulin administration, diet, and physical activity. It is particularly essential for individuals with type 1 diabetes and insulin-treated type 2 diabetes, where frequent glucose monitoring is necessary to avoid both hyperglycemia and hypoglycemia \cite{Bergenstal2017, ADA2025}. SMBG devices, commonly called glucometers, have become portable, rapid, and reliable over the past few decades, providing clinical guidance without the need for a laboratory environment.
+
+\subsection{Analytical Principles}
+SMBG devices typically use enzymatic electrochemical reactions to quantify glucose in small capillary blood samples. The two most common enzymatic reactions are based on \textbf{glucose oxidase (GOx)} and \textbf{glucose dehydrogenase (GDH)}. 
+
+In the glucose oxidase method, the reaction catalyzes the oxidation of glucose to gluconolactone while producing hydrogen peroxide (\(H_2O_2\)) as a by-product:
+
+\[
+\text{Glucose} + \text{O}_2 \xrightarrow{\text{Glucose Oxidase}} \text{Gluconolactone} + \text{H}_2\text{O}_2
+\]
+
+The hydrogen peroxide generated is detected electrochemically, and its concentration is directly proportional to the glucose concentration in the blood sample.  
+
+The glucose dehydrogenase reaction, which is another widely used method, oxidizes glucose using the cofactor NAD(P)\(^+\), producing NAD(P)H:
+
+\[
+\text{Glucose} + \text{NAD(P)}^+ \xrightarrow{\text{GDH}} \text{Gluconolactone} + \text{NAD(P)H}
+\]
+
+The amount of NAD(P)H formed is measured electrochemically and correlates directly with the glucose concentration \cite{Heinemann2018}. Both methods require only 0.3--1 µL of blood, typically obtained via a simple finger-prick.
+
+\subsection{Accuracy and Regulatory Standards}
+SMBG device accuracy is defined by the \textbf{ISO 15197:2013} standard. According to this guideline, glucose measurements below 100 mg/dL should fall within \(\pm 15\) mg/dL of the reference value, while values equal to or above 100 mg/dL must be within \(\pm 15\%\) \cite{ISO15197}. These requirements ensure that patients and clinicians can rely on SMBG readings for therapeutic decisions. Accuracy can be affected by factors such as hematocrit levels, environmental conditions, and operator technique, so proper training and periodic quality checks are critical for reliable results \cite{Heinemann2018}.
+
+\subsection{Sample Handling Workflow}
+The SMBG process is designed for simplicity and patient convenience. A capillary blood sample is obtained by a lancet device, usually from a fingertip. The patient applies a droplet of blood onto a disposable test strip inserted into the meter. Within 5--15 seconds, the device displays the glucose concentration. Although SMBG provides only discrete point-in-time measurements, frequent testing throughout the day allows patients to detect trends and adjust therapy accordingly \cite{Bergenstal2017}. 
+
+\subsection{Analytical Performance Table}
+\FloatBarrier
+\begin{table}[h!]
+\centering
+\caption{Analytical Parameters of SMBG Devices (ISO 15197:2013 Standards)}
+\begin{tabular}{l c}
+\hline
+\textbf{Parameter} & \textbf{Value / Range} \\
+\hline
+Sample volume & 0.3--1 µL \\
+Measurement time & 5--15 seconds \\
+Accuracy & $\pm 15$ mg/dL for $<100$ mg/dL; $\pm 15\%$ for $\geq 100$ mg/dL \\
+Measurement type & Discrete point-in-time \\
+Calibration & Factory-calibrated or user-adjustable \\
+\hline
+\end{tabular}
+\label{tab:smbg_performance}
+\end{table}
+\FloatBarrier
+
+\subsection{Advantages and Limitations}
+SMBG has several advantages. It is portable, fast, and enables patients to monitor their glycemic status in real-time, facilitating immediate therapeutic decisions. The method is cost-effective per measurement and minimally invasive compared to venous blood draws. However, SMBG does have limitations: it provides only discrete measurements rather than continuous trends, frequent finger-pricking can cause discomfort, and results may be influenced by operator technique, hematocrit variations, and environmental factors \cite{Heinemann2018}.
+
+\subsection{Clinical Applications}
+SMBG is used for insulin dose titration, postprandial glucose monitoring, hypoglycemia prevention, and trend analysis when combined with Continuous Glucose Monitoring (CGM). While SMBG does not replace laboratory testing for diagnostic purposes, it remains an essential tool for day-to-day management of diabetes and for evaluating therapeutic interventions \cite{ADA2025}.
+
+\subsection{Figure Placeholder}
+\begin{figure}[h!]
+\centering
+\framebox[0.8\textwidth]{\parbox{0.75\textwidth}{Schematic workflow of Self-Monitoring of Blood Glucose (SMBG) using a finger-prick glucometer.}}
+\caption{SMBG workflow illustrating finger-prick sampling and electrochemical glucose measurement.}
+\label{fig:smbg_workflow}
+\end{figure}
+
+\bibliographystyle{ieeetr}
+\bibliography{references}
+\end{document}
