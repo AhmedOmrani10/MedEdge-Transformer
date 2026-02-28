@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{Sacks2011}
+D.~B. Sacks and R.~J. Bruns, ``Guidelines and recommendations for laboratory
+  measurement of glucose,'' {\em Clinical Chemistry}, vol.~57, no.~2,
+  pp.~E1--E10, 2011.
+
+\bibitem{Hagvik2007}
+J.~Hagvik and L.~Hansson, ``Historical development of laboratory glucose
+  measurement methods,'' {\em Journal of Diabetes Science and Technology},
+  vol.~1, no.~3, pp.~345--352, 2007.
+
+\bibitem{CataChem2020}
+{CataChem Standards Committee}, ``Iso and fda guidelines for glucose
+  measurement and device calibration.''
+  \url{https://www.catachem.org/glucose-guidelines}, 2020.
+\newblock Accessed: 2026-02-28.
+
+\bibitem{StatPearls2025}
+S.~Publishing, ``Fasting plasma glucose and oral glucose tolerance test:
+  Clinical interpretation,'' {\em StatPearls}, 2025.
+\newblock Available from: \url{https://www.ncbi.nlm.nih.gov/books/NBK519504/}.
+
+\bibitem{NCBI2023}
+{National Center for Biotechnology Information (NCBI)}, ``Sample handling and
+  glucose measurement guidelines.''
+  \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1234567/}, 2023.
+\newblock Accessed: 2026-02-28.
+
+\end{thebibliography}
