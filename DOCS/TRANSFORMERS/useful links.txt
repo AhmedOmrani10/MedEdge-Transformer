@@ -1,0 +1,12 @@
+Attention is all you need (Transformer) - Model explanation (including math), Inference and Training
+https://www.youtube.com/watch?v=bCz4OMemCcA
+Encoder Architecture in Transformers | Step by Step Guide
+https://www.youtube.com/watch?v=BIMV3Av5CRU
+Neural machine translation with a Transformer and Keras
+https://www.tensorflow.org/text/tutorials/transformer
+Explain the Transformer Architecture (with Examples and Videos)
+https://aiml.com/explain-the-transformer-architecture/
+Transformers Explained: The Discovery That Changed AI Forever
+https://videotobe.com/play/youtube/JZLZQVmfGn8
+https://www.youtube.com/watch?v=l0mAJ54xey0
+Transformers Explained: Build a Transformer End-to-End!
