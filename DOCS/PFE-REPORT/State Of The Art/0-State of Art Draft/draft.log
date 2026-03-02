@@ -289,46 +289,68 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
+(C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen172
+\ar@mcellbox=\box55
+\extrarowheight=\dimen173
+\NC@list=\toks26
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box56
+)
+\TX@col@width=\dimen174
+\TX@old@table=\dimen175
+\TX@old@col=\dimen176
+\TX@target=\dimen177
+\TX@delta=\dimen178
+\TX@cols=\count310
+\TX@ftn=\toks27
+)
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count310
-) (draft.aux)
+\l__color_backend_stack_int=\count311
+)
+No file draft.aux.
 \openout1 = `draft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count311
-\scratchdimen=\dimen172
-\scratchbox=\box55
-\nofMPsegments=\count312
-\nofMParguments=\count313
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count314
-\MPscratchDim=\dimen173
-\MPnumerator=\count315
-\makeMPintoPDFobject=\count316
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count312
+\scratchdimen=\dimen179
+\scratchbox=\box57
+\nofMPsegments=\count313
+\nofMParguments=\count314
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count315
+\MPscratchDim=\dimen180
+\MPnumerator=\count316
+\makeMPintoPDFobject=\count317
+\everyMPtoPDFconversion=\toks29
 )
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -374,51 +396,137 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 14.
-(draft.out) (draft.out)
+Package hyperref Info: Link coloring OFF on input line 15.
 \@outlinefile=\write3
 \openout3 = `draft.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 
 
 (C:\Users\Ahmed\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(draft.toc)
+No file draft.toc.
 \tf@toc=\write4
 \openout4 = `draft.toc'.
 
- [1
+[1
 
 {C:/Users/Ahmed/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<hexokinase.png, id=85, 447.6725pt x 113.42375pt>
+
+LaTeX Warning: Citation `Sacks2011' on page 2 undefined on input line 25.
+
+
+LaTeX Warning: Citation `Hagvik2007' on page 2 undefined on input line 28.
+
+
+LaTeX Warning: Citation `CataChem2020' on page 2 undefined on input line 28.
+
+<hexokinase.png, id=12, 447.6725pt x 113.42375pt>
 File: hexokinase.png Graphic file (type png)
 <use hexokinase.png>
-Package pdftex.def Info: hexokinase.png  used on input line 35.
+Package pdftex.def Info: hexokinase.png  used on input line 36.
 (pdftex.def)             Requested size: 362.37569pt x 91.81561pt.
- [2 <./hexokinase.png>] [3] [4] (draft.bbl) [5] (draft.aux)
+
+LaTeX Warning: Citation `StatPearls2025' on page 2 undefined on input line 49.
+
+
+LaTeX Warning: Citation `Sacks2011' on page 2 undefined on input line 56.
+
+[2 <./hexokinase.png>]
+
+LaTeX Warning: Citation `NCBI2023' on page 3 undefined on input line 81.
+
+
+LaTeX Warning: Citation `Sacks2011' on page 3 undefined on input line 84.
+
+
+LaTeX Warning: Citation `StatPearls2025' on page 3 undefined on input line 108.
+
+
+[3]
+
+LaTeX Warning: Citation `Bergenstal2017' on page 4 undefined on input line 125.
+
+
+
+LaTeX Warning: Citation `ADA2025' on page 4 undefined on input line 125.
+
+
+LaTeX Warning: Citation `Heinemann2018' on page 4 undefined on input line 138.
+
+
+LaTeX Warning: Citation `ISO15197' on page 4 undefined on input line 141.
+
+
+LaTeX Warning: Citation `Bergenstal2017' on page 4 undefined on input line 144.
+
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
+
+LaTeX Warning: Citation `Heinemann2018' on page 5 undefined on input line 167.
+
+
+LaTeX Warning: Citation `ADA2025' on page 5 undefined on input line 170.
+
+
+LaTeX Warning: Citation `CGM_Ambulatory_Review_2024' on page 5 undefined on inp
+ut line 184.
+
+
+LaTeX Warning: Citation `CGM_Routine_Care_2024' on page 5 undefined on input li
+ne 184.
+
+
+LaTeX Warning: Citation `CGM_ICU_Accuracy_2024' on page 5 undefined on input li
+ne 197.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5]
+
+LaTeX Warning: Citation `CGM_Routine_Care_2024' on page 6 undefined on input li
+ne 223.
+
+No file draft.bbl.
+[6] (draft.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-Package rerunfilecheck Info: File `draft.out' has not changed.
-(rerunfilecheck)             Checksum: FD17FA8E9963A9571C335C02896D52EB;2769.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `draft.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `draft.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  4A58C0A8378DCD5FB41E40F3042D8E9F;5579.
  ) 
 Here is how much of TeX's memory you used:
- 10263 strings out of 467866
- 157846 string characters out of 5418313
- 576350 words of memory out of 5000000
- 38995 multiletter control sequences out of 15000+600000
- 637337 words of font info for 77 fonts, out of 8000000 for 9000
+ 10370 strings out of 467866
+ 158789 string characters out of 5418313
+ 578283 words of memory out of 5000000
+ 39094 multiletter control sequences out of 15000+600000
+ 636821 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,18n,79p,574b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,18n,79p,491b,478s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Ahmed\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk><C:/Users/Ahmed/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb><C:/Users/Ahmed/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -426,12 +534,10 @@ ic/amsfonts/cm/cmmi12.pfb><C:/Users/Ahmed/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/Ahmed/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Ahmed/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Ahmed/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Ahmed/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Ah
-med/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on draft.pdf (5 pages, 145040 bytes).
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on draft.pdf (6 pages, 115162 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 33 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

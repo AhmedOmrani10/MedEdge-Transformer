@@ -1,0 +1,30 @@
+\contentsline {section}{\numberline {1}Laboratory Plasma Glucose Measurement (Gold Standard)}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Introduction}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Historical and Regulatory Context}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Analytical Principles}{2}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Hexokinase Method}{2}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Glucose Oxidase Method}{2}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Analytical Comparison}{3}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Sample Handling and Workflow}{3}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Analytical Accuracy and Calibration}{3}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Sample Handling Timelines}{3}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Clinical Interpretation}{3}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Advantages and Limitations}{4}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Figures}{4}{subsection.1.10}%
+\contentsline {section}{\numberline {2}Self-Monitoring of Blood Glucose (SMBG)}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Analytical Principles}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Accuracy and Regulatory Standards}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Sample Handling Workflow}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Analytical Performance}{4}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Advantages and Limitations}{5}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Clinical Applications}{5}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Figure Placeholder}{5}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Continuous Glucose Monitoring (Invasive CGM)}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Introduction}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Analytical Principles}{5}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Performance Characteristics}{5}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Analytical Accuracy and Clinical Relevance}{6}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Advantages and Limitations}{6}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Figure Placeholder}{6}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Conclusion}{6}{subsection.3.7}%
