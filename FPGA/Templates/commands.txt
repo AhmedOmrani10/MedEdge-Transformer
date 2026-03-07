@@ -1,0 +1,49 @@
+close_hw_target
+open_hw_target
+get_hw_devices
+set_property PROGRAM.FILE {C:/Users/Ahmed/Desktop/pfe2026/MedEdge-Transformer/test/zedboard_led/zedboard_led.runs/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+program_hw_devices [get_hw_devices xc7z020_1]
+```
+
+> ✅ Wait for **DONE LED to turn blue** before moving to XSDB
+
+---
+
+## 🟢 Vitis XSDB Console — Run Second
+```
+connect
+targets
+targets 1
+rst -system
+targets 4
+fpga {C:/Users/Ahmed/Desktop/pfe2026/MedEdge-Transformer/test/zedboard_led/zedboard_led.runs/impl_1/design_1_wrapper.bit}
+targets 2
+rst -processor
+source {C:\Users\Ahmed\Desktop\pfe2026\MedEdge-Transformer\test\zedboard_led\test\_ide\psinit\ps7_init.tcl}
+ps7_init
+ps7_post_config
+dow {C:\Users\Ahmed\Desktop\pfe2026\MedEdge-Transformer\test\zedboard_led\test\build\test.elf}
+con
+```
+
+---
+
+## 📋 Full Flow Summary
+```
+POWER ON board
+      ↓
+Vivado TCL → program_hw_devices  (DONE LED = blue)
+      ↓
+Vitis XSDB → rst -system
+      ↓
+Vitis XSDB → fpga (reload bitstream)
+      ↓
+Vitis XSDB → rst -processor (CPU stops at 0x0)
+      ↓
+Vitis XSDB → ps7_init + ps7_post_config (DDR + clocks ready)
+      ↓
+Vitis XSDB → dow (download elf)
+      ↓
+Vitis XSDB → con (run!)
+      ↓
+✅ LEDs light up!
