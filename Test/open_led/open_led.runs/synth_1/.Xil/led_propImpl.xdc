@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:{C:/Users/Ahmed/Desktop/academic course/pfe2026/MedEdge-Transformer/test/open_led/open_led.srcs/constrs_1/new/constraint.xdc} rfile:../../../open_led.srcs/constrs_1/new/constraint.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN F22 [get_ports {SW0}]
+set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T22 [get_ports {LED0}]
