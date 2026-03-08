@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="qkv_projector_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="qkv_projector" />
+            <top_module name="transformer_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1,849,983 ps"></ZoomStartTime>
+      <ZoomEndTime time="1,849,991 ps"></ZoomEndTime>
+      <Cursor1Time time="1,849,988 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="73"></NameColumnWidth>
+      <ValueColumnWidth column_width="167"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="35" />
+   <wvobject fp_name="/qkv_projector/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/X_in" type="array">
+      <obj_property name="ElementShortName">X_in[15:0]</obj_property>
+      <obj_property name="ObjectShortName">X_in[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Q_out" type="array">
+      <obj_property name="ElementShortName">Q_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/K_out" type="array">
+      <obj_property name="ElementShortName">K_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">K_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/V_out" type="array">
+      <obj_property name="ElementShortName">V_out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_out[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/out_row" type="other">
+      <obj_property name="ElementShortName">out_row</obj_property>
+      <obj_property name="ObjectShortName">out_row</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/out_col" type="other">
+      <obj_property name="ElementShortName">out_col</obj_property>
+      <obj_property name="ObjectShortName">out_col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/valid" type="logic">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Q_mat" type="array">
+      <obj_property name="ElementShortName">Q_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/K_mat" type="array">
+      <obj_property name="ElementShortName">K_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">K_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/V_mat" type="array">
+      <obj_property name="ElementShortName">V_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/X_reg" type="array">
+      <obj_property name="ElementShortName">X_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">X_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Q_reg" type="array">
+      <obj_property name="ElementShortName">Q_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/K_reg" type="array">
+      <obj_property name="ElementShortName">K_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">K_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/V_reg" type="array">
+      <obj_property name="ElementShortName">V_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/acc_q" type="array">
+      <obj_property name="ElementShortName">acc_q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/acc_k" type="array">
+      <obj_property name="ElementShortName">acc_k[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_k[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/acc_v" type="array">
+      <obj_property name="ElementShortName">acc_v[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc_v[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/load_row" type="other">
+      <obj_property name="ElementShortName">load_row</obj_property>
+      <obj_property name="ObjectShortName">load_row</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/load_col" type="other">
+      <obj_property name="ElementShortName">load_col</obj_property>
+      <obj_property name="ObjectShortName">load_col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/comp_row" type="other">
+      <obj_property name="ElementShortName">comp_row</obj_property>
+      <obj_property name="ObjectShortName">comp_row</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/comp_col" type="other">
+      <obj_property name="ElementShortName">comp_col</obj_property>
+      <obj_property name="ObjectShortName">comp_col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/elem_cnt" type="other">
+      <obj_property name="ElementShortName">elem_cnt</obj_property>
+      <obj_property name="ObjectShortName">elem_cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Q_out_reg" type="array">
+      <obj_property name="ElementShortName">Q_out_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Q_out_reg[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/K_out_reg" type="array">
+      <obj_property name="ElementShortName">K_out_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">K_out_reg[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/V_out_reg" type="array">
+      <obj_property name="ElementShortName">V_out_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_out_reg[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/valid_reg" type="logic">
+      <obj_property name="ElementShortName">valid_reg</obj_property>
+      <obj_property name="ObjectShortName">valid_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/done_reg" type="logic">
+      <obj_property name="ElementShortName">done_reg</obj_property>
+      <obj_property name="ObjectShortName">done_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Wq" type="array">
+      <obj_property name="ElementShortName">Wq[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Wq[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Wk" type="array">
+      <obj_property name="ElementShortName">Wk[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Wk[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/qkv_projector/Wv" type="array">
+      <obj_property name="ElementShortName">Wv[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Wv[0:63][15:0]</obj_property>
+   </wvobject>
+</wave_config>

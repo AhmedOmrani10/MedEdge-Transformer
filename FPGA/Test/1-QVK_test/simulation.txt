@@ -1,0 +1,25 @@
+restart
+add_force {/qkv_projector/clk} -radix hex {1 0ns} {0 5000ps} -repeat_every 10000ps
+add_force {/qkv_projector/rst} -radix hex {1 0ns}
+add_force {/qkv_projector/start} -radix hex {0 0ns}
+add_force {/qkv_projector/X_in} -radix hex {0000 0ns}
+run 20ns
+add_force {/qkv_projector/rst} -radix hex {0 0ns}
+run 10ns
+
+# Pulse start
+add_force {/qkv_projector/start} -radix hex {1 0ns}
+run 10ns
+add_force {/qkv_projector/start} -radix hex {0 0ns}
+
+# START_DELAY uses this cycle (X_in ignored)
+run 10ns
+
+# NOW LOAD_X begins - feed X values from here
+# X[0][0] = 0x4000
+add_force {/qkv_projector/X_in} -radix hex {4000 0ns}
+run 10ns
+
+# X[0][1] to X[3][7] = all zeros
+add_force {/qkv_projector/X_in} -radix hex {0000 0ns}
+run 900ns
