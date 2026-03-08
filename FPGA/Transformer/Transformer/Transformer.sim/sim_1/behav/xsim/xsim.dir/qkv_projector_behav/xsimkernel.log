@@ -1,7 +1,7 @@
-Running: xsim.dir/qkv_projector_behav/xsimk.exe -simmode gui -wdb qkv_projector_behav.wdb -simrunnum 0 -socket 56560
+Running: xsim.dir/qkv_projector_behav/xsimk.exe -simmode gui -wdb qkv_projector_behav.wdb -simrunnum 0 -socket 57705
 Design successfully loaded
-Design Loading Memory Usage: 26528 KB (Peak: 26528 KB)
-Design Loading CPU Usage: 796 ms
+Design Loading Memory Usage: 26516 KB (Peak: 26516 KB)
+Design Loading CPU Usage: 1936 ms
 Simulation completed
-Simulation Memory Usage: 27372 KB (Peak: 27372 KB)
-Simulation CPU Usage: 937 ms
+Simulation Memory Usage: 27388 KB (Peak: 27388 KB)
+Simulation CPU Usage: 2077 ms

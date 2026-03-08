@@ -1,0 +1,84 @@
+restart
+add_force {/attention_score/clk} -radix hex {1 0ns} {0 5000ps} -repeat_every 10000ps
+add_force {/attention_score/rst} -radix hex {1 0ns}
+add_force {/attention_score/start} -radix hex {0 0ns}
+
+# Force Q_mat row 0 (from qkv_projector result)
+add_force {/attention_score/Q_mat[0][0]} -radix hex {046F 0ns}
+add_force {/attention_score/Q_mat[0][1]} -radix hex {0EE2 0ns}
+add_force {/attention_score/Q_mat[0][2]} -radix hex {E94A 0ns}
+add_force {/attention_score/Q_mat[0][3]} -radix hex {FA77 0ns}
+add_force {/attention_score/Q_mat[0][4]} -radix hex {1414 0ns}
+add_force {/attention_score/Q_mat[0][5]} -radix hex {FB07 0ns}
+add_force {/attention_score/Q_mat[0][6]} -radix hex {21C7 0ns}
+add_force {/attention_score/Q_mat[0][7]} -radix hex {0337 0ns}
+
+# Force Q_mat rows 1,2,3 = all zeros
+add_force {/attention_score/Q_mat[1][0]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][1]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][2]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][3]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][4]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][5]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][6]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[1][7]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][0]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][1]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][2]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][3]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][4]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][5]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][6]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[2][7]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][0]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][1]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][2]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][3]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][4]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][5]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][6]} -radix hex {0000 0ns}
+add_force {/attention_score/Q_mat[3][7]} -radix hex {0000 0ns}
+
+# Force K_mat row 0 (from qkv_projector result)
+add_force {/attention_score/K_mat[0][0]} -radix hex {F70B 0ns}
+add_force {/attention_score/K_mat[0][1]} -radix hex {0CE5 0ns}
+add_force {/attention_score/K_mat[0][2]} -radix hex {F3BD 0ns}
+add_force {/attention_score/K_mat[0][3]} -radix hex {0CD0 0ns}
+add_force {/attention_score/K_mat[0][4]} -radix hex {1321 0ns}
+add_force {/attention_score/K_mat[0][5]} -radix hex {FE41 0ns}
+add_force {/attention_score/K_mat[0][6]} -radix hex {FF7A 0ns}
+add_force {/attention_score/K_mat[0][7]} -radix hex {0701 0ns}
+
+# Force K_mat rows 1,2,3 = all zeros
+add_force {/attention_score/K_mat[1][0]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][1]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][2]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][3]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][4]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][5]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][6]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[1][7]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][0]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][1]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][2]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][3]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][4]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][5]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][6]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[2][7]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][0]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][1]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][2]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][3]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][4]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][5]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][6]} -radix hex {0000 0ns}
+add_force {/attention_score/K_mat[3][7]} -radix hex {0000 0ns}
+
+run 20ns
+add_force {/attention_score/rst} -radix hex {0 0ns}
+run 10ns
+add_force {/attention_score/start} -radix hex {1 0ns}
+run 10ns
+add_force {/attention_score/start} -radix hex {0 0ns}
+run 500ns
