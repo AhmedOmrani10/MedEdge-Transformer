@@ -12,5 +12,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package xil_defaultlib.transformer_pkg
 Compiling architecture behavioral of entity xil_defaultlib.qkv_projector
 Built simulation snapshot qkv_projector_behav

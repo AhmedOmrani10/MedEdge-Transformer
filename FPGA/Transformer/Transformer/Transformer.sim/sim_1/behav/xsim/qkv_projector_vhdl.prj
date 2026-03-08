@@ -1,5 +1,6 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"../../../../Transformer.srcs/sources_1/new/transformer_pkg.vhd" \
 "../../../../Transformer.srcs/sources_1/new/qkv_projector.vhd" \
 
 # Do not sort compile order

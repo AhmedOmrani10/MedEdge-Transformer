@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-
+use work.transformer_pkg.all;
 entity qkv_projector is
     port(
         clk     : in  std_logic;
@@ -14,7 +14,12 @@ entity qkv_projector is
         out_row : out integer range 0 to 3;
         out_col : out integer range 0 to 7;
         valid   : out std_logic;
-        done    : out std_logic
+        done    : out std_logic;
+
+        -- NEW: expose full matrices
+        Q_mat   : out matrix_4x8;
+        K_mat   : out matrix_4x8;
+        V_mat   : out matrix_4x8
     );
 end qkv_projector;
 
@@ -79,33 +84,26 @@ architecture Behavioral of qkv_projector is
         to_signed(22131,16),  to_signed(7112,16),   to_signed(12679,16),  to_signed(-22703,16)
     );
 
-    -- Input storage
     type input_matrix is array(0 to 3, 0 to 7) of signed(15 downto 0);
     signal X_reg : input_matrix := (others => (others => (others => '0')));
 
-    -- Output storage
-    type output_matrix is array(0 to 3, 0 to 7) of signed(15 downto 0);
-    signal Q_reg : output_matrix := (others => (others => (others => '0')));
-    signal K_reg : output_matrix := (others => (others => (others => '0')));
-    signal V_reg : output_matrix := (others => (others => (others => '0')));
+    signal Q_reg : matrix_4x8 := (others => (others => (others => '0')));
+    signal K_reg : matrix_4x8 := (others => (others => (others => '0')));
+    signal V_reg : matrix_4x8 := (others => (others => (others => '0')));
 
-    -- Accumulators
     signal acc_q : signed(31 downto 0) := (others => '0');
     signal acc_k : signed(31 downto 0) := (others => '0');
     signal acc_v : signed(31 downto 0) := (others => '0');
 
-    -- FSM
     type state_type is (IDLE, LOAD_X, COMPUTE);
     signal state : state_type := IDLE;
 
-    -- Counters
     signal load_row : integer range 0 to 4 := 0;
     signal load_col : integer range 0 to 8 := 0;
     signal comp_row : integer range 0 to 4 := 0;
     signal comp_col : integer range 0 to 8 := 0;
     signal elem_cnt : integer range 0 to 8 := 0;
 
-    -- Output registers
     signal Q_out_reg : signed(15 downto 0) := (others => '0');
     signal K_out_reg : signed(15 downto 0) := (others => '0');
     signal V_out_reg : signed(15 downto 0) := (others => '0');
@@ -119,6 +117,11 @@ begin
     V_out <= V_out_reg;
     valid <= valid_reg;
     done  <= done_reg;
+
+    -- connect internal matrices to output ports
+    Q_mat <= Q_reg;
+    K_mat <= K_reg;
+    V_mat <= V_reg;
 
     process(clk)
     begin
@@ -152,16 +155,13 @@ begin
                         end if;
 
                     when LOAD_X =>
-                    -- store X_in into X_reg element by element
                         X_reg(load_row, load_col) <= X_in;
-
                         if load_col < 7 then
                             load_col <= load_col + 1;
                         elsif load_row < 3 then
                             load_col <= 0;
                             load_row <= load_row + 1;
                         else
-                            -- all 32 elements loaded
                             state    <= COMPUTE;
                             comp_row <= 0;
                             comp_col <= 0;
@@ -173,7 +173,6 @@ begin
 
                     when COMPUTE =>
                         if elem_cnt < 8 then
-                            -- 3 DSP48E1 slices working simultaneously
                             acc_q <= acc_q + (X_reg(comp_row, elem_cnt) *
                                      Wq(elem_cnt * 8 + comp_col));
                             acc_k <= acc_k + (X_reg(comp_row, elem_cnt) *
@@ -181,9 +180,7 @@ begin
                             acc_v <= acc_v + (X_reg(comp_row, elem_cnt) *
                                      Wv(elem_cnt * 8 + comp_col));
                             elem_cnt <= elem_cnt + 1;
-
                         else
-                            -- store and output result
                             Q_reg(comp_row, comp_col) <= acc_q(30 downto 15);
                             K_reg(comp_row, comp_col) <= acc_k(30 downto 15);
                             V_reg(comp_row, comp_col) <= acc_v(30 downto 15);
@@ -195,7 +192,6 @@ begin
                             out_col   <= comp_col;
                             valid_reg <= '1';
 
-                            -- reset for next dot product
                             acc_q    <= (others => '0');
                             acc_k    <= (others => '0');
                             acc_v    <= (others => '0');
@@ -210,7 +206,6 @@ begin
                                 done_reg <= '1';
                                 state    <= IDLE;
                             end if;
-
                         end if;
 
                     when others =>
