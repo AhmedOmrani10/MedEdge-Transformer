@@ -1,6 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Transformer.srcs/sources_1/new/dot_product.vhd" \
-
-# Do not sort compile order
-nosort

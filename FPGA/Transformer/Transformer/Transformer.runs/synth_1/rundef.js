@@ -24,7 +24,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log dot_product.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source dot_product.tcl" );
+         "-log qkv_projector.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source qkv_projector.tcl" );
 
 
 

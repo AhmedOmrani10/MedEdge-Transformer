@@ -3,11 +3,11 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sun Mar  8 11:45:02 2026
-# Process ID         : 17212
+# Start of session at: Sun Mar  8 12:27:15 2026
+# Process ID         : 15296
 # Current directory  : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1
-# Command line       : vivado.exe -log dot_product.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source dot_product.tcl
-# Log file           : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/dot_product.vds
+# Command line       : vivado.exe -log qkv_projector.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source qkv_projector.tcl
+# Log file           : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/qkv_projector.vds
 # Journal file       : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1\vivado.jou
 # Running On         : DESKTOP-88SD8FS
 # Platform           : Windows Server 2016 or Windows 10
@@ -19,6 +19,6 @@
 # Host memory        : 16505 MB
 # Swap memory        : 7247 MB
 # Total Virtual      : 23753 MB
-# Available Virtual  : 11237 MB
+# Available Virtual  : 9388 MB
 #-----------------------------------------------------------
-source dot_product.tcl -notrace
+source qkv_projector.tcl -notrace

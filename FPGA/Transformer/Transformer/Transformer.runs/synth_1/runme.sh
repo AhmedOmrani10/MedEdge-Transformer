@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log dot_product.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source dot_product.tcl
+EAStep vivado -log qkv_projector.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source qkv_projector.tcl
