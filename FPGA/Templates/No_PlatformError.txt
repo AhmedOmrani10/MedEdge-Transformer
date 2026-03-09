@@ -1,0 +1,29 @@
+# ============================================
+# FIX: write_hw_platform "no IPI block design"
+# ============================================
+
+# Step 1 - Open the project (change path to yours)
+open_project C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.xpr
+
+# Step 2 - Open the block design explicitly
+open_bd_design [get_files design_1.bd]
+
+# Step 3 - Verify block design is loaded (should print "design_1")
+get_bd_designs
+
+# Step 4 - Make sure targets are generated
+set_property synth_checkpoint_mode None [get_files design_1.bd]
+generate_target all [get_files design_1.bd]
+
+# Step 5 - Set top module
+set_property top design_1_wrapper [current_fileset]
+
+# Step 6 - Export XSA (change path to yours)
+write_hw_platform -fixed -force -file C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/design_1_wrapper.xsa
+
+# ============================================
+# KEY LESSON:
+# write_hw_platform REQUIRES open_bd_design
+# to be called first in the same session!
+# Without it, Vivado loses track of the BD.
+# ============================================
