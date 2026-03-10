@@ -1,0 +1,3 @@
+C:/Users/Ahmed/Desktop/MedEdge-Transformer/vitis_workspace/transformer_platform/zynq_fsbl/build/CMakeFiles/fsbl.elf.dir
+C:/Users/Ahmed/Desktop/MedEdge-Transformer/vitis_workspace/transformer_platform/zynq_fsbl/build/CMakeFiles/edit_cache.dir
+C:/Users/Ahmed/Desktop/MedEdge-Transformer/vitis_workspace/transformer_platform/zynq_fsbl/build/CMakeFiles/rebuild_cache.dir
