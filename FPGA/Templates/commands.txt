@@ -12,17 +12,16 @@ program_hw_devices [get_hw_devices xc7z020_1]
 ## 🟢 Vitis XSDB Console — Run Second
 ```
 connect
-targets
 targets 1
 rst -system
 targets 4
-fpga {C:/Users/Ahmed/Desktop/pfe2026/MedEdge-Transformer/test/zedboard_led/zedboard_led.runs/impl_1/design_1_wrapper.bit}
+fpga C:/Users/Ahmed/Desktop/MedEdge-Transformer/vitis_workspace/transformer_app/_ide/bitstream/design_1_wrapper.bit
 targets 2
 rst -processor
-source {C:\Users\Ahmed\Desktop\pfe2026\MedEdge-Transformer\test\zedboard_led\test\_ide\psinit\ps7_init.tcl}
+source C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_processing_system7_0_2/ps7_init.tcl
 ps7_init
 ps7_post_config
-dow {C:\Users\Ahmed\Desktop\pfe2026\MedEdge-Transformer\test\zedboard_led\test\build\test.elf}
+dow C:/Users/Ahmed/Desktop/MedEdge-Transformer/vitis_workspace/transformer_app/build/transformer_app.elf
 con
 ```
 
