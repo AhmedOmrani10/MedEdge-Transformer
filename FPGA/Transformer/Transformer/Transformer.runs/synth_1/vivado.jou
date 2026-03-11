@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Mar 10 12:34:24 2026
-# Process ID         : 29616
+# Start of session at: Wed Mar 11 14:39:40 2026
+# Process ID         : 31112
 # Current directory  : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1
 # Command line       : vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file           : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/top_level.vds
@@ -19,6 +19,6 @@
 # Host memory        : 16505 MB
 # Swap memory        : 7247 MB
 # Total Virtual      : 23753 MB
-# Available Virtual  : 6131 MB
+# Available Virtual  : 7533 MB
 #-----------------------------------------------------------
 source top_level.tcl -notrace

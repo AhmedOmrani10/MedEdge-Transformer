@@ -132,10 +132,12 @@ architecture structural of top_level is
 
     -- FSM
     type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN, SEND_S, WAIT_PS, DONE_ST);
-    signal state : state_t;
-
-    signal qkv_start  : std_logic;
-    signal attn_start : std_logic;
+    signal state         : state_t;
+    signal qkv_start     : std_logic;
+    signal attn_start    : std_logic;
+    signal done_cnt      : integer range 0 to 10000000 := 0;
+    signal qkv_done_lat  : std_logic;
+    signal attn_done_lat : std_logic;
 
 begin
 
@@ -198,41 +200,74 @@ begin
     begin
         if rising_edge(clk) then
             if rst = '1' then
-                state      <= IDLE;
-                qkv_start  <= '0';
-                attn_start <= '0';
+                state         <= IDLE;
+                qkv_start     <= '0';
+                attn_start    <= '0';
+                done_cnt      <= 0;
+                qkv_done_lat  <= '0';
+                attn_done_lat <= '0';
             else
                 qkv_start  <= '0';
                 attn_start <= '0';
+
                 case state is
+
                     when IDLE =>
+                        done_cnt      <= 0;
+                        qkv_done_lat  <= '0';
+                        attn_done_lat <= '0';
                         if pl_start = '1' then
                             state     <= RUN_QKV;
                             qkv_start <= '1';
                         end if;
+
                     when RUN_QKV =>
                         state <= WAIT_QKV;
+
                     when WAIT_QKV =>
+                        -- Latch done in case we miss the pulse
                         if qkv_done = '1' then
+                            qkv_done_lat <= '1';
+                        end if;
+                        if qkv_done = '1' or qkv_done_lat = '1' then
                             state      <= RUN_ATTN;
                             attn_start <= '1';
                         end if;
+
                     when RUN_ATTN =>
                         state <= WAIT_ATTN;
+
                     when WAIT_ATTN =>
+                        -- Latch done in case we miss the pulse
                         if attn_done = '1' then
+                            attn_done_lat <= '1';
+                        end if;
+                        if attn_done = '1' or attn_done_lat = '1' then
                             state <= SEND_S;
                         end if;
+
                     when SEND_S =>
                         state <= WAIT_PS;
+
                     when WAIT_PS =>
+                        -- Wait for PS to clear pl_start
                         if pl_start = '0' then
                             state <= DONE_ST;
                         end if;
+
                     when DONE_ST =>
-                        state <= IDLE;
+                        -- Hold pl_done = 1 for ~100ms so PS can read it
+                        -- At 100MHz: 10,000,000 cycles = 100ms
+                        if done_cnt < 10000000 then
+                            done_cnt <= done_cnt + 1;
+                        else
+                            done_cnt <= 0;
+                            state    <= IDLE;
+                        end if;
+
                     when others =>
                         state <= IDLE;
+
                 end case;
             end if;
         end if;
