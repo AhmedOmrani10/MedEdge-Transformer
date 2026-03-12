@@ -3,105 +3,77 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="attention_score_behav.wdb" id="1">
+      <db_ref path="attention_output_behav.wdb" id="1">
          <top_modules>
-            <top_module name="attention_score" />
+            <top_module name="attention_output" />
             <top_module name="transformer_pkg" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="539,995 ps"></ZoomStartTime>
-      <ZoomEndTime time="540,007 ps"></ZoomEndTime>
+      <ZoomStartTime time="0 ps"></ZoomStartTime>
+      <ZoomEndTime time="16 ps"></ZoomEndTime>
       <Cursor1Time time="540,000 ps"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="196"></NameColumnWidth>
-      <ValueColumnWidth column_width="105"></ValueColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
-   <wvobject fp_name="/attention_score/INV_SQRT8" type="array">
-      <obj_property name="ElementShortName">INV_SQRT8[15:0]</obj_property>
-      <obj_property name="ObjectShortName">INV_SQRT8[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/K_mat" type="array">
-      <obj_property name="ElementShortName">K_mat[0:3,0:7][15:0]</obj_property>
-      <obj_property name="ObjectShortName">K_mat[0:3,0:7][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/Q_mat" type="array">
-      <obj_property name="ElementShortName">Q_mat[0:3,0:7][15:0]</obj_property>
-      <obj_property name="ObjectShortName">Q_mat[0:3,0:7][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/S_mat" type="array">
-      <obj_property name="ElementShortName">S_mat[0:3,0:3][15:0]</obj_property>
-      <obj_property name="ObjectShortName">S_mat[0:3,0:3][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/S_out" type="array">
-      <obj_property name="ElementShortName">S_out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">S_out[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/S_out_reg" type="array">
-      <obj_property name="ElementShortName">S_out_reg[15:0]</obj_property>
-      <obj_property name="ObjectShortName">S_out_reg[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/S_reg" type="array">
-      <obj_property name="ElementShortName">S_reg[0:3,0:3][15:0]</obj_property>
-      <obj_property name="ObjectShortName">S_reg[0:3,0:3][15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/acc" type="array">
-      <obj_property name="ElementShortName">acc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">acc[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/clk" type="logic">
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/attention_output/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/attention_score/comp_col" type="other">
-      <obj_property name="ElementShortName">comp_col</obj_property>
-      <obj_property name="ObjectShortName">comp_col</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/comp_row" type="other">
-      <obj_property name="ElementShortName">comp_row</obj_property>
-      <obj_property name="ObjectShortName">comp_row</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/done" type="logic">
-      <obj_property name="ElementShortName">done</obj_property>
-      <obj_property name="ObjectShortName">done</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/done_reg" type="logic">
-      <obj_property name="ElementShortName">done_reg</obj_property>
-      <obj_property name="ObjectShortName">done_reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/elem_cnt" type="other">
-      <obj_property name="ElementShortName">elem_cnt</obj_property>
-      <obj_property name="ObjectShortName">elem_cnt</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/out_col" type="other">
-      <obj_property name="ElementShortName">out_col</obj_property>
-      <obj_property name="ObjectShortName">out_col</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/out_row" type="other">
-      <obj_property name="ElementShortName">out_row</obj_property>
-      <obj_property name="ObjectShortName">out_row</obj_property>
-   </wvobject>
-   <wvobject fp_name="/attention_score/rst" type="logic">
+   <wvobject fp_name="/attention_output/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/attention_score/start" type="logic">
+   <wvobject fp_name="/attention_output/start" type="logic">
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
-   <wvobject fp_name="/attention_score/state" type="other">
+   <wvobject fp_name="/attention_output/Attn" type="array">
+      <obj_property name="ElementShortName">Attn[0:3,0:3][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Attn[0:3,0:3][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/V_mat" type="array">
+      <obj_property name="ElementShortName">V_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/O_mat" type="array">
+      <obj_property name="ElementShortName">O_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">O_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/O_reg" type="array">
+      <obj_property name="ElementShortName">O_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">O_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/acc" type="array">
+      <obj_property name="ElementShortName">acc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/state" type="other">
       <obj_property name="ElementShortName">state</obj_property>
       <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
-   <wvobject fp_name="/attention_score/valid" type="logic">
-      <obj_property name="ElementShortName">valid</obj_property>
-      <obj_property name="ObjectShortName">valid</obj_property>
+   <wvobject fp_name="/attention_output/comp_row" type="other">
+      <obj_property name="ElementShortName">comp_row</obj_property>
+      <obj_property name="ObjectShortName">comp_row</obj_property>
    </wvobject>
-   <wvobject fp_name="/attention_score/valid_reg" type="logic">
-      <obj_property name="ElementShortName">valid_reg</obj_property>
-      <obj_property name="ObjectShortName">valid_reg</obj_property>
+   <wvobject fp_name="/attention_output/comp_col" type="other">
+      <obj_property name="ElementShortName">comp_col</obj_property>
+      <obj_property name="ObjectShortName">comp_col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/elem_cnt" type="other">
+      <obj_property name="ElementShortName">elem_cnt</obj_property>
+      <obj_property name="ObjectShortName">elem_cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/done_reg" type="logic">
+      <obj_property name="ElementShortName">done_reg</obj_property>
+      <obj_property name="ObjectShortName">done_reg</obj_property>
    </wvobject>
 </wave_config>

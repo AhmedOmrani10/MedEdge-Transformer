@@ -1,4 +1,0 @@
-domain_path: C:\Users\Ahmed\Desktop\MedEdge-Transformer\vitis_workspace\transformer_platform\zynq_fsbl\zynq_fsbl_bsp
-app_src_dir: C:\Xilinx\Vitis\2024.2\data\embeddedsw\lib\sw_apps\zynq_fsbl
-template: zynq_fsbl
-lang: c

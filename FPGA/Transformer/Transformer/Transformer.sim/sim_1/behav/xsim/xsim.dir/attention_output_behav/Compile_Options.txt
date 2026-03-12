@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "xilinx_vip" -L "secureip" -L "xpm" --snapshot "attention_output_behav" "xil_defaultlib.attention_output" -log "elaborate.log" 

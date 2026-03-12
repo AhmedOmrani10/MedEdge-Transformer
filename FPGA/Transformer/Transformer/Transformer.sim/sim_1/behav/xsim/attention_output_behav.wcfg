@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="attention_output_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="attention_output" />
+            <top_module name="transformer_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0 ps"></ZoomStartTime>
+      <ZoomEndTime time="24 ps"></ZoomEndTime>
+      <Cursor1Time time="540,000 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="196"></NameColumnWidth>
+      <ValueColumnWidth column_width="95"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/attention_output/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/Attn" type="array">
+      <obj_property name="ElementShortName">Attn[0:3,0:3][15:0]</obj_property>
+      <obj_property name="ObjectShortName">Attn[0:3,0:3][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/V_mat" type="array">
+      <obj_property name="ElementShortName">V_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">V_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/O_mat" type="array">
+      <obj_property name="ElementShortName">O_mat[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">O_mat[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/done" type="logic">
+      <obj_property name="ElementShortName">done</obj_property>
+      <obj_property name="ObjectShortName">done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/O_reg" type="array">
+      <obj_property name="ElementShortName">O_reg[0:3,0:7][15:0]</obj_property>
+      <obj_property name="ObjectShortName">O_reg[0:3,0:7][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/acc" type="array">
+      <obj_property name="ElementShortName">acc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/comp_row" type="other">
+      <obj_property name="ElementShortName">comp_row</obj_property>
+      <obj_property name="ObjectShortName">comp_row</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/comp_col" type="other">
+      <obj_property name="ElementShortName">comp_col</obj_property>
+      <obj_property name="ObjectShortName">comp_col</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/elem_cnt" type="other">
+      <obj_property name="ElementShortName">elem_cnt</obj_property>
+      <obj_property name="ObjectShortName">elem_cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/attention_output/done_reg" type="logic">
+      <obj_property name="ElementShortName">done_reg</obj_property>
+      <obj_property name="ObjectShortName">done_reg</obj_property>
+   </wvobject>
+</wave_config>

@@ -103,6 +103,18 @@ architecture structural of top_level is
         );
     end component;
 
+    component attention_output is
+        port (
+            clk     : in  std_logic;
+            rst     : in  std_logic;
+            start   : in  std_logic;
+            Attn    : in  matrix_4x4;
+            V_mat   : in  matrix_4x8;
+            O_mat   : out matrix_4x8;
+            done    : out std_logic
+        );
+    end component;
+
     -- ============================================
     -- Clock and Reset
     -- ============================================
@@ -136,7 +148,6 @@ architecture structural of top_level is
     signal K_mat         : matrix_4x8;
     signal V_mat         : matrix_4x8;
 
-    -- X loading counters (to feed X_in sequentially)
     signal load_row      : integer range 0 to 3 := 0;
     signal load_col      : integer range 0 to 7 := 0;
 
@@ -146,6 +157,13 @@ architecture structural of top_level is
     signal attn_start    : std_logic;
     signal attn_done     : std_logic;
     signal S_mat         : matrix_4x4;
+
+    -- ============================================
+    -- Attention output signals
+    -- ============================================
+    signal attn_out_start : std_logic;
+    signal attn_out_done  : std_logic;
+    signal O_mat          : matrix_4x8;
 
     -- ============================================
     -- Flat vectors for AXI
@@ -158,11 +176,12 @@ architecture structural of top_level is
     -- FSM
     -- ============================================
     type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN,
-                     SEND_S, WAIT_PS, DONE_ST);
-    signal state         : state_t;
-    signal done_cnt      : integer range 0 to 10000000 := 0;
-    signal qkv_done_lat  : std_logic;
-    signal attn_done_lat : std_logic;
+                     SEND_S, WAIT_PS, RUN_ATTN_OUT, WAIT_ATTN_OUT, DONE_ST);
+    signal state          : state_t;
+    signal done_cnt       : integer range 0 to 10000000 := 0;
+    signal qkv_done_lat   : std_logic;
+    signal attn_done_lat  : std_logic;
+    signal attn_out_done_lat : std_logic;
 
 begin
 
@@ -174,7 +193,6 @@ begin
 
     -- ============================================
     -- Unpack X_mat from flat vector (PS→PL)
-    -- X[row][col] at bit index (row*8+col)*16
     -- ============================================
     process(X_mat_flat)
         variable idx : integer;
@@ -190,53 +208,51 @@ begin
     -- ============================================
     -- Pack S_mat → flat vector for AXI (PL→PS)
     -- ============================================
-    S_mat_flat(15   downto 0)   <= std_logic_vector(S_mat(0,0));
-    S_mat_flat(31   downto 16)  <= std_logic_vector(S_mat(0,1));
-    S_mat_flat(47   downto 32)  <= std_logic_vector(S_mat(0,2));
-    S_mat_flat(63   downto 48)  <= std_logic_vector(S_mat(0,3));
-    S_mat_flat(79   downto 64)  <= std_logic_vector(S_mat(1,0));
-    S_mat_flat(95   downto 80)  <= std_logic_vector(S_mat(1,1));
-    S_mat_flat(111  downto 96)  <= std_logic_vector(S_mat(1,2));
-    S_mat_flat(127  downto 112) <= std_logic_vector(S_mat(1,3));
-    S_mat_flat(143  downto 128) <= std_logic_vector(S_mat(2,0));
-    S_mat_flat(159  downto 144) <= std_logic_vector(S_mat(2,1));
-    S_mat_flat(175  downto 160) <= std_logic_vector(S_mat(2,2));
-    S_mat_flat(191  downto 176) <= std_logic_vector(S_mat(2,3));
-    S_mat_flat(207  downto 192) <= std_logic_vector(S_mat(3,0));
-    S_mat_flat(223  downto 208) <= std_logic_vector(S_mat(3,1));
-    S_mat_flat(239  downto 224) <= std_logic_vector(S_mat(3,2));
-    S_mat_flat(255  downto 240) <= std_logic_vector(S_mat(3,3));
+    S_mat_flat(15  downto 0)   <= std_logic_vector(S_mat(0,0));
+    S_mat_flat(31  downto 16)  <= std_logic_vector(S_mat(0,1));
+    S_mat_flat(47  downto 32)  <= std_logic_vector(S_mat(0,2));
+    S_mat_flat(63  downto 48)  <= std_logic_vector(S_mat(0,3));
+    S_mat_flat(79  downto 64)  <= std_logic_vector(S_mat(1,0));
+    S_mat_flat(95  downto 80)  <= std_logic_vector(S_mat(1,1));
+    S_mat_flat(111 downto 96)  <= std_logic_vector(S_mat(1,2));
+    S_mat_flat(127 downto 112) <= std_logic_vector(S_mat(1,3));
+    S_mat_flat(143 downto 128) <= std_logic_vector(S_mat(2,0));
+    S_mat_flat(159 downto 144) <= std_logic_vector(S_mat(2,1));
+    S_mat_flat(175 downto 160) <= std_logic_vector(S_mat(2,2));
+    S_mat_flat(191 downto 176) <= std_logic_vector(S_mat(2,3));
+    S_mat_flat(207 downto 192) <= std_logic_vector(S_mat(3,0));
+    S_mat_flat(223 downto 208) <= std_logic_vector(S_mat(3,1));
+    S_mat_flat(239 downto 224) <= std_logic_vector(S_mat(3,2));
+    S_mat_flat(255 downto 240) <= std_logic_vector(S_mat(3,3));
 
     -- ============================================
     -- Unpack Attn_mat from flat vector (PS→PL)
     -- ============================================
-    Attn_mat(0,0) <= signed(Attn_mat_flat(15   downto 0));
-    Attn_mat(0,1) <= signed(Attn_mat_flat(31   downto 16));
-    Attn_mat(0,2) <= signed(Attn_mat_flat(47   downto 32));
-    Attn_mat(0,3) <= signed(Attn_mat_flat(63   downto 48));
-    Attn_mat(1,0) <= signed(Attn_mat_flat(79   downto 64));
-    Attn_mat(1,1) <= signed(Attn_mat_flat(95   downto 80));
-    Attn_mat(1,2) <= signed(Attn_mat_flat(111  downto 96));
-    Attn_mat(1,3) <= signed(Attn_mat_flat(127  downto 112));
-    Attn_mat(2,0) <= signed(Attn_mat_flat(143  downto 128));
-    Attn_mat(2,1) <= signed(Attn_mat_flat(159  downto 144));
-    Attn_mat(2,2) <= signed(Attn_mat_flat(175  downto 160));
-    Attn_mat(2,3) <= signed(Attn_mat_flat(191  downto 176));
-    Attn_mat(3,0) <= signed(Attn_mat_flat(207  downto 192));
-    Attn_mat(3,1) <= signed(Attn_mat_flat(223  downto 208));
-    Attn_mat(3,2) <= signed(Attn_mat_flat(239  downto 224));
-    Attn_mat(3,3) <= signed(Attn_mat_flat(255  downto 240));
+    Attn_mat(0,0) <= signed(Attn_mat_flat(15  downto 0));
+    Attn_mat(0,1) <= signed(Attn_mat_flat(31  downto 16));
+    Attn_mat(0,2) <= signed(Attn_mat_flat(47  downto 32));
+    Attn_mat(0,3) <= signed(Attn_mat_flat(63  downto 48));
+    Attn_mat(1,0) <= signed(Attn_mat_flat(79  downto 64));
+    Attn_mat(1,1) <= signed(Attn_mat_flat(95  downto 80));
+    Attn_mat(1,2) <= signed(Attn_mat_flat(111 downto 96));
+    Attn_mat(1,3) <= signed(Attn_mat_flat(127 downto 112));
+    Attn_mat(2,0) <= signed(Attn_mat_flat(143 downto 128));
+    Attn_mat(2,1) <= signed(Attn_mat_flat(159 downto 144));
+    Attn_mat(2,2) <= signed(Attn_mat_flat(175 downto 160));
+    Attn_mat(2,3) <= signed(Attn_mat_flat(191 downto 176));
+    Attn_mat(3,0) <= signed(Attn_mat_flat(207 downto 192));
+    Attn_mat(3,1) <= signed(Attn_mat_flat(223 downto 208));
+    Attn_mat(3,2) <= signed(Attn_mat_flat(239 downto 224));
+    Attn_mat(3,3) <= signed(Attn_mat_flat(255 downto 240));
 
     -- ============================================
-    -- PL status signals
+    -- PL status
     -- ============================================
     pl_busy <= '1' when (state /= IDLE and state /= DONE_ST) else '0';
     pl_done <= '1' when state = DONE_ST else '0';
 
     -- ============================================
-    -- X loading counter process
-    -- Tracks which element to present on X_in
-    -- qkv_projector loads one element per cycle
+    -- X loading counter
     -- ============================================
     process(clk)
     begin
@@ -245,11 +261,9 @@ begin
                 load_row <= 0;
                 load_col <= 0;
             elsif qkv_start = '1' then
-                -- Reset counters when starting
                 load_row <= 0;
                 load_col <= 0;
             elsif state = RUN_QKV or state = WAIT_QKV then
-                -- Advance column/row each cycle during loading
                 if load_row < 3 or load_col < 7 then
                     if load_col < 7 then
                         load_col <= load_col + 1;
@@ -271,22 +285,26 @@ begin
     begin
         if rising_edge(clk) then
             if rst = '1' then
-                state         <= IDLE;
-                qkv_start     <= '0';
-                attn_start    <= '0';
-                done_cnt      <= 0;
-                qkv_done_lat  <= '0';
-                attn_done_lat <= '0';
+                state            <= IDLE;
+                qkv_start        <= '0';
+                attn_start       <= '0';
+                attn_out_start   <= '0';
+                done_cnt         <= 0;
+                qkv_done_lat     <= '0';
+                attn_done_lat    <= '0';
+                attn_out_done_lat <= '0';
             else
-                qkv_start  <= '0';
-                attn_start <= '0';
+                qkv_start      <= '0';
+                attn_start     <= '0';
+                attn_out_start <= '0';
 
                 case state is
 
                     when IDLE =>
-                        done_cnt      <= 0;
-                        qkv_done_lat  <= '0';
-                        attn_done_lat <= '0';
+                        done_cnt          <= 0;
+                        qkv_done_lat      <= '0';
+                        attn_done_lat     <= '0';
+                        attn_out_done_lat <= '0';
                         if pl_start = '1' then
                             state     <= RUN_QKV;
                             qkv_start <= '1';
@@ -318,8 +336,21 @@ begin
                     when SEND_S =>
                         state <= WAIT_PS;
 
+                    -- Wait for PS to write Attn and clear pl_start
                     when WAIT_PS =>
                         if pl_start = '0' then
+                            state          <= RUN_ATTN_OUT;
+                            attn_out_start <= '1';
+                        end if;
+
+                    when RUN_ATTN_OUT =>
+                        state <= WAIT_ATTN_OUT;
+
+                    when WAIT_ATTN_OUT =>
+                        if attn_out_done = '1' then
+                            attn_out_done_lat <= '1';
+                        end if;
+                        if attn_out_done = '1' or attn_out_done_lat = '1' then
                             state <= DONE_ST;
                         end if;
 
@@ -406,6 +437,17 @@ begin
             out_col => open,
             valid   => open,
             done    => attn_done
+        );
+
+    attention_output_i : attention_output
+        port map (
+            clk   => clk,
+            rst   => rst,
+            start => attn_out_start,
+            Attn  => Attn_mat,
+            V_mat => V_mat,
+            O_mat => O_mat,
+            done  => attn_out_done
         );
 
 end structural;

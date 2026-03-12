@@ -1,1 +1,0 @@
---incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "qkv_projector_behav" "xil_defaultlib.qkv_projector" -log "elaborate.log" 
