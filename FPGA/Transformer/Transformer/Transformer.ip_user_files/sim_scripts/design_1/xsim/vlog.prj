@@ -1,5 +1,6 @@
 verilog xil_defaultlib --include "C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/86fe/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" \
 "../../../bd/design_1/ip/design_1_processing_system7_0_2/sim/design_1_processing_system7_0_2.v" \
+"../../../bd/design_1/ip/design_1_axi_smc_2/bd_0/sim/bd_6e42.v" \
 "../../../bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_0/sim/bd_6e42_one_0.v" \
 
 sv xil_defaultlib --include "C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/86fe/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" \
@@ -16,7 +17,6 @@ sv xil_defaultlib --include "C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" --
 "../../../bd/design_1/ip/design_1_axi_smc_2/bd_0/ip/ip_12/sim/bd_6e42_m00e_0.sv" \
 
 verilog xil_defaultlib --include "C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/86fe/hdl" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" --include "../../../../Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" \
-"../../../bd/design_1/ip/design_1_axi_smc_2/bd_0/sim/bd_6e42.v" \
 "../../../bd/design_1/ip/design_1_axi_smc_2/sim/design_1_axi_smc_2.v" \
 
 verilog xil_defaultlib "glbl.v"

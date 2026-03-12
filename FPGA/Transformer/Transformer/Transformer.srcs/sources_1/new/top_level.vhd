@@ -5,7 +5,6 @@ use work.transformer_pkg.all;
 
 entity top_level is
     port (
-        -- DDR
         DDR_addr          : inout std_logic_vector(14 downto 0);
         DDR_ba            : inout std_logic_vector(2 downto 0);
         DDR_cas_n         : inout std_logic;
@@ -21,7 +20,6 @@ entity top_level is
         DDR_ras_n         : inout std_logic;
         DDR_reset_n       : inout std_logic;
         DDR_we_n          : inout std_logic;
-        -- FIXED IO
         FIXED_IO_ddr_vrn  : inout std_logic;
         FIXED_IO_ddr_vrp  : inout std_logic;
         FIXED_IO_mio      : inout std_logic_vector(53 downto 0);
@@ -61,6 +59,7 @@ architecture structural of top_level is
             FIXED_IO_ps_porb  : inout std_logic;
             FIXED_IO_ps_srstb : inout std_logic;
             S_mat_in_0        : in  std_logic_vector(255 downto 0);
+            X_mat_0           : in  std_logic_vector(511 downto 0);
             pl_busy_0         : in  std_logic;
             pl_done_0         : in  std_logic;
             pl_start_0        : out std_logic;
@@ -105,36 +104,62 @@ architecture structural of top_level is
     end component;
 
     -- ============================================
-    -- Internal signals
+    -- Clock and Reset
     -- ============================================
     signal fclk_clk0     : std_logic;
     signal pl_resetn_sig : std_logic;
     signal clk           : std_logic;
     signal rst           : std_logic;
+
+    -- ============================================
+    -- AXI control
+    -- ============================================
     signal pl_start      : std_logic;
     signal pl_done       : std_logic;
     signal pl_busy       : std_logic;
 
-    -- QKV projector signals
-    signal qkv_done : std_logic;
-    signal Q_mat    : matrix_4x8;
-    signal K_mat    : matrix_4x8;
-    signal V_mat    : matrix_4x8;
+    -- ============================================
+    -- X matrix from PS via AXI
+    -- ============================================
+    signal X_mat_flat    : std_logic_vector(511 downto 0);
+    signal X_mat         : matrix_4x8;
 
+    -- ============================================
+    -- QKV signals
+    -- ============================================
+    signal qkv_start     : std_logic;
+    signal qkv_done      : std_logic;
+    signal qkv_valid     : std_logic;
+    signal qkv_out_row   : integer range 0 to 3;
+    signal qkv_out_col   : integer range 0 to 7;
+    signal Q_mat         : matrix_4x8;
+    signal K_mat         : matrix_4x8;
+    signal V_mat         : matrix_4x8;
+
+    -- X loading counters (to feed X_in sequentially)
+    signal load_row      : integer range 0 to 3 := 0;
+    signal load_col      : integer range 0 to 7 := 0;
+
+    -- ============================================
     -- Attention score signals
-    signal attn_done : std_logic;
-    signal S_mat     : matrix_4x4;
+    -- ============================================
+    signal attn_start    : std_logic;
+    signal attn_done     : std_logic;
+    signal S_mat         : matrix_4x4;
 
+    -- ============================================
     -- Flat vectors for AXI
+    -- ============================================
     signal S_mat_flat    : std_logic_vector(255 downto 0);
     signal Attn_mat_flat : std_logic_vector(255 downto 0);
     signal Attn_mat      : matrix_4x4;
 
+    -- ============================================
     -- FSM
-    type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN, SEND_S, WAIT_PS, DONE_ST);
+    -- ============================================
+    type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN,
+                     SEND_S, WAIT_PS, DONE_ST);
     signal state         : state_t;
-    signal qkv_start     : std_logic;
-    signal attn_start    : std_logic;
     signal done_cnt      : integer range 0 to 10000000 := 0;
     signal qkv_done_lat  : std_logic;
     signal attn_done_lat : std_logic;
@@ -148,50 +173,96 @@ begin
     rst <= not pl_resetn_sig;
 
     -- ============================================
-    -- Pack S_mat → flat vector for AXI
+    -- Unpack X_mat from flat vector (PS→PL)
+    -- X[row][col] at bit index (row*8+col)*16
     -- ============================================
-    S_mat_flat(15  downto 0)   <= std_logic_vector(S_mat(0,0));
-    S_mat_flat(31  downto 16)  <= std_logic_vector(S_mat(0,1));
-    S_mat_flat(47  downto 32)  <= std_logic_vector(S_mat(0,2));
-    S_mat_flat(63  downto 48)  <= std_logic_vector(S_mat(0,3));
-    S_mat_flat(79  downto 64)  <= std_logic_vector(S_mat(1,0));
-    S_mat_flat(95  downto 80)  <= std_logic_vector(S_mat(1,1));
-    S_mat_flat(111 downto 96)  <= std_logic_vector(S_mat(1,2));
-    S_mat_flat(127 downto 112) <= std_logic_vector(S_mat(1,3));
-    S_mat_flat(143 downto 128) <= std_logic_vector(S_mat(2,0));
-    S_mat_flat(159 downto 144) <= std_logic_vector(S_mat(2,1));
-    S_mat_flat(175 downto 160) <= std_logic_vector(S_mat(2,2));
-    S_mat_flat(191 downto 176) <= std_logic_vector(S_mat(2,3));
-    S_mat_flat(207 downto 192) <= std_logic_vector(S_mat(3,0));
-    S_mat_flat(223 downto 208) <= std_logic_vector(S_mat(3,1));
-    S_mat_flat(239 downto 224) <= std_logic_vector(S_mat(3,2));
-    S_mat_flat(255 downto 240) <= std_logic_vector(S_mat(3,3));
+    process(X_mat_flat)
+        variable idx : integer;
+    begin
+        for row in 0 to 3 loop
+            for col in 0 to 7 loop
+                idx := (row * 8 + col) * 16;
+                X_mat(row, col) <= signed(X_mat_flat(idx + 15 downto idx));
+            end loop;
+        end loop;
+    end process;
 
     -- ============================================
-    -- Unpack Attn_mat from flat vector from AXI
+    -- Pack S_mat → flat vector for AXI (PL→PS)
     -- ============================================
-    Attn_mat(0,0) <= signed(Attn_mat_flat(15  downto 0));
-    Attn_mat(0,1) <= signed(Attn_mat_flat(31  downto 16));
-    Attn_mat(0,2) <= signed(Attn_mat_flat(47  downto 32));
-    Attn_mat(0,3) <= signed(Attn_mat_flat(63  downto 48));
-    Attn_mat(1,0) <= signed(Attn_mat_flat(79  downto 64));
-    Attn_mat(1,1) <= signed(Attn_mat_flat(95  downto 80));
-    Attn_mat(1,2) <= signed(Attn_mat_flat(111 downto 96));
-    Attn_mat(1,3) <= signed(Attn_mat_flat(127 downto 112));
-    Attn_mat(2,0) <= signed(Attn_mat_flat(143 downto 128));
-    Attn_mat(2,1) <= signed(Attn_mat_flat(159 downto 144));
-    Attn_mat(2,2) <= signed(Attn_mat_flat(175 downto 160));
-    Attn_mat(2,3) <= signed(Attn_mat_flat(191 downto 176));
-    Attn_mat(3,0) <= signed(Attn_mat_flat(207 downto 192));
-    Attn_mat(3,1) <= signed(Attn_mat_flat(223 downto 208));
-    Attn_mat(3,2) <= signed(Attn_mat_flat(239 downto 224));
-    Attn_mat(3,3) <= signed(Attn_mat_flat(255 downto 240));
+    S_mat_flat(15   downto 0)   <= std_logic_vector(S_mat(0,0));
+    S_mat_flat(31   downto 16)  <= std_logic_vector(S_mat(0,1));
+    S_mat_flat(47   downto 32)  <= std_logic_vector(S_mat(0,2));
+    S_mat_flat(63   downto 48)  <= std_logic_vector(S_mat(0,3));
+    S_mat_flat(79   downto 64)  <= std_logic_vector(S_mat(1,0));
+    S_mat_flat(95   downto 80)  <= std_logic_vector(S_mat(1,1));
+    S_mat_flat(111  downto 96)  <= std_logic_vector(S_mat(1,2));
+    S_mat_flat(127  downto 112) <= std_logic_vector(S_mat(1,3));
+    S_mat_flat(143  downto 128) <= std_logic_vector(S_mat(2,0));
+    S_mat_flat(159  downto 144) <= std_logic_vector(S_mat(2,1));
+    S_mat_flat(175  downto 160) <= std_logic_vector(S_mat(2,2));
+    S_mat_flat(191  downto 176) <= std_logic_vector(S_mat(2,3));
+    S_mat_flat(207  downto 192) <= std_logic_vector(S_mat(3,0));
+    S_mat_flat(223  downto 208) <= std_logic_vector(S_mat(3,1));
+    S_mat_flat(239  downto 224) <= std_logic_vector(S_mat(3,2));
+    S_mat_flat(255  downto 240) <= std_logic_vector(S_mat(3,3));
 
     -- ============================================
-    -- PL busy/done status
+    -- Unpack Attn_mat from flat vector (PS→PL)
+    -- ============================================
+    Attn_mat(0,0) <= signed(Attn_mat_flat(15   downto 0));
+    Attn_mat(0,1) <= signed(Attn_mat_flat(31   downto 16));
+    Attn_mat(0,2) <= signed(Attn_mat_flat(47   downto 32));
+    Attn_mat(0,3) <= signed(Attn_mat_flat(63   downto 48));
+    Attn_mat(1,0) <= signed(Attn_mat_flat(79   downto 64));
+    Attn_mat(1,1) <= signed(Attn_mat_flat(95   downto 80));
+    Attn_mat(1,2) <= signed(Attn_mat_flat(111  downto 96));
+    Attn_mat(1,3) <= signed(Attn_mat_flat(127  downto 112));
+    Attn_mat(2,0) <= signed(Attn_mat_flat(143  downto 128));
+    Attn_mat(2,1) <= signed(Attn_mat_flat(159  downto 144));
+    Attn_mat(2,2) <= signed(Attn_mat_flat(175  downto 160));
+    Attn_mat(2,3) <= signed(Attn_mat_flat(191  downto 176));
+    Attn_mat(3,0) <= signed(Attn_mat_flat(207  downto 192));
+    Attn_mat(3,1) <= signed(Attn_mat_flat(223  downto 208));
+    Attn_mat(3,2) <= signed(Attn_mat_flat(239  downto 224));
+    Attn_mat(3,3) <= signed(Attn_mat_flat(255  downto 240));
+
+    -- ============================================
+    -- PL status signals
     -- ============================================
     pl_busy <= '1' when (state /= IDLE and state /= DONE_ST) else '0';
     pl_done <= '1' when state = DONE_ST else '0';
+
+    -- ============================================
+    -- X loading counter process
+    -- Tracks which element to present on X_in
+    -- qkv_projector loads one element per cycle
+    -- ============================================
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if rst = '1' then
+                load_row <= 0;
+                load_col <= 0;
+            elsif qkv_start = '1' then
+                -- Reset counters when starting
+                load_row <= 0;
+                load_col <= 0;
+            elsif state = RUN_QKV or state = WAIT_QKV then
+                -- Advance column/row each cycle during loading
+                if load_row < 3 or load_col < 7 then
+                    if load_col < 7 then
+                        load_col <= load_col + 1;
+                    else
+                        load_col <= 0;
+                        if load_row < 3 then
+                            load_row <= load_row + 1;
+                        end if;
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
 
     -- ============================================
     -- Main FSM
@@ -225,7 +296,6 @@ begin
                         state <= WAIT_QKV;
 
                     when WAIT_QKV =>
-                        -- Latch done in case we miss the pulse
                         if qkv_done = '1' then
                             qkv_done_lat <= '1';
                         end if;
@@ -238,7 +308,6 @@ begin
                         state <= WAIT_ATTN;
 
                     when WAIT_ATTN =>
-                        -- Latch done in case we miss the pulse
                         if attn_done = '1' then
                             attn_done_lat <= '1';
                         end if;
@@ -250,14 +319,11 @@ begin
                         state <= WAIT_PS;
 
                     when WAIT_PS =>
-                        -- Wait for PS to clear pl_start
                         if pl_start = '0' then
                             state <= DONE_ST;
                         end if;
 
                     when DONE_ST =>
-                        -- Hold pl_done = 1 for ~100ms so PS can read it
-                        -- At 100MHz: 10,000,000 cycles = 100ms
                         if done_cnt < 10000000 then
                             done_cnt <= done_cnt + 1;
                         else
@@ -301,6 +367,7 @@ begin
             FIXED_IO_ps_porb  => FIXED_IO_ps_porb,
             FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
             S_mat_in_0        => S_mat_flat,
+            X_mat_0           => X_mat_flat,
             pl_busy_0         => pl_busy,
             pl_done_0         => pl_done,
             pl_start_0        => pl_start,
@@ -313,13 +380,13 @@ begin
             clk     => clk,
             rst     => rst,
             start   => qkv_start,
-            X_in    => (others => '0'),
+            X_in    => X_mat(load_row, load_col),
             Q_out   => open,
             K_out   => open,
             V_out   => open,
-            out_row => open,
-            out_col => open,
-            valid   => open,
+            out_row => qkv_out_row,
+            out_col => qkv_out_col,
+            valid   => qkv_valid,
             done    => qkv_done,
             Q_mat   => Q_mat,
             K_mat   => K_mat,

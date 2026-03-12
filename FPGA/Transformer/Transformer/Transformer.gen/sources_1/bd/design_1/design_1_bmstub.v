@@ -33,7 +33,8 @@ module design_1 (
   S_mat_in_0,
   pl_start_0,
   pl_clk0,
-  pl_resetn
+  pl_resetn,
+  X_mat_0
 );
 
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *)
@@ -98,6 +99,8 @@ module design_1 (
   output pl_clk0;
   (* X_INTERFACE_IGNORE = "true" *)
   output [0:0]pl_resetn;
+  (* X_INTERFACE_IGNORE = "true" *)
+  output [511:0]X_mat_0;
 
   // stub module has no contents
 

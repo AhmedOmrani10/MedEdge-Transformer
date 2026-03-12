@@ -31,7 +31,9 @@ module design_1 (
   pl_busy_0,
   Attn_mat_0,
   S_mat_in_0,
-  pl_start_0
+  pl_start_0,
+  pl_clk0,
+  pl_resetn
 );
 
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *)
@@ -90,6 +92,12 @@ module design_1 (
   input [255:0]S_mat_in_0;
   (* X_INTERFACE_IGNORE = "true" *)
   output pl_start_0;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.PL_CLK0 CLK" *)
+  (* X_INTERFACE_MODE = "master CLK.PL_CLK0" *)
+  (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.PL_CLK0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_2_FCLK_CLK0, INSERT_VIP 0" *)
+  output pl_clk0;
+  (* X_INTERFACE_IGNORE = "true" *)
+  output [0:0]pl_resetn;
 
   // stub module has no contents
 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date             : Wed Mar 11 14:44:29 2026
+| Date             : Thu Mar 12 05:53:07 2026
 | Host             : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 | Command          : report_power -file top_level_power_routed.rpt -pb top_level_power_summary_routed.pb -rpx top_level_power_routed.rpx
 | Design           : top_level
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.683        |
+| Total On-Chip Power (W)  | 1.698        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.542        |
-| Device Static (W)        | 0.141        |
+| Dynamic (W)              | 1.557        |
+| Device Static (W)        | 0.142        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 65.6         |
-| Junction Temperature (C) | 44.4         |
+| Max Ambient (C)          | 65.4         |
+| Junction Temperature (C) | 44.6         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.007 |        3 |       --- |             --- |
-| Slice Logic             |     0.002 |     4476 |       --- |             --- |
-|   LUT as Logic          |     0.002 |     1213 |     53200 |            2.28 |
-|   Register              |    <0.001 |     2523 |    106400 |            2.37 |
-|   CARRY4                |    <0.001 |       10 |     13300 |            0.08 |
-|   F7/F8 Muxes           |    <0.001 |      269 |     53200 |            0.51 |
+| Clocks                  |     0.010 |        3 |       --- |             --- |
+| Slice Logic             |     0.004 |     7220 |       --- |             --- |
+|   LUT as Logic          |     0.003 |     1969 |     53200 |            3.70 |
+|   Register              |    <0.001 |     4142 |    106400 |            3.89 |
+|   F7/F8 Muxes           |    <0.001 |      621 |     53200 |            1.17 |
+|   CARRY4                |    <0.001 |       11 |     13300 |            0.08 |
 |   Others                |     0.000 |      232 |       --- |             --- |
 |   LUT as Shift Register |     0.000 |        2 |     17400 |            0.01 |
-| Signals                 |     0.003 |     3603 |       --- |             --- |
-| DSPs                    |    <0.001 |        4 |       220 |            1.82 |
+| Signals                 |     0.010 |     5632 |       --- |             --- |
+| DSPs                    |     0.004 |        4 |       220 |            1.82 |
 | PS7                     |     1.529 |        1 |       --- |             --- |
-| Static Power            |     0.141 |          |           |                 |
-| Total                   |     1.683 |          |           |                 |
+| Static Power            |     0.142 |          |           |                 |
+| Total                   |     1.698 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.028 |       0.013 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.042 |       0.028 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.015 |       0.000 |      0.015 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -150,14 +150,14 @@ Table of Contents
 +----------------------------+-----------+
 | Name                       | Power (W) |
 +----------------------------+-----------+
-| top_level                  |     1.542 |
-|   attention_score_i        |     0.002 |
-|   design_1_wrapper_i       |     1.536 |
-|     design_1_i             |     1.536 |
-|       axi_smc              |     0.004 |
+| top_level                  |     1.557 |
+|   attention_score_i        |     0.005 |
+|   design_1_wrapper_i       |     1.541 |
+|     design_1_i             |     1.539 |
+|       axi_smc              |     0.005 |
 |       processing_system7_0 |     1.530 |
-|       transformer_axi_0    |     0.002 |
-|   qkv_projector_i          |     0.004 |
+|       transformer_axi_0    |     0.004 |
+|   qkv_projector_i          |     0.010 |
 +----------------------------+-----------+
 
 

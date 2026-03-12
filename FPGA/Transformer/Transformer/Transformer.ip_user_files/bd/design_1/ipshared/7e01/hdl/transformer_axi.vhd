@@ -5,7 +5,7 @@ use ieee.numeric_std.all;
 entity transformer_axi is
     generic (
         C_S00_AXI_DATA_WIDTH : integer := 32;
-        C_S00_AXI_ADDR_WIDTH : integer := 8
+        C_S00_AXI_ADDR_WIDTH : integer := 9
     );
     port (
         -- Custom ports (visible in block design)
@@ -14,6 +14,7 @@ entity transformer_axi is
         pl_busy  : in  std_logic;
         S_mat_in : in  std_logic_vector(255 downto 0);
         Attn_mat : out std_logic_vector(255 downto 0);
+        X_mat    : out std_logic_vector(511 downto 0);
 
         -- AXI ports
         s00_axi_aclk    : in  std_logic;
@@ -45,7 +46,7 @@ architecture arch_imp of transformer_axi is
     component transformer_axi_slave_lite_v1_0_S00_AXI is
         generic (
             C_S_AXI_DATA_WIDTH : integer := 32;
-            C_S_AXI_ADDR_WIDTH : integer := 8
+            C_S_AXI_ADDR_WIDTH : integer := 9
         );
         port (
             pl_start      : out std_logic;
@@ -53,6 +54,7 @@ architecture arch_imp of transformer_axi is
             pl_busy       : in  std_logic;
             S_mat_in      : in  std_logic_vector(255 downto 0);
             Attn_mat      : out std_logic_vector(255 downto 0);
+            X_mat         : out std_logic_vector(511 downto 0);
             S_AXI_ACLK    : in  std_logic;
             S_AXI_ARESETN : in  std_logic;
             S_AXI_AWADDR  : in  std_logic_vector(C_S_AXI_ADDR_WIDTH-1 downto 0);
@@ -90,6 +92,7 @@ begin
             pl_busy       => pl_busy,
             S_mat_in      => S_mat_in,
             Attn_mat      => Attn_mat,
+            X_mat         => X_mat,
             S_AXI_ACLK    => s00_axi_aclk,
             S_AXI_ARESETN => s00_axi_aresetn,
             S_AXI_AWADDR  => s00_axi_awaddr,

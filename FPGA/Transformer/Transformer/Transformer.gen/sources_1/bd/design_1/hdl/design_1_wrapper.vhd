@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Tue Mar 10 12:32:25 2026
+--Date        : Wed Mar 11 19:13:03 2026
 --Host        : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -37,6 +37,7 @@ entity design_1_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     S_mat_in_0 : in STD_LOGIC_VECTOR ( 255 downto 0 );
+    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 );
     pl_busy_0 : in STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_done_0 : in STD_LOGIC;
@@ -75,7 +76,8 @@ architecture STRUCTURE of design_1_wrapper is
     S_mat_in_0 : in STD_LOGIC_VECTOR ( 255 downto 0 );
     pl_start_0 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
-    pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 )
+    pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
+    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 )
   );
   end component design_1;
 begin
@@ -104,6 +106,7 @@ design_1_i: component design_1
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
       S_mat_in_0(255 downto 0) => S_mat_in_0(255 downto 0),
+      X_mat_0(511 downto 0) => X_mat_0(511 downto 0),
       pl_busy_0 => pl_busy_0,
       pl_clk0 => pl_clk0,
       pl_done_0 => pl_done_0,
