@@ -63,6 +63,7 @@ architecture structural of top_level is
             pl_busy_0         : in  std_logic;
             pl_done_0         : in  std_logic;
             pl_start_0        : out std_logic;
+            pooled_in_0       : in  std_logic_vector(127 downto 0);  -- NEW
             pl_clk0           : out std_logic;
             pl_resetn         : out std_logic
         );
@@ -105,13 +106,35 @@ architecture structural of top_level is
 
     component attention_output is
         port (
-            clk     : in  std_logic;
-            rst     : in  std_logic;
-            start   : in  std_logic;
-            Attn    : in  matrix_4x4;
-            V_mat   : in  matrix_4x8;
-            O_mat   : out matrix_4x8;
-            done    : out std_logic
+            clk   : in  std_logic;
+            rst   : in  std_logic;
+            start : in  std_logic;
+            Attn  : in  matrix_4x4;
+            V_mat : in  matrix_4x8;
+            O_mat : out matrix_4x8;
+            done  : out std_logic
+        );
+    end component;
+
+    component feed_forward is
+        port (
+            clk    : in  std_logic;
+            rst    : in  std_logic;
+            start  : in  std_logic;
+            X_in   : in  matrix_4x8;
+            Y_out  : out matrix_4x8;
+            done   : out std_logic
+        );
+    end component;
+
+    component avg_pool is
+        port (
+            clk    : in  std_logic;
+            rst    : in  std_logic;
+            start  : in  std_logic;
+            X_in   : in  matrix_4x8;
+            Y_out  : out matrix_1x8;
+            done   : out std_logic
         );
     end component;
 
@@ -161,9 +184,23 @@ architecture structural of top_level is
     -- ============================================
     -- Attention output signals
     -- ============================================
-    signal attn_out_start : std_logic;
-    signal attn_out_done  : std_logic;
-    signal O_mat          : matrix_4x8;
+    signal attn_out_start    : std_logic;
+    signal attn_out_done     : std_logic;
+    signal O_mat             : matrix_4x8;
+
+    -- ============================================
+    -- Feed forward signals
+    -- ============================================
+    signal ff_start      : std_logic;
+    signal ff_done       : std_logic;
+    signal FF_out        : matrix_4x8;
+
+    -- ============================================
+    -- Avg pool signals
+    -- ============================================
+    signal pool_start    : std_logic;
+    signal pool_done     : std_logic;
+    signal pooled        : matrix_1x8;
 
     -- ============================================
     -- Flat vectors for AXI
@@ -171,17 +208,21 @@ architecture structural of top_level is
     signal S_mat_flat    : std_logic_vector(255 downto 0);
     signal Attn_mat_flat : std_logic_vector(255 downto 0);
     signal Attn_mat      : matrix_4x4;
+    signal pooled_flat   : std_logic_vector(127 downto 0);  -- NEW
 
     -- ============================================
     -- FSM
     -- ============================================
     type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN,
-                     SEND_S, WAIT_PS, RUN_ATTN_OUT, WAIT_ATTN_OUT, DONE_ST);
-    signal state          : state_t;
-    signal done_cnt       : integer range 0 to 10000000 := 0;
-    signal qkv_done_lat   : std_logic;
-    signal attn_done_lat  : std_logic;
+                     SEND_S, WAIT_PS, RUN_ATTN_OUT, WAIT_ATTN_OUT,
+                     RUN_FF, WAIT_FF, RUN_POOL, WAIT_POOL, DONE_ST);  -- NEW states
+    signal state             : state_t;
+    signal done_cnt          : integer range 0 to 10000000 := 0;
+    signal qkv_done_lat      : std_logic;
+    signal attn_done_lat     : std_logic;
     signal attn_out_done_lat : std_logic;
+    signal ff_done_lat       : std_logic;
+    signal pool_done_lat     : std_logic;
 
 begin
 
@@ -246,6 +287,18 @@ begin
     Attn_mat(3,3) <= signed(Attn_mat_flat(255 downto 240));
 
     -- ============================================
+    -- Pack pooled → flat vector for AXI (PL→PS)
+    -- ============================================
+    pooled_flat(15  downto 0)   <= std_logic_vector(pooled(0,0));
+    pooled_flat(31  downto 16)  <= std_logic_vector(pooled(0,1));
+    pooled_flat(47  downto 32)  <= std_logic_vector(pooled(0,2));
+    pooled_flat(63  downto 48)  <= std_logic_vector(pooled(0,3));
+    pooled_flat(79  downto 64)  <= std_logic_vector(pooled(0,4));
+    pooled_flat(95  downto 80)  <= std_logic_vector(pooled(0,5));
+    pooled_flat(111 downto 96)  <= std_logic_vector(pooled(0,6));
+    pooled_flat(127 downto 112) <= std_logic_vector(pooled(0,7));
+
+    -- ============================================
     -- PL status
     -- ============================================
     pl_busy <= '1' when (state /= IDLE and state /= DONE_ST) else '0';
@@ -285,26 +338,34 @@ begin
     begin
         if rising_edge(clk) then
             if rst = '1' then
-                state            <= IDLE;
-                qkv_start        <= '0';
-                attn_start       <= '0';
-                attn_out_start   <= '0';
-                done_cnt         <= 0;
-                qkv_done_lat     <= '0';
-                attn_done_lat    <= '0';
-                attn_out_done_lat <= '0';
+                state                <= IDLE;
+                qkv_start            <= '0';
+                attn_start           <= '0';
+                attn_out_start       <= '0';
+                ff_start             <= '0';
+                pool_start           <= '0';
+                done_cnt             <= 0;
+                qkv_done_lat         <= '0';
+                attn_done_lat        <= '0';
+                attn_out_done_lat    <= '0';
+                ff_done_lat          <= '0';
+                pool_done_lat        <= '0';
             else
                 qkv_start      <= '0';
                 attn_start     <= '0';
                 attn_out_start <= '0';
+                ff_start       <= '0';
+                pool_start     <= '0';
 
                 case state is
 
                     when IDLE =>
-                        done_cnt          <= 0;
-                        qkv_done_lat      <= '0';
-                        attn_done_lat     <= '0';
-                        attn_out_done_lat <= '0';
+                        done_cnt             <= 0;
+                        qkv_done_lat         <= '0';
+                        attn_done_lat        <= '0';
+                        attn_out_done_lat    <= '0';
+                        ff_done_lat          <= '0';
+                        pool_done_lat        <= '0';
                         if pl_start = '1' then
                             state     <= RUN_QKV;
                             qkv_start <= '1';
@@ -336,7 +397,6 @@ begin
                     when SEND_S =>
                         state <= WAIT_PS;
 
-                    -- Wait for PS to write Attn and clear pl_start
                     when WAIT_PS =>
                         if pl_start = '0' then
                             state          <= RUN_ATTN_OUT;
@@ -351,6 +411,30 @@ begin
                             attn_out_done_lat <= '1';
                         end if;
                         if attn_out_done = '1' or attn_out_done_lat = '1' then
+                            state    <= RUN_FF;
+                            ff_start <= '1';
+                        end if;
+
+                    when RUN_FF =>
+                        state <= WAIT_FF;
+
+                    when WAIT_FF =>
+                        if ff_done = '1' then
+                            ff_done_lat <= '1';
+                        end if;
+                        if ff_done = '1' or ff_done_lat = '1' then
+                            state      <= RUN_POOL;
+                            pool_start <= '1';
+                        end if;
+
+                    when RUN_POOL =>
+                        state <= WAIT_POOL;
+
+                    when WAIT_POOL =>
+                        if pool_done = '1' then
+                            pool_done_lat <= '1';
+                        end if;
+                        if pool_done = '1' or pool_done_lat = '1' then
                             state <= DONE_ST;
                         end if;
 
@@ -402,6 +486,7 @@ begin
             pl_busy_0         => pl_busy,
             pl_done_0         => pl_done,
             pl_start_0        => pl_start,
+            pooled_in_0       => pooled_flat,   -- NEW
             pl_clk0           => fclk_clk0,
             pl_resetn         => pl_resetn_sig
         );
@@ -448,6 +533,26 @@ begin
             V_mat => V_mat,
             O_mat => O_mat,
             done  => attn_out_done
+        );
+
+    feed_forward_i : feed_forward
+        port map (
+            clk   => clk,
+            rst   => rst,
+            start => ff_start,
+            X_in  => O_mat,
+            Y_out => FF_out,
+            done  => ff_done
+        );
+
+    avg_pool_i : avg_pool
+        port map (
+            clk   => clk,
+            rst   => rst,
+            start => pool_start,
+            X_in  => FF_out,
+            Y_out => pooled,
+            done  => pool_done
         );
 
 end structural;

@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Wed Mar 11 19:13:03 2026
+--Date        : Fri Mar 13 05:29:53 2026
 --Host        : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -131,6 +131,7 @@ architecture STRUCTURE of design_1 is
     S_mat_in : in STD_LOGIC_VECTOR ( 255 downto 0 );
     Attn_mat : out STD_LOGIC_VECTOR ( 255 downto 0 );
     X_mat : out STD_LOGIC_VECTOR ( 511 downto 0 );
+    pooled_in : in STD_LOGIC_VECTOR ( 127 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
     s00_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
@@ -487,6 +488,7 @@ transformer_axi_0: component design_1_transformer_axi_0_2
       pl_busy => pl_busy_0,
       pl_done => pl_done_0,
       pl_start => pl_start_0,
+      pooled_in(127 downto 0) => B"00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
       s00_axi_aclk => \^pl_clk0\,
       s00_axi_araddr(8 downto 0) => axi_smc_M00_AXI_ARADDR(8 downto 0),
       s00_axi_aresetn => \^pl_resetn\(0),

@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:transformer_axi:1.0
--- IP Revision: 5
+-- IP Revision: 6
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -61,6 +61,7 @@ ENTITY design_1_transformer_axi_0_2 IS
     S_mat_in : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
     Attn_mat : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
     X_mat : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+    pooled_in : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
     s00_axi_aclk : IN STD_LOGIC;
     s00_axi_aresetn : IN STD_LOGIC;
     s00_axi_awaddr : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
@@ -100,6 +101,7 @@ ARCHITECTURE design_1_transformer_axi_0_2_arch OF design_1_transformer_axi_0_2 I
       S_mat_in : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
       Attn_mat : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
       X_mat : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+      pooled_in : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
       s00_axi_aclk : IN STD_LOGIC;
       s00_axi_aresetn : IN STD_LOGIC;
       s00_axi_awaddr : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
@@ -128,7 +130,7 @@ ARCHITECTURE design_1_transformer_axi_0_2_arch OF design_1_transformer_axi_0_2 I
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_transformer_axi_0_2_arch : ARCHITECTURE IS "design_1_transformer_axi_0_2,transformer_axi,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_transformer_axi_0_2_arch: ARCHITECTURE IS "design_1_transformer_axi_0_2,transformer_axi,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=transformer_axi,x_ipVersion=1.0,x_ipCoreRevision=5,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=9}";
+  ATTRIBUTE CORE_GENERATION_INFO OF design_1_transformer_axi_0_2_arch: ARCHITECTURE IS "design_1_transformer_axi_0_2,transformer_axi,{x_ipProduct=Vivado 2024.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=transformer_axi,x_ipVersion=1.0,x_ipCoreRevision=6,x_ipLanguage=VHDL,x_ipSimLanguage=VHDL,C_S00_AXI_DATA_WIDTH=32,C_S00_AXI_ADDR_WIDTH=9}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_MODE : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
@@ -173,6 +175,7 @@ BEGIN
       S_mat_in => S_mat_in,
       Attn_mat => Attn_mat,
       X_mat => X_mat,
+      pooled_in => pooled_in,
       s00_axi_aclk => s00_axi_aclk,
       s00_axi_aresetn => s00_axi_aresetn,
       s00_axi_awaddr => s00_axi_awaddr,

@@ -57,8 +57,8 @@ vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Transformer.gen/sou
 "../../../bd/design_1/ip/design_1_processing_system7_0_2/sim/design_1_processing_system7_0_2.v" \
 
 vcom -work xil_defaultlib  -93  \
-"../../../bd/design_1/ipshared/7e01/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/7e01/hdl/transformer_axi.vhd" \
+"../../../bd/design_1/ipshared/0500/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/0500/hdl/transformer_axi.vhd" \
 "../../../bd/design_1/ip/design_1_transformer_axi_0_2/sim/design_1_transformer_axi_0_2.vhd" \
 
 vlog -work xil_defaultlib  -incr -mfcu  "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/86fe/hdl" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" "+incdir+C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" \

@@ -60,8 +60,8 @@ vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../Transformer.gen/sour
 "../../../bd/design_1/ip/design_1_processing_system7_0_2/sim/design_1_processing_system7_0_2.v" \
 
 vcom -work xil_defaultlib -93  -incr \
-"../../../bd/design_1/ipshared/7e01/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/7e01/hdl/transformer_axi.vhd" \
+"../../../bd/design_1/ipshared/0500/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/0500/hdl/transformer_axi.vhd" \
 "../../../bd/design_1/ip/design_1_transformer_axi_0_2/sim/design_1_transformer_axi_0_2.vhd" \
 
 vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/86fe/hdl" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" "+incdir+C:/Xilinx/Vivado/2024.2/data/xilinx_vip/include" -l xilinx_vip -l xpm -l axi_infrastructure_v1_1_0 -l axi_vip_v1_1_19 -l processing_system7_vip_v1_0_21 -l xil_defaultlib -l xlconstant_v1_1_9 -l lib_cdc_v1_0_3 -l proc_sys_reset_v5_0_16 -l smartconnect_v1_0 -l axi_register_slice_v2_1_33 \
