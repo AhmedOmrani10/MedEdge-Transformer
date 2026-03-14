@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.98487",
-   "Default View_TopLeft":"302,596",
+   "Default View_ScaleFactor":"0.752125",
+   "Default View_TopLeft":"-193,366",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
@@ -23,19 +23,19 @@ preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 210 -y 400 -defaultsOSRD
 preplace netloc S_mat_in_0_1 1 0 2 10J 690 NJ
 preplace netloc pl_busy_0_1 1 0 2 NJ 680 430J
 preplace netloc pl_done_0_1 1 0 2 40J 660 390J
+preplace netloc pooled_in_0_1 1 0 2 NJ 710 NJ
 preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 20 280 420 310 850
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 30 290 NJ 290 830
 preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 3 10 500 380 440 NJ
 preplace netloc transformer_axi_0_Attn_mat 1 2 1 NJ 690
 preplace netloc transformer_axi_0_X_mat 1 2 1 830J 710n
 preplace netloc transformer_axi_0_pl_start 1 2 1 850J 660n
-preplace netloc pooled_in_0_1 1 0 2 NJ 710 NJ
 preplace netloc axi_smc_M00_AXI 1 1 1 390 580n
 preplace netloc processing_system7_0_DDR 1 2 1 850J 60n
 preplace netloc processing_system7_0_FIXED_IO 1 2 1 NJ 90
 preplace netloc processing_system7_0_M_AXI_GP0 1 0 3 40 300 NJ 300 840
 levelinfo -pg 1 -10 210 630 870
-pagesize -pg 1 -db -bbox -sgen -180 0 1040 810
+pagesize -pg 1 -db -bbox -sgen -190 0 1050 810
 "
 }
 {

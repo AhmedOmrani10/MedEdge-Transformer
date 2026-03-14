@@ -9,12 +9,13 @@
 // ============================================
 // AXI Register Map
 // ============================================
-#define AXI_BASE    0x43C00000
-#define REG_STATUS  (AXI_BASE + 0x000)  // reg0
-#define REG_CTRL    (AXI_BASE + 0x004)  // reg1
-#define REG_X_BASE  (AXI_BASE + 0x008)  // reg2-33  X matrix
-#define REG_S_BASE  (AXI_BASE + 0x088)  // reg34-49 S matrix
-#define REG_A_BASE  (AXI_BASE + 0x0C8)  // reg50-65 Attn matrix
+#define AXI_BASE      0x43C00000
+#define REG_STATUS    (AXI_BASE + 0x000)  // reg0
+#define REG_CTRL      (AXI_BASE + 0x004)  // reg1
+#define REG_X_BASE    (AXI_BASE + 0x008)  // reg2-33   X matrix
+#define REG_S_BASE    (AXI_BASE + 0x088)  // reg34-49  S matrix
+#define REG_A_BASE    (AXI_BASE + 0x0C8)  // reg50-65  Attn matrix
+#define REG_P_BASE    (AXI_BASE + 0x108)  // reg66-73  pooled[8]
 
 // ============================================
 // Q1.15 helpers
@@ -24,9 +25,7 @@
 #define FLOAT_TO_Q15(x)  ((int16_t)((x) * SCALE))
 
 // ============================================
-// Embedding weights (PS side only)
-// nn.Linear(1, 8): weight[8], bias[8]
-// For each feature i: X[i][j] = feature[i] * W_emb[j] + b_emb[j]
+// Embedding weights (PS side)
 // ============================================
 static const int16_t W_emb[8] = {
     21759, 14418, -18176, 32765,
@@ -41,7 +40,6 @@ static const int16_t b_emb[8] = {
 // ============================================
 // Classifier weights (PS side)
 // fc_out: Linear(8, 3)
-// weight[3][8], bias[3]
 // ============================================
 static const int16_t W_fc[3][8] = {
     { 14210, -18098, -10031,  17571, -28653,  11724,  17227,   4656},
@@ -52,14 +50,13 @@ static const int16_t W_fc[3][8] = {
 static const int16_t b_fc[3] = {6950, 9209, 3999};
 
 // ============================================
-// Iris test sample (first sample)
-// Already StandardScaler normalized
+// Iris test sample
 // ============================================
 static const float iris_sample[4] = {
-    -0.9007f,   // sepal length
-     1.0321f,   // sepal width
-    -1.3412f,   // petal length
-    -1.3129f    // petal width
+    -0.9007f,
+     1.0321f,
+    -1.3412f,
+    -1.3129f
 };
 
 static const char* class_names[3] = {"Setosa", "Versicolor", "Virginica"};
@@ -77,10 +74,6 @@ static inline uint32_t reg_read(uint32_t addr) {
 
 // ============================================
 // Step 1: Compute embedding on PS
-// Input: feature scalar (float)
-// Output: X[4][8] in Q1.15
-// For each position i:
-//   X[i][j] = feature[i] * W_emb[j] + b_emb[j]
 // ============================================
 void compute_embedding(int16_t X[4][8]) {
     int i, j;
@@ -88,7 +81,6 @@ void compute_embedding(int16_t X[4][8]) {
         for (j = 0; j < 8; j++) {
             float val = iris_sample[i] * Q15_TO_FLOAT(W_emb[j])
                       + Q15_TO_FLOAT(b_emb[j]);
-            // clamp to Q1.15 range
             if (val >  0.9999f) val =  0.9999f;
             if (val < -1.0f)    val = -1.0f;
             X[i][j] = FLOAT_TO_Q15(val);
@@ -157,10 +149,41 @@ void write_Attn_to_pl(float A[4][4]) {
 }
 
 // ============================================
+// Step 6: Read pooled[8] from PL (reg66-73)
+// ============================================
+void read_pooled_from_pl(int16_t pooled[8]) {
+    int i;
+    for (i = 0; i < 8; i++) {
+        uint32_t val = reg_read(REG_P_BASE + i * 4);
+        pooled[i] = (int16_t)(val & 0xFFFF);
+    }
+}
+
+// ============================================
+// Step 7: Classifier fc_out Linear(8,3) + ArgMax
+// ============================================
+int classify(int16_t pooled[8]) {
+    int i, j;
+    float logits[3];
+    for (i = 0; i < 3; i++) {
+        float acc = Q15_TO_FLOAT(b_fc[i]);
+        for (j = 0; j < 8; j++)
+            acc += Q15_TO_FLOAT(pooled[j]) * Q15_TO_FLOAT(W_fc[i][j]);
+        logits[i] = acc;
+        printf("  logit[%d] (%s) = %.4f\n\r", i, class_names[i], acc);
+    }
+    int pred = 0;
+    for (i = 1; i < 3; i++)
+        if (logits[i] > logits[pred]) pred = i;
+    return pred;
+}
+
+// ============================================
 // Main
 // ============================================
 int main() {
     int i, j;
+    int timeout;
     printf("=== MedEdge Transformer ===\n\r");
 
     // Step 1: Embedding
@@ -175,12 +198,12 @@ int main() {
     write_X_to_pl(X);
     printf("X written to PL\n\r");
 
-    // Step 3: Send pl_start
+    // Step 3: Send pl_start=1
     printf("Sending pl_start...\n\r");
     reg_write(REG_CTRL, 0x1);
 
-    // Step 4: Wait for pl_busy
-    int timeout = 0;
+    // Step 4: Wait for pl_busy=1
+    timeout = 0;
     while (!(reg_read(REG_STATUS) & 0x1)) {
         if (++timeout > 1000000) {
             printf("TIMEOUT pl_busy!\n\r");
@@ -189,22 +212,19 @@ int main() {
     }
     printf("PL busy! STATUS=0x%08X\n\r", reg_read(REG_STATUS));
 
-    // Step 5: Clear pl_start
-    reg_write(REG_CTRL, 0x0);
-
-    // Step 6: Wait for pl_done
-    printf("Waiting for pl_done...\n\r");
+    // Step 5: Wait for pl_done=1 (S matrix ready)
+    printf("Waiting for pl_done (S ready)...\n\r");
     timeout = 0;
     while (!(reg_read(REG_STATUS) & 0x2)) {
-        if (++timeout > 5000000) {
+        if (++timeout > 50000000) {
             printf("TIMEOUT pl_done! STATUS=0x%08X\n\r",
                    reg_read(REG_STATUS));
             return -1;
         }
     }
-    printf("PL done! STATUS=0x%08X\n\r", reg_read(REG_STATUS));
+    printf("S ready! STATUS=0x%08X\n\r", reg_read(REG_STATUS));
 
-    // Step 7: Read S matrix
+    // Step 6: Read S matrix
     int16_t S[4][4];
     read_S_from_pl(S);
     printf("S matrix:\n\r");
@@ -213,25 +233,49 @@ int main() {
             printf("  S[%d][%d] = %d (%.4f)\n\r",
                    i, j, S[i][j], Q15_TO_FLOAT(S[i][j]));
 
-    // Step 8: Softmax
+    // Step 7: Softmax → Attn
     float Attn[4][4];
     for (i = 0; i < 4; i++)
         for (j = 0; j < 4; j++)
             Attn[i][j] = Q15_TO_FLOAT(S[i][j]);
     softmax(Attn);
-
     printf("Attn matrix (after softmax):\n\r");
     for (i = 0; i < 4; i++)
         for (j = 0; j < 4; j++)
             printf("  Attn[%d][%d] = %.4f\n\r", i, j, Attn[i][j]);
 
-    // Step 9: Write Attn to PL
+    // Step 8: Write Attn to PL FIRST
     write_Attn_to_pl(Attn);
     printf("Attn written to PL\n\r");
 
-    printf("=== Cycle complete! ===\n\r");
-    printf("Next: PL computes Attn x V, FF, AvgPool\n\r");
-    printf("Then PS runs classifier\n\r");
+    // Step 9: NOW clear pl_start=0 to signal PL to continue
+    reg_write(REG_CTRL, 0x0);
+    printf("pl_start cleared — PL continuing with AttnOut+FF+Pool...\n\r");
+
+    // Step 10: Wait for pl_busy to go low (PL back to IDLE = DONE_ST finished)
+    printf("Waiting for PL full pipeline done...\n\r");
+    timeout = 0;
+    while (reg_read(REG_STATUS) & 0x1) {
+        if (++timeout > 200000000) {
+            printf("TIMEOUT full pipeline! STATUS=0x%08X\n\r",
+                   reg_read(REG_STATUS));
+            return -1;
+        }
+    }
+    printf("PL pipeline done! STATUS=0x%08X\n\r", reg_read(REG_STATUS));
+
+    // Step 11: Read pooled[8]
+    int16_t pooled[8];
+    read_pooled_from_pl(pooled);
+    printf("Pooled vector:\n\r");
+    for (i = 0; i < 8; i++)
+        printf("  pooled[%d] = %d (%.4f)\n\r",
+               i, pooled[i], Q15_TO_FLOAT(pooled[i]));
+
+    // Step 12: Classifier + ArgMax
+    printf("Classifier logits:\n\r");
+    int pred = classify(pooled);
+    printf("\n\r=== PREDICTION: %s ===\n\r", class_names[pred]);
 
     return 0;
 }

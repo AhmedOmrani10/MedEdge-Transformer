@@ -31,9 +31,6 @@ end top_level;
 
 architecture structural of top_level is
 
-    -- ============================================
-    -- Component declarations
-    -- ============================================
     component design_1_wrapper is
         port (
             Attn_mat_0        : out std_logic_vector(255 downto 0);
@@ -63,7 +60,7 @@ architecture structural of top_level is
             pl_busy_0         : in  std_logic;
             pl_done_0         : in  std_logic;
             pl_start_0        : out std_logic;
-            pooled_in_0       : in  std_logic_vector(127 downto 0);  -- NEW
+            pooled_in_0       : in  std_logic_vector(127 downto 0);
             pl_clk0           : out std_logic;
             pl_resetn         : out std_logic
         );
@@ -118,50 +115,42 @@ architecture structural of top_level is
 
     component feed_forward is
         port (
-            clk    : in  std_logic;
-            rst    : in  std_logic;
-            start  : in  std_logic;
-            X_in   : in  matrix_4x8;
-            Y_out  : out matrix_4x8;
-            done   : out std_logic
+            clk   : in  std_logic;
+            rst   : in  std_logic;
+            start : in  std_logic;
+            X_in  : in  matrix_4x8;
+            Y_out : out matrix_4x8;
+            done  : out std_logic
         );
     end component;
 
     component avg_pool is
         port (
-            clk    : in  std_logic;
-            rst    : in  std_logic;
-            start  : in  std_logic;
-            X_in   : in  matrix_4x8;
-            Y_out  : out matrix_1x8;
-            done   : out std_logic
+            clk   : in  std_logic;
+            rst   : in  std_logic;
+            start : in  std_logic;
+            X_in  : in  matrix_4x8;
+            Y_out : out matrix_1x8;
+            done  : out std_logic
         );
     end component;
 
-    -- ============================================
     -- Clock and Reset
-    -- ============================================
     signal fclk_clk0     : std_logic;
     signal pl_resetn_sig : std_logic;
     signal clk           : std_logic;
     signal rst           : std_logic;
 
-    -- ============================================
     -- AXI control
-    -- ============================================
     signal pl_start      : std_logic;
     signal pl_done       : std_logic;
     signal pl_busy       : std_logic;
 
-    -- ============================================
-    -- X matrix from PS via AXI
-    -- ============================================
+    -- X matrix
     signal X_mat_flat    : std_logic_vector(511 downto 0);
     signal X_mat         : matrix_4x8;
 
-    -- ============================================
-    -- QKV signals
-    -- ============================================
+    -- QKV
     signal qkv_start     : std_logic;
     signal qkv_done      : std_logic;
     signal qkv_valid     : std_logic;
@@ -170,52 +159,39 @@ architecture structural of top_level is
     signal Q_mat         : matrix_4x8;
     signal K_mat         : matrix_4x8;
     signal V_mat         : matrix_4x8;
-
     signal load_row      : integer range 0 to 3 := 0;
     signal load_col      : integer range 0 to 7 := 0;
 
-    -- ============================================
-    -- Attention score signals
-    -- ============================================
+    -- Attention score
     signal attn_start    : std_logic;
     signal attn_done     : std_logic;
     signal S_mat         : matrix_4x4;
 
-    -- ============================================
-    -- Attention output signals
-    -- ============================================
+    -- Attention output
     signal attn_out_start    : std_logic;
     signal attn_out_done     : std_logic;
     signal O_mat             : matrix_4x8;
 
-    -- ============================================
-    -- Feed forward signals
-    -- ============================================
+    -- Feed forward
     signal ff_start      : std_logic;
     signal ff_done       : std_logic;
     signal FF_out        : matrix_4x8;
 
-    -- ============================================
-    -- Avg pool signals
-    -- ============================================
+    -- Avg pool
     signal pool_start    : std_logic;
     signal pool_done     : std_logic;
     signal pooled        : matrix_1x8;
 
-    -- ============================================
-    -- Flat vectors for AXI
-    -- ============================================
+    -- Flat vectors
     signal S_mat_flat    : std_logic_vector(255 downto 0);
     signal Attn_mat_flat : std_logic_vector(255 downto 0);
     signal Attn_mat      : matrix_4x4;
-    signal pooled_flat   : std_logic_vector(127 downto 0);  -- NEW
+    signal pooled_flat   : std_logic_vector(127 downto 0);
 
-    -- ============================================
     -- FSM
-    -- ============================================
     type state_t is (IDLE, RUN_QKV, WAIT_QKV, RUN_ATTN, WAIT_ATTN,
                      SEND_S, WAIT_PS, RUN_ATTN_OUT, WAIT_ATTN_OUT,
-                     RUN_FF, WAIT_FF, RUN_POOL, WAIT_POOL, DONE_ST);  -- NEW states
+                     RUN_FF, WAIT_FF, RUN_POOL, WAIT_POOL, DONE_ST);
     signal state             : state_t;
     signal done_cnt          : integer range 0 to 10000000 := 0;
     signal qkv_done_lat      : std_logic;
@@ -224,17 +200,15 @@ architecture structural of top_level is
     signal ff_done_lat       : std_logic;
     signal pool_done_lat     : std_logic;
 
+    -- *** KEY FIX: track that pl_start went high then low ***
+    signal ps_ack_seen       : std_logic;
+
 begin
 
-    -- ============================================
-    -- Clock and Reset
-    -- ============================================
     clk <= fclk_clk0;
     rst <= not pl_resetn_sig;
 
-    -- ============================================
-    -- Unpack X_mat from flat vector (PS→PL)
-    -- ============================================
+    -- Unpack X_mat
     process(X_mat_flat)
         variable idx : integer;
     begin
@@ -246,9 +220,7 @@ begin
         end loop;
     end process;
 
-    -- ============================================
-    -- Pack S_mat → flat vector for AXI (PL→PS)
-    -- ============================================
+    -- Pack S_mat
     S_mat_flat(15  downto 0)   <= std_logic_vector(S_mat(0,0));
     S_mat_flat(31  downto 16)  <= std_logic_vector(S_mat(0,1));
     S_mat_flat(47  downto 32)  <= std_logic_vector(S_mat(0,2));
@@ -266,9 +238,7 @@ begin
     S_mat_flat(239 downto 224) <= std_logic_vector(S_mat(3,2));
     S_mat_flat(255 downto 240) <= std_logic_vector(S_mat(3,3));
 
-    -- ============================================
-    -- Unpack Attn_mat from flat vector (PS→PL)
-    -- ============================================
+    -- Unpack Attn_mat
     Attn_mat(0,0) <= signed(Attn_mat_flat(15  downto 0));
     Attn_mat(0,1) <= signed(Attn_mat_flat(31  downto 16));
     Attn_mat(0,2) <= signed(Attn_mat_flat(47  downto 32));
@@ -286,9 +256,7 @@ begin
     Attn_mat(3,2) <= signed(Attn_mat_flat(239 downto 224));
     Attn_mat(3,3) <= signed(Attn_mat_flat(255 downto 240));
 
-    -- ============================================
-    -- Pack pooled → flat vector for AXI (PL→PS)
-    -- ============================================
+    -- Pack pooled
     pooled_flat(15  downto 0)   <= std_logic_vector(pooled(0,0));
     pooled_flat(31  downto 16)  <= std_logic_vector(pooled(0,1));
     pooled_flat(47  downto 32)  <= std_logic_vector(pooled(0,2));
@@ -298,15 +266,11 @@ begin
     pooled_flat(111 downto 96)  <= std_logic_vector(pooled(0,6));
     pooled_flat(127 downto 112) <= std_logic_vector(pooled(0,7));
 
-    -- ============================================
     -- PL status
-    -- ============================================
     pl_busy <= '1' when (state /= IDLE and state /= DONE_ST) else '0';
     pl_done <= '1' when state = DONE_ST else '0';
 
-    -- ============================================
     -- X loading counter
-    -- ============================================
     process(clk)
     begin
         if rising_edge(clk) then
@@ -350,6 +314,7 @@ begin
                 attn_out_done_lat    <= '0';
                 ff_done_lat          <= '0';
                 pool_done_lat        <= '0';
+                ps_ack_seen          <= '0';
             else
                 qkv_start      <= '0';
                 attn_start     <= '0';
@@ -366,6 +331,7 @@ begin
                         attn_out_done_lat    <= '0';
                         ff_done_lat          <= '0';
                         pool_done_lat        <= '0';
+                        ps_ack_seen          <= '0';
                         if pl_start = '1' then
                             state     <= RUN_QKV;
                             qkv_start <= '1';
@@ -394,14 +360,25 @@ begin
                             state <= SEND_S;
                         end if;
 
+                    -- *** FIX: hold here until PS clears pl_start ***
+                    -- PS protocol:
+                    --   1. PS sees pl_done=1 (DONE_ST not used here, pl_busy=1 still)
+                    --   Wait - actually we use pl_busy here.
+                    --   PS sees S ready (pl_done not set yet in SEND_S)
+                    --   PS reads S, writes Attn, clears pl_start=0
+                    --   PL sees pl_start=0 → proceeds
                     when SEND_S =>
-                        state <= WAIT_PS;
-
-                    when WAIT_PS =>
+                        -- Wait here while pl_start is still high
+                        -- PS will read S, write Attn, then clear pl_start
                         if pl_start = '0' then
                             state          <= RUN_ATTN_OUT;
                             attn_out_start <= '1';
                         end if;
+
+                    -- WAIT_PS no longer needed - removed
+                    -- kept in type for safety but never entered
+                    when WAIT_PS =>
+                        state <= SEND_S;
 
                     when RUN_ATTN_OUT =>
                         state <= WAIT_ATTN_OUT;
@@ -454,9 +431,7 @@ begin
         end if;
     end process;
 
-    -- ============================================
     -- Component instantiations
-    -- ============================================
     design_1_wrapper_i : design_1_wrapper
         port map (
             Attn_mat_0        => Attn_mat_flat,
@@ -486,7 +461,7 @@ begin
             pl_busy_0         => pl_busy,
             pl_done_0         => pl_done,
             pl_start_0        => pl_start,
-            pooled_in_0       => pooled_flat,   -- NEW
+            pooled_in_0       => pooled_flat,
             pl_clk0           => fclk_clk0,
             pl_resetn         => pl_resetn_sig
         );

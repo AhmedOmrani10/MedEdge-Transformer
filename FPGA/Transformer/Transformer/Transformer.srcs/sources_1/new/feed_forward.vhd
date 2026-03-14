@@ -5,22 +5,17 @@ use work.transformer_pkg.all;
 
 entity feed_forward is
     port (
-        clk     : in  std_logic;
-        rst     : in  std_logic;
-        start   : in  std_logic;
-        O_mat   : in  matrix_4x8;
-        FF_out  : out matrix_4x8;
-        done    : out std_logic
+        clk    : in  std_logic;
+        rst    : in  std_logic;
+        start  : in  std_logic;
+        X_in   : in  matrix_4x8;
+        Y_out  : out matrix_4x8;
+        done   : out std_logic
     );
 end feed_forward;
 
 architecture Behavioral of feed_forward is
 
-    -- ============================================
-    -- FF1 weights [16][8] and bias [16]
-    -- FF1: 8 -> 16
-    -- Stored as [out(16)][in(8)] = 128 elements
-    -- ============================================
     type weight_16x8 is array(0 to 127) of signed(15 downto 0);
     type weight_8x16 is array(0 to 127) of signed(15 downto 0);
     type bias_16     is array(0 to 15)  of signed(15 downto 0);
@@ -68,10 +63,6 @@ architecture Behavioral of feed_forward is
         to_signed(6207,16),  to_signed(7811,16),  to_signed(14413,16), to_signed(-11931,16)
     );
 
-    -- ============================================
-    -- FF2 weights [8][16] and bias [8]
-    -- FF2: 16 -> 8
-    -- ============================================
     constant FF2_W : weight_8x16 := (
         to_signed(-30637,16),to_signed(11634,16), to_signed(32765,16), to_signed(-32768,16),
         to_signed(-1459,16), to_signed(-6264,16), to_signed(3296,16),  to_signed(214,16),
@@ -112,28 +103,23 @@ architecture Behavioral of feed_forward is
         to_signed(-14851,16),to_signed(-2730,16), to_signed(9083,16),  to_signed(-13,16)
     );
 
-    -- ============================================
-    -- Internal signals
-    -- ============================================
-    -- Hidden layer [4][16] after FF1 + ReLU
     type matrix_4x16 is array(0 to 3, 0 to 15) of signed(15 downto 0);
-    signal H_reg     : matrix_4x16 := (others => (others => (others => '0')));
-    signal FF_reg    : matrix_4x8  := (others => (others => (others => '0')));
-
-    signal acc       : signed(31 downto 0) := (others => '0');
+    signal H_reg    : matrix_4x16 := (others => (others => (others => '0')));
+    signal FF_reg   : matrix_4x8  := (others => (others => (others => '0')));
+    signal acc      : signed(31 downto 0) := (others => '0');
 
     type state_t is (IDLE, FF1_COMPUTE, FF2_COMPUTE, OUTPUT);
-    signal state     : state_t := IDLE;
+    signal state    : state_t := IDLE;
 
-    signal comp_row  : integer range 0 to 4  := 0;
-    signal comp_col  : integer range 0 to 16 := 0;
-    signal elem_cnt  : integer range 0 to 16 := 0;
-    signal done_reg  : std_logic := '0';
+    signal comp_row : integer range 0 to 4  := 0;
+    signal comp_col : integer range 0 to 16 := 0;
+    signal elem_cnt : integer range 0 to 16 := 0;
+    signal done_reg : std_logic := '0';
 
 begin
 
-    done   <= done_reg;
-    FF_out <= FF_reg;
+    done  <= done_reg;
+    Y_out <= FF_reg;
 
     process(clk)
         variable result : signed(15 downto 0);
@@ -163,35 +149,26 @@ begin
                             acc      <= (others => '0');
                         end if;
 
-                    -- ----------------------------------------
-                    -- FF1: H[row][col] = ReLU(O_mat[row] @ FF1_W[col] + FF1_B[col])
-                    -- ----------------------------------------
                     when FF1_COMPUTE =>
                         if elem_cnt < 8 then
-                            acc      <= acc + (O_mat(comp_row, elem_cnt) *
+                            acc      <= acc + (X_in(comp_row, elem_cnt) *
                                         FF1_W(comp_col * 8 + elem_cnt));
                             elem_cnt <= elem_cnt + 1;
                         else
-                            -- Add bias and apply ReLU
                             result := acc(30 downto 15) + FF1_B(comp_col);
-
-                            -- ReLU: clamp negatives to zero
                             if result < 0 then
                                 H_reg(comp_row, comp_col) <= (others => '0');
                             else
                                 H_reg(comp_row, comp_col) <= result;
                             end if;
-
                             acc      <= (others => '0');
                             elem_cnt <= 0;
-
                             if comp_col < 15 then
                                 comp_col <= comp_col + 1;
                             elsif comp_row < 3 then
                                 comp_col <= 0;
                                 comp_row <= comp_row + 1;
                             else
-                                -- Move to FF2
                                 state    <= FF2_COMPUTE;
                                 comp_row <= 0;
                                 comp_col <= 0;
@@ -200,21 +177,15 @@ begin
                             end if;
                         end if;
 
-                    -- ----------------------------------------
-                    -- FF2: FF_out[row][col] = H[row] @ FF2_W[col] + FF2_B[col]
-                    -- ----------------------------------------
                     when FF2_COMPUTE =>
                         if elem_cnt < 16 then
                             acc      <= acc + (H_reg(comp_row, elem_cnt) *
                                         FF2_W(comp_col * 16 + elem_cnt));
                             elem_cnt <= elem_cnt + 1;
                         else
-                            -- Add bias
                             FF_reg(comp_row, comp_col) <= acc(30 downto 15) + FF2_B(comp_col);
-
                             acc      <= (others => '0');
                             elem_cnt <= 0;
-
                             if comp_col < 7 then
                                 comp_col <= comp_col + 1;
                             elsif comp_row < 3 then

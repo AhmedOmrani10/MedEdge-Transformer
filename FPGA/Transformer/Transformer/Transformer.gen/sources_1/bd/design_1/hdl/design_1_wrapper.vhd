@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Fri Mar 13 05:29:53 2026
+--Date        : Sat Mar 14 04:34:55 2026
 --Host        : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -42,7 +42,8 @@ entity design_1_wrapper is
     pl_clk0 : out STD_LOGIC;
     pl_done_0 : in STD_LOGIC;
     pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
-    pl_start_0 : out STD_LOGIC
+    pl_start_0 : out STD_LOGIC;
+    pooled_in_0 : in STD_LOGIC_VECTOR ( 127 downto 0 )
   );
 end design_1_wrapper;
 
@@ -77,7 +78,8 @@ architecture STRUCTURE of design_1_wrapper is
     pl_start_0 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
-    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 )
+    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 );
+    pooled_in_0 : in STD_LOGIC_VECTOR ( 127 downto 0 )
   );
   end component design_1;
 begin
@@ -111,6 +113,7 @@ design_1_i: component design_1
       pl_clk0 => pl_clk0,
       pl_done_0 => pl_done_0,
       pl_resetn(0) => pl_resetn(0),
-      pl_start_0 => pl_start_0
+      pl_start_0 => pl_start_0,
+      pooled_in_0(127 downto 0) => pooled_in_0(127 downto 0)
     );
 end STRUCTURE;
