@@ -106,7 +106,6 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 4
-  set_param bd.open.in_stealth_mode 1
   set_param runs.launchOptions { -jobs 8  }
   open_checkpoint top_level_routed.dcp
   set_property webtalk.parent_dir C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.cache/wt [current_project]

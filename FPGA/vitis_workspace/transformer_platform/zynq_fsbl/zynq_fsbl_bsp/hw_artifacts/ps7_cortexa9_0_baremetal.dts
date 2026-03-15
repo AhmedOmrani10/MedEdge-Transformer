@@ -787,7 +787,7 @@
                 compatible = "simple-bus";
                 #address-cells = <0x1>;
                 #size-cells = <0x1>;
-                firmware-name = "design_1_wrapper.bit.bin";
+                firmware-name = "top_level.bit.bin";
                 phandle = <0x4b>;
 
                 clocking0: clocking0 {

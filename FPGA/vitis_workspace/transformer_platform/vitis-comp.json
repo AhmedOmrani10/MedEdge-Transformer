@@ -3,8 +3,8 @@
   "type": "PLATFORM",
   "configuration": {
     "description": "",
-    "xsa": "C:\\Users\\Ahmed\\Desktop\\MedEdge-Transformer\\FPGA\\Transformer\\design_1_wrapper.xsa",
-    "xsaPathInPlatform": "transformer_platform\\hw\\design_1_wrapper.xsa",
+    "xsa": "C:\\Users\\Ahmed\\Desktop\\MedEdge-Transformer\\FPGA\\Transformer\\Transformer\\top_level.xsa",
+    "xsaPathInPlatform": "transformer_platform\\hw\\top_level.xsa",
     "emulationXsa": "",
     "emulationXsaPathInPlatform": "",
     "isCustomFSBL": false,
