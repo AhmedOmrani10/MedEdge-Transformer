@@ -1,1 +1,5 @@
 Time resolution is 1 ps
+Note: === Checking FF2 output Y ===
+Time: 11275 ns  Iteration: 0  Process: /tb_feed_forward/line__61  File: C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/tb_feed_forward.vhd
+Note: FEED FORWARD: ALL TESTS PASSED!
+Time: 11275 ns  Iteration: 0  Process: /tb_feed_forward/line__61  File: C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/tb_feed_forward.vhd

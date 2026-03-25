@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1773545376" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/dot_product.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1774346144" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/dot_product.dcp">
   <File Type="PA-TCL" Name="top_level.tcl"/>
   <File Type="REPORTS-TCL" Name="top_level_reports.tcl"/>
   <File Type="RDS-RDS" Name="top_level.vds"/>
@@ -66,7 +66,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/tb_qkv_projector.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/dot_product.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/tb_feed_forward.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

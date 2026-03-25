@@ -17,26 +17,24 @@ end attention_output;
 
 architecture Behavioral of attention_output is
 
-    signal O_reg     : matrix_4x8 := (others => (others => (others => '0')));
-    signal acc       : signed(31 downto 0) := (others => '0');
+    signal O_reg    : matrix_4x8 := (others => (others => (others => '0')));
+    signal acc      : signed(39 downto 0) := (others => '0');
 
     type state_t is (IDLE, COMPUTE, OUTPUT);
-    signal state     : state_t := IDLE;
+    signal state    : state_t := IDLE;
 
-    signal comp_row  : integer range 0 to 4 := 0;
-    signal comp_col  : integer range 0 to 8 := 0;
-    signal elem_cnt  : integer range 0 to 4 := 0;
-    signal done_reg  : std_logic := '0';
+    signal comp_row : integer range 0 to 4 := 0;
+    signal comp_col : integer range 0 to 8 := 0;
+    signal elem_cnt : integer range 0 to 4 := 0;
+    signal done_reg : std_logic := '0';
 
 begin
-
     done  <= done_reg;
     O_mat <= O_reg;
 
     process(clk)
     begin
         if rising_edge(clk) then
-
             done_reg <= '0';
 
             if rst = '1' then
@@ -46,7 +44,6 @@ begin
                 elem_cnt <= 0;
                 acc      <= (others => '0');
                 O_reg    <= (others => (others => (others => '0')));
-
             else
                 case state is
 
@@ -60,15 +57,14 @@ begin
                         end if;
 
                     when COMPUTE =>
-                        -- O[comp_row][comp_col] += Attn[comp_row][k] * V[k][comp_col]
                         if elem_cnt < 4 then
-                            acc      <= acc + (Attn(comp_row, elem_cnt) *
-                                        V_mat(elem_cnt, comp_col));
+                            -- FIX: use to_integer to avoid 32-bit overflow
+                            acc      <= acc + to_signed(
+                                to_integer(Attn(comp_row, elem_cnt)) *
+                                to_integer(V_mat(elem_cnt, comp_col)), 40);
                             elem_cnt <= elem_cnt + 1;
                         else
-                            -- Store result: take bits [30:15] for Q1.15
                             O_reg(comp_row, comp_col) <= acc(30 downto 15);
-
                             acc      <= (others => '0');
                             elem_cnt <= 0;
 
@@ -93,5 +89,4 @@ begin
             end if;
         end if;
     end process;
-
 end Behavioral;

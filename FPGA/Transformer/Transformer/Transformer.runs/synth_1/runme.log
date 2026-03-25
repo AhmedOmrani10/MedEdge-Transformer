@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sun Mar 15 04:29:41 2026
+  **** Start of session at: Tue Mar 24 10:55:49 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -32,9 +32,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 24188
+INFO: [Synth 8-7075] Helper process launched with PID 19500
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1068.273 ; gain = 471.527
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1067.582 ; gain = 469.035
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 'x_in' is neither a static name nor a globally static expression [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:474]
 INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:32]
@@ -204,18 +204,18 @@ INFO: [Synth 8-256] done synthesizing module 'design_1_transformer_axi_0_2' (0#1
 INFO: [Synth 8-256] done synthesizing module 'design_1' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/synth/design_1.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:50]
 WARNING: [Synth 8-547] port direction mismatch for port 'X_mat_0' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:435]
-INFO: [Synth 8-3491] module 'qkv_projector' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:5' bound to instance 'qkv_projector_i' of component 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:469]
-INFO: [Synth 8-638] synthesizing module 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:26]
-INFO: [Synth 8-256] done synthesizing module 'qkv_projector' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:26]
+INFO: [Synth 8-3491] module 'qkv_projector' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:6' bound to instance 'qkv_projector_i' of component 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:469]
+INFO: [Synth 8-638] synthesizing module 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'qkv_projector' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:25]
 INFO: [Synth 8-3491] module 'attention_score' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:6' bound to instance 'attention_score_i' of component 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:487]
-INFO: [Synth 8-638] synthesizing module 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:26]
-INFO: [Synth 8-256] done synthesizing module 'attention_score' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:26]
+INFO: [Synth 8-638] synthesizing module 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'attention_score' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:22]
 INFO: [Synth 8-3491] module 'attention_output' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:6' bound to instance 'attention_output_i' of component 'attention_output' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:502]
 INFO: [Synth 8-638] synthesizing module 'attention_output' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'attention_output' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:18]
 INFO: [Synth 8-3491] module 'feed_forward' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:6' bound to instance 'feed_forward_i' of component 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:513]
 INFO: [Synth 8-638] synthesizing module 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:17]
-INFO: [Synth 8-226] default block is never used [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:141]
+INFO: [Synth 8-226] default block is never used [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:135]
 INFO: [Synth 8-256] done synthesizing module 'feed_forward' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:17]
 INFO: [Synth 8-3491] module 'avg_pool' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd:6' bound to instance 'avg_pool_i' of component 'avg_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:523]
 INFO: [Synth 8-638] synthesizing module 'avg_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd:17]
@@ -326,20 +326,20 @@ WARNING: [Synth 8-7129] Port areset in module sc_util_v1_0_4_pipeline__parameter
 WARNING: [Synth 8-7129] Port aclk in module sc_node_v1_0_17_reg_slice3 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1356.227 ; gain = 759.480
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1362.734 ; gain = 764.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1356.227 ; gain = 759.480
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1362.734 ; gain = 764.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1356.227 ; gain = 759.480
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1362.734 ; gain = 764.188
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1356.227 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1362.734 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -369,24 +369,24 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_pr
 INFO: [Project 1-1714] 14 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1588.824 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1598.051 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 26 instances were transformed.
   FDR => FDRE: 24 instances
   SRL16 => SRL16E: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.144 . Memory (MB): peak = 1588.824 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.135 . Memory (MB): peak = 1598.051 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1588.824 ; gain = 992.078
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1588.824 ; gain = 992.078
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -414,7 +414,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/xpm_cdc_async_rst_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/xpm_cdc_async_rst_inst. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1588.824 ; gain = 992.078
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'gen_axi.gen_write.write_cs_reg' in module 'sc_mmu_v1_0_14_decerr_slave'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_endpoint.w_state_reg' in module 'sc_mmu_v1_0_14_top'
@@ -533,16 +533,16 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'avg_pool'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:53 . Memory (MB): peak = 1588.824 ; gain = 992.078
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1598.051 ; gain = 999.504
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   27 Bit       Adders := 2     
 	   2 Input   24 Bit       Adders := 1     
 	   4 Input   18 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 2     
 	   2 Input   12 Bit       Adders := 2     
 	   2 Input   10 Bit       Adders := 1     
 	   2 Input    9 Bit       Adders := 3     
@@ -565,8 +565,9 @@ Detailed RTL Component Info :
 	               69 Bit    Registers := 1     
 	               64 Bit    Registers := 4     
 	               47 Bit    Registers := 1     
+	               40 Bit    Registers := 11    
 	               33 Bit    Registers := 1     
-	               32 Bit    Registers := 65    
+	               32 Bit    Registers := 54    
 	               24 Bit    Registers := 1     
 	               23 Bit    Registers := 1     
 	               16 Bit    Registers := 285   
@@ -582,12 +583,16 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 156   
 +---Muxes : 
 	   2 Input 2178 Bit        Muxes := 2     
-	   2 Input   32 Bit        Muxes := 57    
-	   4 Input   32 Bit        Muxes := 3     
-	   3 Input   32 Bit        Muxes := 5     
+	   2 Input   40 Bit        Muxes := 6     
+	   4 Input   40 Bit        Muxes := 1     
+	   3 Input   40 Bit        Muxes := 4     
+	   2 Input   32 Bit        Muxes := 51    
+	   4 Input   32 Bit        Muxes := 2     
+	   3 Input   32 Bit        Muxes := 1     
 	  15 Input   24 Bit        Muxes := 1     
 	   2 Input   24 Bit        Muxes := 1     
 	   4 Input   16 Bit        Muxes := 69    
+	   2 Input   16 Bit        Muxes := 10    
 	   8 Input   16 Bit        Muxes := 1     
 	   2 Input   12 Bit        Muxes := 7     
 	   5 Input   12 Bit        Muxes := 1     
@@ -650,9 +655,9 @@ DSP Report: Generating DSP acc0, operation Mode is: C'+A*B.
 DSP Report: register acc_reg is absorbed into DSP acc0.
 DSP Report: operator acc0 is absorbed into DSP acc0.
 DSP Report: operator acc1 is absorbed into DSP acc0.
-DSP Report: Generating DSP ARG, operation Mode is: A2*(B:0x2d41).
-DSP Report: register ARG is absorbed into DSP ARG.
-DSP Report: operator ARG is absorbed into DSP ARG.
+DSP Report: Generating DSP s_clamped3, operation Mode is: A2*(B:0x2d41).
+DSP Report: register s_clamped3 is absorbed into DSP s_clamped3.
+DSP Report: operator s_clamped3 is absorbed into DSP s_clamped3.
 DSP Report: Generating DSP acc_q0, operation Mode is: C'+A*B.
 DSP Report: register acc_q_reg is absorbed into DSP acc_q0.
 DSP Report: operator acc_q0 is absorbed into DSP acc_q0.
@@ -690,16 +695,16 @@ WARNING: [Synth 8-3332] Sequential element (BSR_OUT_DFF[0].FDRE_BSR) is unused a
 WARNING: [Synth 8-3332] Sequential element (ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N) is unused and will be removed from module proc_sys_reset__parameterized1.
 WARNING: [Synth 8-3332] Sequential element (PR_OUT_DFF[0].FDRE_PER) is unused and will be removed from module proc_sys_reset__parameterized1.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 1588.824 ; gain = 992.078
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:16 ; elapsed = 00:01:19 . Memory (MB): peak = 1598.051 ; gain = 999.504
 ---------------------------------------------------------------------------------
- Sort Area is top_level__GB1 acc0_0 : 0 0 : 2064 2064 : Used 1 time 0
- Sort Area is top_level__GB1 acc0_2 : 0 0 : 2064 2064 : Used 1 time 0
- Sort Area is top_level__GB1 acc0_3 : 0 0 : 2064 2064 : Used 1 time 0
+ Sort Area is top_level__GB1 acc0_0 : 0 0 : 2105 2105 : Used 1 time 0
+ Sort Area is top_level__GB1 acc0_2 : 0 0 : 2105 2105 : Used 1 time 0
+ Sort Area is top_level__GB1 acc0_3 : 0 0 : 2105 2105 : Used 1 time 0
+ Sort Area is top_level__GB1 acc_v0_c : 0 0 : 2105 2105 : Used 1 time 0
  Sort Area is top_level__GB1 acc0_4 : 0 0 : 2064 2064 : Used 1 time 0
- Sort Area is top_level__GB1 acc_v0_a : 0 0 : 2064 2064 : Used 1 time 0
- Sort Area is top_level__GB1 acc_k0_9 : 0 0 : 1932 1932 : Used 1 time 0
- Sort Area is top_level__GB1 acc_q0_7 : 0 0 : 1932 1932 : Used 1 time 0
- Sort Area is top_level__GB1 ARG_5 : 0 0 : 884 884 : Used 1 time 0
+ Sort Area is top_level__GB1 acc_q0_8 : 0 0 : 1972 1972 : Used 1 time 0
+ Sort Area is top_level__GB1 acc_k0_a : 0 0 : 1829 1829 : Used 1 time 0
+ Sort Area is top_level__GB1 s_clamped3_6 : 0 0 : 884 884 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -709,14 +714,14 @@ ROM: Preliminary Mapping Report
 |Module Name   | RTL Object | Depth x Width | Implemented As | 
 +--------------+------------+---------------+----------------+
 |qkv_projector | Wq[0]      | 64x16         | LUT            | 
-|qkv_projector | Wk[0]      | 64x16         | LUT            | 
+|qkv_projector | Wk[0]      | 64x15         | LUT            | 
 |qkv_projector | Wv[0]      | 64x16         | LUT            | 
 |feed_forward  | FF1_W[0]   | 128x16        | LUT            | 
 |feed_forward  | FF2_W[0]   | 128x16        | LUT            | 
 |feed_forward  | FF2_W[0]   | 128x16        | LUT            | 
 |feed_forward  | FF1_W[0]   | 128x16        | LUT            | 
 |qkv_projector | Wq[0]      | 64x16         | LUT            | 
-|qkv_projector | Wk[0]      | 64x16         | LUT            | 
+|qkv_projector | Wk[0]      | 64x15         | LUT            | 
 |qkv_projector | Wv[0]      | 64x16         | LUT            | 
 +--------------+------------+---------------+----------------+
 
@@ -725,14 +730,14 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name      | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|feed_forward     | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_output | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|feed_forward     | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|feed_forward     | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|attention_output | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 |attention_score  | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 |attention_score  | A2*(B:0x2d41) | 16     | 15     | -      | -      | 31     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 15     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 15     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B        | 16     | 15     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B        | 16     | 14     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 +-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
@@ -743,19 +748,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:40 ; elapsed = 00:01:44 . Memory (MB): peak = 1764.902 ; gain = 1168.156
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 1756.781 ; gain = 1158.234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:50 ; elapsed = 00:01:54 . Memory (MB): peak = 1908.203 ; gain = 1311.457
+Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 1916.559 ; gain = 1318.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:58 ; elapsed = 00:02:03 . Memory (MB): peak = 1908.203 ; gain = 1311.457
+Finished Technology Mapping : Time (s): cpu = 00:01:40 ; elapsed = 00:01:43 . Memory (MB): peak = 1916.559 ; gain = 1318.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -773,37 +778,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:06 ; elapsed = 00:02:11 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished IO Insertion : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:06 ; elapsed = 00:02:11 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:08 ; elapsed = 00:02:12 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:08 ; elapsed = 00:02:12 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:08 ; elapsed = 00:02:13 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:08 ; elapsed = 00:02:13 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -813,14 +818,14 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name      | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|attention_output | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|attention_output | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 |attention_score  | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 |attention_score  | A'*B        | 30     | 14     | -      | -      | 31     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B      | 15     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|feed_forward     | C'+A*B      | 15     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|feed_forward     | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
 +-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
@@ -836,47 +841,47 @@ Report Cell Usage:
 +------+--------+------+
 |1     |BIBUF   |   130|
 |2     |BUFG    |     1|
-|3     |CARRY4  |    24|
+|3     |CARRY4  |    50|
 |4     |DSP48E1 |     8|
-|6     |LUT1    |    81|
-|7     |LUT2    |   160|
-|8     |LUT3    |   377|
-|9     |LUT4    |   163|
-|10    |LUT5    |   377|
-|11    |LUT6    |  2456|
+|6     |LUT1    |    91|
+|7     |LUT2    |   401|
+|8     |LUT3    |   424|
+|9     |LUT4    |   184|
+|10    |LUT5    |   471|
+|11    |LUT6    |  2463|
 |12    |MUXF7   |   886|
 |13    |MUXF8   |   187|
 |14    |PS7     |     1|
 |15    |SRL16   |     2|
 |16    |FDCE    |    42|
 |17    |FDR     |     8|
-|18    |FDRE    |  6701|
-|19    |FDSE    |    17|
+|18    |FDRE    |  5297|
+|19    |FDSE    |  1457|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:08 ; elapsed = 00:02:13 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:34 ; elapsed = 00:01:57 . Memory (MB): peak = 2014.906 ; gain = 1185.562
-Synthesis Optimization Complete : Time (s): cpu = 00:02:09 ; elapsed = 00:02:13 . Memory (MB): peak = 2014.906 ; gain = 1418.160
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:15 ; elapsed = 00:01:35 . Memory (MB): peak = 2022.043 ; gain = 1188.180
+Synthesis Optimization Complete : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.346 . Memory (MB): peak = 2014.906 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1115 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.325 . Memory (MB): peak = 2022.043 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1141 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2027.672 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2034.789 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   FDR => FDRE: 8 instances
   SRL16 => SRL16E: 2 instances
 
-Synth Design complete | Checksum: 5e5a4cfa
+Synth Design complete | Checksum: e7e082ec
 INFO: [Common 17-83] Releasing license: Synthesis
 182 Infos, 151 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:17 ; elapsed = 00:02:37 . Memory (MB): peak = 2027.672 ; gain = 1665.023
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2027.672 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:02:12 . Memory (MB): peak = 2034.789 ; gain = 1671.270
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2034.789 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/top_level.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Mar 15 04:32:27 2026...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 24 10:58:10 2026...

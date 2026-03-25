@@ -1,7 +1,0 @@
-Running: xsim.dir/attention_score_behav/xsimk.exe -simmode gui -wdb attention_score_behav.wdb -simrunnum 0 -socket 53759
-Design successfully loaded
-Design Loading Memory Usage: 26536 KB (Peak: 26536 KB)
-Design Loading CPU Usage: 733 ms
-Simulation completed
-Simulation Memory Usage: 27392 KB (Peak: 27392 KB)
-Simulation CPU Usage: 812 ms
