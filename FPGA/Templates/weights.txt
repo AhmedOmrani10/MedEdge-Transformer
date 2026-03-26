@@ -1,0 +1,129 @@
+Epoch [200/5000] Loss=0.1727 TestAcc=93.3% Best=93.3%
+Epoch [400/5000] Loss=0.1272 TestAcc=93.3% Best=93.3%
+Epoch [600/5000] Loss=0.1139 TestAcc=93.3% Best=93.3%
+Epoch [800/5000] Loss=0.1074 TestAcc=93.3% Best=93.3%
+Epoch [1000/5000] Loss=0.1027 TestAcc=93.3% Best=93.3%
+Epoch [1200/5000] Loss=0.1010 TestAcc=93.3% Best=93.3%
+Epoch [1400/5000] Loss=0.0996 TestAcc=93.3% Best=93.3%
+Epoch [1600/5000] Loss=0.0987 TestAcc=93.3% Best=93.3%
+Epoch [1800/5000] Loss=0.0983 TestAcc=93.3% Best=93.3%
+Epoch [2000/5000] Loss=0.0978 TestAcc=93.3% Best=93.3%
+Epoch [2200/5000] Loss=0.0976 TestAcc=93.3% Best=93.3%
+Epoch [2400/5000] Loss=0.0974 TestAcc=93.3% Best=93.3%
+Epoch [2600/5000] Loss=0.0973 TestAcc=93.3% Best=93.3%
+Epoch [2800/5000] Loss=0.0972 TestAcc=93.3% Best=93.3%
+Epoch [3000/5000] Loss=0.0971 TestAcc=93.3% Best=93.3%
+Epoch [3200/5000] Loss=0.0970 TestAcc=93.3% Best=93.3%
+Epoch [3400/5000] Loss=0.0970 TestAcc=93.3% Best=93.3%
+Epoch [3600/5000] Loss=0.0969 TestAcc=93.3% Best=93.3%
+Epoch [3800/5000] Loss=0.0969 TestAcc=93.3% Best=93.3%
+Epoch [4000/5000] Loss=0.0969 TestAcc=93.3% Best=93.3%
+Epoch [4200/5000] Loss=0.0968 TestAcc=93.3% Best=93.3%
+Epoch [4400/5000] Loss=0.0968 TestAcc=93.3% Best=93.3%
+Epoch [4600/5000] Loss=0.0968 TestAcc=93.3% Best=93.3%
+Epoch [4800/5000] Loss=0.0968 TestAcc=93.3% Best=93.3%
+Epoch [5000/5000] Loss=0.0968 TestAcc=93.3% Best=93.3%
+
+Full Dataset Accuracy: 92.7%
+
+=== Checking FPGA overflow for all 15 samples ===
+  [ 0] true=Setosa       pred=Setosa       OK  emb_max=0.612
+  [ 1] true=Setosa       pred=Setosa       OK  emb_max=0.893
+  [ 2] true=Setosa       pred=Setosa       OK  emb_max=0.752
+  [ 3] true=Setosa       pred=Setosa       OK  emb_max=0.576
+  [ 4] true=Setosa       pred=Setosa       OK  emb_max=0.576
+  [ 5] true=Versicolor   pred=Versicolor   OK  emb_max=0.707
+  [ 6] true=Versicolor   pred=Versicolor   OK  emb_max=0.429
+  [ 7] true=Versicolor   pred=Versicolor   OK  emb_max=0.425
+  [ 8] true=Versicolor   pred=Versicolor   OK  emb_max=0.778
+  [ 9] true=Versicolor   pred=Versicolor   OK  emb_max=0.341
+  [10] true=Virginica    pred=Virginica    OK  emb_max=0.824
+  [11] true=Virginica    pred=Virginica    OK  emb_max=0.582
+  [12] true=Virginica    pred=Virginica    OK  emb_max=0.620
+  [13] true=Virginica    pred=Virginica    OK  emb_max=0.622
+  OVERFLOW in Wv[14]: max_acc=2518889897 > 2147483648
+  [14] true=Virginica    pred=Virginica    OK  emb_max=0.743
+FPGA samples: 15/15 = 100.0%
+
+=== Embedding for main.c ===
+W_emb: {10048, -10010, -9998, -10006, -10016, -9993, 10005, 9999}
+b_emb: {-5664, -9718, -9704, -9840, -9837, -766, 9844, 5458}
+
+=== Classifier for main.c ===
+W_fc[3][8]:
+{18689, 21779, 24476, -13832, -22131, -18133, 8446, -24465},
+{-7847, -21577, -11901, -30114, 14081, -18203, 24167, 21807},
+{-24251, -16434, -20555, 22120, 17007, 19927, -32088, 13119},
+b_fc[3]: {1719, 10784, -6633}
+
+=== Wq for qkv_projector.vhd ===
+        to_signed(8669,16), to_signed(3118,16), to_signed(-726,16), to_signed(2292,16), to_signed(350,16), to_signed(-7721,16), to_signed(-7697,16), to_signed(3908,16),
+        to_signed(7107,16), to_signed(119,16), to_signed(-3557,16), to_signed(-1520,16), to_signed(1746,16), to_signed(-4820,16), to_signed(-3997,16), to_signed(4662,16),
+        to_signed(-3882,16), to_signed(-261,16), to_signed(733,16), to_signed(2764,16), to_signed(882,16), to_signed(4262,16), to_signed(4480,16), to_signed(-2585,16),
+        to_signed(5899,16), to_signed(-572,16), to_signed(-761,16), to_signed(-3367,16), to_signed(-4571,16), to_signed(-6779,16), to_signed(-1049,16), to_signed(443,16),
+        to_signed(6797,16), to_signed(2304,16), to_signed(-1158,16), to_signed(-3124,16), to_signed(-3152,16), to_signed(-7089,16), to_signed(-3380,16), to_signed(3087,16),
+        to_signed(-7870,16), to_signed(-3070,16), to_signed(967,16), to_signed(-3122,16), to_signed(1993,16), to_signed(7110,16), to_signed(4363,16), to_signed(-3902,16),
+        to_signed(7551,16), to_signed(1181,16), to_signed(497,16), to_signed(-686,16), to_signed(-2796,16), to_signed(-7866,16), to_signed(-5781,16), to_signed(-292,16),
+        to_signed(7307,16), to_signed(3345,16), to_signed(-429,16), to_signed(-339,16), to_signed(-3003,16), to_signed(-8297,16), to_signed(-3180,16), to_signed(2948,16),
+
+=== Wk for qkv_projector.vhd ===
+        to_signed(-3466,16), to_signed(7467,16), to_signed(660,16), to_signed(2133,16), to_signed(2828,16), to_signed(-959,16), to_signed(-2757,16), to_signed(-4267,16),
+        to_signed(-2838,16), to_signed(1948,16), to_signed(624,16), to_signed(3401,16), to_signed(276,16), to_signed(145,16), to_signed(-480,16), to_signed(-2278,16),
+        to_signed(3320,16), to_signed(530,16), to_signed(528,16), to_signed(-2568,16), to_signed(-1760,16), to_signed(-1479,16), to_signed(1222,16), to_signed(140,16),
+        to_signed(-2697,16), to_signed(-2178,16), to_signed(2278,16), to_signed(99,16), to_signed(-1990,16), to_signed(-1009,16), to_signed(2273,16), to_signed(-2451,16),
+        to_signed(-4152,16), to_signed(2408,16), to_signed(-1289,16), to_signed(-1956,16), to_signed(2397,16), to_signed(-47,16), to_signed(-392,16), to_signed(-1090,16),
+        to_signed(6486,16), to_signed(-3124,16), to_signed(494,16), to_signed(-2965,16), to_signed(-1702,16), to_signed(971,16), to_signed(3533,16), to_signed(1208,16),
+        to_signed(-2368,16), to_signed(3518,16), to_signed(-652,16), to_signed(648,16), to_signed(2439,16), to_signed(-1458,16), to_signed(-2219,16), to_signed(-4977,16),
+        to_signed(-5969,16), to_signed(539,16), to_signed(-1967,16), to_signed(185,16), to_signed(2666,16), to_signed(-217,16), to_signed(-4259,16), to_signed(57,16),
+
+=== Wv for qkv_projector.vhd ===
+        to_signed(-9593,16), to_signed(11531,16), to_signed(4422,16), to_signed(5124,16), to_signed(8681,16), to_signed(12120,16), to_signed(-12230,16), to_signed(-13524,16),
+        to_signed(16589,16), to_signed(-16561,16), to_signed(-16558,16), to_signed(-16571,16), to_signed(-16578,16), to_signed(-16566,16), to_signed(16558,16), to_signed(16587,16),
+        to_signed(-5865,16), to_signed(7260,16), to_signed(5781,16), to_signed(12970,16), to_signed(15001,16), to_signed(11474,16), to_signed(-499,16), to_signed(-9778,16),
+        to_signed(-8883,16), to_signed(6360,16), to_signed(7478,16), to_signed(10740,16), to_signed(9277,16), to_signed(4457,16), to_signed(-14069,16), to_signed(-6666,16),
+        to_signed(-16542,16), to_signed(16485,16), to_signed(16489,16), to_signed(16496,16), to_signed(16500,16), to_signed(16515,16), to_signed(-16484,16), to_signed(-16512,16),
+        to_signed(16426,16), to_signed(-7160,16), to_signed(-10596,16), to_signed(-14467,16), to_signed(-15946,16), to_signed(-16432,16), to_signed(9366,16), to_signed(16471,16),
+        to_signed(8954,16), to_signed(-8088,16), to_signed(-8831,16), to_signed(-1325,16), to_signed(-1286,16), to_signed(-10357,16), to_signed(2260,16), to_signed(9935,16),
+        to_signed(16552,16), to_signed(-16516,16), to_signed(-16518,16), to_signed(-16526,16), to_signed(-16529,16), to_signed(-16532,16), to_signed(16516,16), to_signed(16539,16),
+
+=== FF1_W for feed_forward.vhd ===
+        to_signed(-16445,16), to_signed(-16569,16), to_signed(-16453,16), to_signed(-16444,16), to_signed(16519,16), to_signed(-12975,16), to_signed(16522,16), to_signed(-16580,16),
+        to_signed(583,16), to_signed(-8789,16), to_signed(-16408,16), to_signed(-4156,16), to_signed(10989,16), to_signed(-10796,16), to_signed(8679,16), to_signed(-9138,16),
+        to_signed(6262,16), to_signed(-15846,16), to_signed(-3656,16), to_signed(6664,16), to_signed(14729,16), to_signed(-15746,16), to_signed(-3444,16), to_signed(-15923,16),
+        to_signed(16457,16), to_signed(16505,16), to_signed(16473,16), to_signed(14797,16), to_signed(-16480,16), to_signed(2693,16), to_signed(-16489,16), to_signed(16514,16),
+        to_signed(9470,16), to_signed(5648,16), to_signed(10223,16), to_signed(-1917,16), to_signed(-2835,16), to_signed(9769,16), to_signed(-7529,16), to_signed(-7170,16),
+        to_signed(16481,16), to_signed(15215,16), to_signed(16484,16), to_signed(12779,16), to_signed(-16505,16), to_signed(4884,16), to_signed(-16515,16), to_signed(14595,16),
+        to_signed(-7414,16), to_signed(-14461,16), to_signed(-16436,16), to_signed(-10857,16), to_signed(16456,16), to_signed(-7151,16), to_signed(13685,16), to_signed(-12383,16),
+        to_signed(-16457,16), to_signed(-16527,16), to_signed(-16463,16), to_signed(-16458,16), to_signed(16530,16), to_signed(-5308,16), to_signed(16468,16), to_signed(-16543,16),
+        to_signed(16464,16), to_signed(16540,16), to_signed(16464,16), to_signed(16462,16), to_signed(-16491,16), to_signed(195,16), to_signed(-16472,16), to_signed(16518,16),
+        to_signed(-16526,16), to_signed(-10616,16), to_signed(-16529,16), to_signed(-16523,16), to_signed(16461,16), to_signed(1816,16), to_signed(16505,16), to_signed(-16477,16),
+        to_signed(-4065,16), to_signed(-1189,16), to_signed(486,16), to_signed(-3384,16), to_signed(-6737,16), to_signed(4928,16), to_signed(7237,16), to_signed(4405,16),
+        to_signed(-7719,16), to_signed(1376,16), to_signed(-4372,16), to_signed(-6025,16), to_signed(-2091,16), to_signed(6549,16), to_signed(12192,16), to_signed(-4197,16),
+        to_signed(15009,16), to_signed(15472,16), to_signed(16511,16), to_signed(9813,16), to_signed(-5376,16), to_signed(4759,16), to_signed(-12742,16), to_signed(13874,16),
+        to_signed(-16441,16), to_signed(-2388,16), to_signed(-16444,16), to_signed(-12730,16), to_signed(16442,16), to_signed(6184,16), to_signed(5839,16), to_signed(-9276,16),
+        to_signed(-3739,16), to_signed(-1261,16), to_signed(-943,16), to_signed(-3731,16), to_signed(-5694,16), to_signed(8403,16), to_signed(5398,16), to_signed(4388,16),
+        to_signed(16489,16), to_signed(16560,16), to_signed(16493,16), to_signed(16486,16), to_signed(-16534,16), to_signed(2812,16), to_signed(-16497,16), to_signed(16556,16),
+
+=== FF1_B ===
+to_signed(944,16), to_signed(3895,16), to_signed(13748,16), to_signed(8667,16), to_signed(12776,16), to_signed(7619,16), to_signed(2215,16), to_signed(14869,16), to_signed(7182,16), to_signed(10735,16), to_signed(-1206,16), to_signed(491,16), to_signed(7254,16), to_signed(5352,16), to_signed(-423,16), to_signed(7288,16)
+
+=== FF2_W for feed_forward.vhd ===
+        to_signed(16608,16), to_signed(13274,16), to_signed(5722,16), to_signed(-12819,16), to_signed(-8422,16), to_signed(-14003,16), to_signed(10584,16), to_signed(16616,16),
+        to_signed(-16502,16), to_signed(-6269,16), to_signed(-15862,16), to_signed(-13584,16), to_signed(-6862,16), to_signed(-8029,16), to_signed(-7838,16), to_signed(-16502,16),
+        to_signed(16477,16), to_signed(8004,16), to_signed(8762,16), to_signed(-16451,16), to_signed(-15967,16), to_signed(-16469,16), to_signed(16437,16), to_signed(16488,16),
+        to_signed(-16529,16), to_signed(16619,16), to_signed(-13020,16), to_signed(-2373,16), to_signed(-16507,16), to_signed(-1615,16), to_signed(-6057,16), to_signed(-16519,16),
+        to_signed(16584,16), to_signed(12889,16), to_signed(10815,16), to_signed(-16441,16), to_signed(-13596,16), to_signed(-16444,16), to_signed(10386,16), to_signed(16551,16),
+        to_signed(-16512,16), to_signed(8224,16), to_signed(-5494,16), to_signed(-9928,16), to_signed(-12120,16), to_signed(-10874,16), to_signed(-13399,16), to_signed(-16520,16),
+        to_signed(-1112,16), to_signed(-14330,16), to_signed(-8520,16), to_signed(-8171,16), to_signed(1319,16), to_signed(-14362,16), to_signed(-4122,16), to_signed(16618,16),
+        to_signed(-16474,16), to_signed(16507,16), to_signed(-3865,16), to_signed(9565,16), to_signed(-5453,16), to_signed(16457,16), to_signed(3824,16), to_signed(-16480,16),
+        to_signed(-16504,16), to_signed(-14915,16), to_signed(-6266,16), to_signed(16461,16), to_signed(8530,16), to_signed(16471,16), to_signed(-14486,16), to_signed(-16445,16),
+        to_signed(16533,16), to_signed(-16525,16), to_signed(15751,16), to_signed(14559,16), to_signed(16510,16), to_signed(5591,16), to_signed(13366,16), to_signed(16544,16),
+        to_signed(-16668,16), to_signed(-5179,16), to_signed(-10094,16), to_signed(-12023,16), to_signed(6229,16), to_signed(-4570,16), to_signed(-5536,16), to_signed(-1303,16),
+        to_signed(-16494,16), to_signed(16498,16), to_signed(3305,16), to_signed(10355,16), to_signed(-14221,16), to_signed(16450,16), to_signed(1772,16), to_signed(-16499,16),
+        to_signed(-2926,16), to_signed(6499,16), to_signed(13205,16), to_signed(13516,16), to_signed(-9028,16), to_signed(11386,16), to_signed(8431,16), to_signed(-16620,16),
+        to_signed(16477,16), to_signed(-16502,16), to_signed(-6116,16), to_signed(-7259,16), to_signed(1738,16), to_signed(-14442,16), to_signed(-794,16), to_signed(16481,16),
+        to_signed(-16463,16), to_signed(-10175,16), to_signed(597,16), to_signed(16470,16), to_signed(12863,16), to_signed(16499,16), to_signed(-16432,16), to_signed(-16483,16),
+        to_signed(16555,16), to_signed(-16610,16), to_signed(10188,16), to_signed(4721,16), to_signed(16542,16), to_signed(-2818,16), to_signed(9392,16), to_signed(16540,16),
+
+=== FF2_B ===
+to_signed(-914,16), to_signed(1135,16), to_signed(-2511,16), to_signed(-7777,16), to_signed(2007,16), to_signed(-272,16), to_signed(9511,16), to_signed(-6728,16)
