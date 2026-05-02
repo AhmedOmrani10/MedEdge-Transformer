@@ -58,7 +58,6 @@ begin
 
                     when COMPUTE =>
                         if elem_cnt < 4 then
-                            -- FIX: use to_integer to avoid 32-bit overflow
                             acc      <= acc + to_signed(
                                 to_integer(Attn(comp_row, elem_cnt)) *
                                 to_integer(V_mat(elem_cnt, comp_col)), 40);

@@ -83,13 +83,9 @@ begin
                         end if;
 
                     when SCALE =>
-                        -- multiply acc(30:15) by INV_SQRT8
                         scaled := acc(30 downto 15) * INV_SQRT8;
 
-                        -- saturate to Q1.15: check bits [31:30]
-                        -- "00" or "11" = no overflow → take bits [30:15]
-                        -- "01" = positive overflow → clamp to +32767
-                        -- "10" = negative overflow → clamp to -32768
+                        
                         if scaled(31) = '0' and scaled(30) = '1' then
                             s_clamped := to_signed(32767, 16);
                         elsif scaled(31) = '1' and scaled(30) = '0' then

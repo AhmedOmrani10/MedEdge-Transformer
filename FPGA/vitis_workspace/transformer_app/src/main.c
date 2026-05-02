@@ -143,13 +143,12 @@ int run_sample(int idx) {
     int i, j, timeout;
     const float* sample = iris_samples[idx];
 
-    reg_write(REG_CTRL, 0x0);
-    usleep(100000);
+    reg_write(REG_CTRL, 0x0); //pl idle state
+    usleep(100000);//100ms
 
     int16_t X[4][8];
     compute_embedding(sample, X);
 
-    // DEBUG: print embedding for sample 0
     if (idx == 0) {
         printf("X[0]=[%d,%d,%d,%d,%d,%d,%d,%d]\n\r",
                X[0][0],X[0][1],X[0][2],X[0][3],
@@ -172,7 +171,7 @@ int run_sample(int idx) {
     int16_t S[4][4];
     read_S_from_pl(S);
 
-    // DEBUG: print S for sample 0
+    // DEBUG
     if (idx == 0) {
         printf("S[0]=[%d,%d,%d,%d]\n\r",
                S[0][0],S[0][1],S[0][2],S[0][3]);

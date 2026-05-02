@@ -177,7 +177,7 @@ begin
                                 to_integer(Wv(comp_col * 8 + elem_cnt)), 40);
                             elem_cnt <= elem_cnt + 1;
                         else
-                            -- Saturate Q
+                            
                             raw_q := to_integer(acc_q(39 downto 15));
                             if raw_q > 32767 then
                                 vq := to_signed(32767, 16);
@@ -187,7 +187,7 @@ begin
                                 vq := acc_q(30 downto 15);
                             end if;
 
-                            -- Saturate K
+                            
                             raw_k := to_integer(acc_k(39 downto 15));
                             if raw_k > 32767 then
                                 vk := to_signed(32767, 16);
@@ -197,7 +197,7 @@ begin
                                 vk := acc_k(30 downto 15);
                             end if;
 
-                            -- Saturate V
+                            
                             raw_v := to_integer(acc_v(39 downto 15));
                             if raw_v > 32767 then
                                 vv := to_signed(32767, 16);

@@ -200,7 +200,6 @@ architecture structural of top_level is
     signal ff_done_lat       : std_logic;
     signal pool_done_lat     : std_logic;
 
-    -- *** KEY FIX: track that pl_start went high then low ***
     signal ps_ack_seen       : std_logic;
 
 begin
@@ -360,23 +359,15 @@ begin
                             state <= SEND_S;
                         end if;
 
-                    -- *** FIX: hold here until PS clears pl_start ***
-                    -- PS protocol:
-                    --   1. PS sees pl_done=1 (DONE_ST not used here, pl_busy=1 still)
-                    --   Wait - actually we use pl_busy here.
-                    --   PS sees S ready (pl_done not set yet in SEND_S)
-                    --   PS reads S, writes Attn, clears pl_start=0
-                    --   PL sees pl_start=0 → proceeds
+                   
                     when SEND_S =>
-                        -- Wait here while pl_start is still high
-                        -- PS will read S, write Attn, then clear pl_start
+                       
                         if pl_start = '0' then
                             state          <= RUN_ATTN_OUT;
                             attn_out_start <= '1';
                         end if;
 
-                    -- WAIT_PS no longer needed - removed
-                    -- kept in type for safety but never entered
+                   
                     when WAIT_PS =>
                         state <= SEND_S;
 
