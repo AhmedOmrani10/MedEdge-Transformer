@@ -6,4 +6,6 @@ package transformer_pkg is
     type matrix_4x8 is array(0 to 3, 0 to 7) of signed(15 downto 0);
     type matrix_4x4 is array(0 to 3, 0 to 3) of signed(15 downto 0);
     type matrix_1x8 is array(0 to 0, 0 to 7) of signed(15 downto 0);
+    type matrix_16x16 is array(0 to 15, 0 to 15) of signed(15 downto 0);
+    type matrix_1x16  is array(0 to 0,  0 to 15) of signed(15 downto 0);
 end package transformer_pkg;
