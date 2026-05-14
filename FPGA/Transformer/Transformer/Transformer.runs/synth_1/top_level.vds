@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Tue Mar 24 10:55:49 2026
-# Process ID         : 21172
+# Start of session at: Thu May 14 01:46:54 2026
+# Process ID         : 19276
 # Current directory  : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1
 # Command line       : vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file           : C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/top_level.vds
@@ -13,13 +13,13 @@
 # Platform           : Windows Server 2016 or Windows 10
 # Operating System   : 19045
 # Processor Detail   : AMD Ryzen 7 4800H with Radeon Graphics         
-# CPU Frequency      : 2894 MHz
+# CPU Frequency      : 2895 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 16505 MB
-# Swap memory        : 7784 MB
-# Total Virtual      : 24290 MB
-# Available Virtual  : 7494 MB
+# Swap memory        : 6174 MB
+# Total Virtual      : 22679 MB
+# Available Virtual  : 5596 MB
 #-----------------------------------------------------------
 source top_level.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -37,17 +37,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg484-1
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 19500
+INFO: [Synth 8-7075] Helper process launched with PID 18216
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1067.582 ; gain = 469.035
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1066.340 ; gain = 468.098
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-9112] actual for formal port 'x_in' is neither a static name nor a globally static expression [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:474]
+WARNING: [Synth 8-9112] actual for formal port 'x_in' is neither a static name nor a globally static expression [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:442]
 INFO: [Synth 8-638] synthesizing module 'top_level' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:32]
-INFO: [Synth 8-3491] module 'design_1_wrapper' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:15' bound to instance 'design_1_wrapper_i' of component 'design_1_wrapper' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:435]
+INFO: [Synth 8-3491] module 'design_1_wrapper' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:15' bound to instance 'design_1_wrapper_i' of component 'design_1_wrapper' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:403]
 INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:50]
 INFO: [Synth 8-3491] module 'design_1' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/synth/design_1.vhd:15' bound to instance 'design_1_i' of component 'design_1' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:86]
 INFO: [Synth 8-638] synthesizing module 'design_1' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/synth/design_1.vhd:54]
@@ -200,153 +198,256 @@ INFO: [Synth 8-256] done synthesizing module 'design_1_rst_ps7_0_100M_2' (0#1) [
 INFO: [Synth 8-3491] module 'design_1_transformer_axi_0_2' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_transformer_axi_0_2/synth/design_1_transformer_axi_0_2.vhd:56' bound to instance 'transformer_axi_0' of component 'design_1_transformer_axi_0_2' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/synth/design_1.vhd:484]
 INFO: [Synth 8-638] synthesizing module 'design_1_transformer_axi_0_2' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_transformer_axi_0_2/synth/design_1_transformer_axi_0_2.vhd:89]
 	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_S00_AXI_ADDR_WIDTH bound to: 9 - type: integer 
-INFO: [Synth 8-3491] module 'transformer_axi' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi.vhd:5' bound to instance 'U0' of component 'transformer_axi' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_transformer_axi_0_2/synth/design_1_transformer_axi_0_2.vhd:166]
-INFO: [Synth 8-638] synthesizing module 'transformer_axi' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi.vhd:45]
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'transformer_axi' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi.vhd:5' bound to instance 'U0' of component 'transformer_axi' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_transformer_axi_0_2/synth/design_1_transformer_axi_0_2.vhd:166]
+INFO: [Synth 8-638] synthesizing module 'transformer_axi' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi.vhd:44]
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
-	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
-INFO: [Synth 8-3491] module 'transformer_axi_slave_lite_v1_0_S00_AXI' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:5' bound to instance 'transformer_axi_slave_lite_v1_0_S00_AXI_inst' of component 'transformer_axi_slave_lite_v1_0_S00_AXI' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi.vhd:86]
-INFO: [Synth 8-638] synthesizing module 'transformer_axi_slave_lite_v1_0_S00_AXI' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'transformer_axi_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'transformer_axi' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0500/hdl/transformer_axi.vhd:45]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 12 - type: integer 
+INFO: [Synth 8-3491] module 'transformer_axi_slave_lite_v1_0_S00_AXI' declared at 'c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:5' bound to instance 's00_axi_inst' of component 'transformer_axi_slave_lite_v1_0_S00_AXI' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi.vhd:94]
+INFO: [Synth 8-638] synthesizing module 'transformer_axi_slave_lite_v1_0_S00_AXI' [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'transformer_axi_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi_slave_lite_v1_0_S00_AXI.vhd:41]
+INFO: [Synth 8-256] done synthesizing module 'transformer_axi' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/c7cf/hdl/transformer_axi.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'design_1_transformer_axi_0_2' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_transformer_axi_0_2/synth/design_1_transformer_axi_0_2.vhd:89]
 INFO: [Synth 8-256] done synthesizing module 'design_1' (0#1) [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/synth/design_1.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd:50]
-WARNING: [Synth 8-547] port direction mismatch for port 'X_mat_0' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:435]
-INFO: [Synth 8-3491] module 'qkv_projector' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:6' bound to instance 'qkv_projector_i' of component 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:469]
-INFO: [Synth 8-638] synthesizing module 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:25]
-INFO: [Synth 8-256] done synthesizing module 'qkv_projector' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:25]
-INFO: [Synth 8-3491] module 'attention_score' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:6' bound to instance 'attention_score_i' of component 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:487]
+WARNING: [Synth 8-547] port direction mismatch for port 'X_mat_0' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:403]
+INFO: [Synth 8-3491] module 'qkv_projector' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:8' bound to instance 'qkv_projector_i' of component 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:437]
+INFO: [Synth 8-638] synthesizing module 'qkv_projector' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:27]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wq_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xpm_memory_sprom' declared at 'C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897' bound to instance 'xpm_Wq' of component 'xpm_memory_sprom' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:75]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sprom' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wq_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-3876] $readmem data file 'Wq_init.mem' is read successfully [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1155]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sprom' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wk_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xpm_memory_sprom' declared at 'C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897' bound to instance 'xpm_Wk' of component 'xpm_memory_sprom' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:99]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sprom__parameterized1' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wk_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized0' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-3876] $readmem data file 'Wk_init.mem' is read successfully [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1155]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized0' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sprom__parameterized1' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wv_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xpm_memory_sprom' declared at 'C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897' bound to instance 'xpm_Wv' of component 'xpm_memory_sprom' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:123]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sprom__parameterized3' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 1296 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: Wv_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 7 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized1' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-3876] $readmem data file 'Wv_init.mem' is read successfully [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1155]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized1' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sprom__parameterized3' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+INFO: [Synth 8-256] done synthesizing module 'qkv_projector' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:27]
+INFO: [Synth 8-3491] module 'attention_score' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:6' bound to instance 'attention_score_i' of component 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:455]
 INFO: [Synth 8-638] synthesizing module 'attention_score' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:22]
 INFO: [Synth 8-256] done synthesizing module 'attention_score' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:22]
-INFO: [Synth 8-3491] module 'attention_output' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:6' bound to instance 'attention_output_i' of component 'attention_output' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:502]
+INFO: [Synth 8-3491] module 'attention_output' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:6' bound to instance 'attention_output_i' of component 'attention_output' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:470]
 INFO: [Synth 8-638] synthesizing module 'attention_output' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:18]
 INFO: [Synth 8-256] done synthesizing module 'attention_output' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:18]
-INFO: [Synth 8-3491] module 'feed_forward' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:6' bound to instance 'feed_forward_i' of component 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:513]
-INFO: [Synth 8-638] synthesizing module 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:17]
-INFO: [Synth 8-226] default block is never used [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:135]
-INFO: [Synth 8-256] done synthesizing module 'feed_forward' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:17]
-INFO: [Synth 8-3491] module 'avg_pool' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd:6' bound to instance 'avg_pool_i' of component 'avg_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:523]
-INFO: [Synth 8-638] synthesizing module 'avg_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'avg_pool' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd:17]
+INFO: [Synth 8-3491] module 'residual_add' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/residual_add.vhd:6' bound to instance 'residual_add_1' of component 'residual_add' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:481]
+INFO: [Synth 8-638] synthesizing module 'residual_add' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/residual_add.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'residual_add' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/residual_add.vhd:14]
+INFO: [Synth 8-3491] module 'feed_forward' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:8' bound to instance 'feed_forward_i' of component 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:488]
+INFO: [Synth 8-638] synthesizing module 'feed_forward' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:19]
+	Parameter MEMORY_SIZE bound to: 3168 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: FF1_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xpm_memory_sprom' declared at 'C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897' bound to instance 'xpm_FF1' of component 'xpm_memory_sprom' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:68]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sprom__parameterized5' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 3168 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: FF1_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized2' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-3876] $readmem data file 'FF1_init.mem' is read successfully [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1155]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized2' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sprom__parameterized5' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 3168 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: FF2_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xpm_memory_sprom' declared at 'C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897' bound to instance 'xpm_FF2' of component 'xpm_memory_sprom' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:93]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_sprom__parameterized7' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+	Parameter MEMORY_SIZE bound to: 3168 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter MEMORY_INIT_FILE bound to: FF2_init.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: (null) - type: string 
+	Parameter READ_DATA_WIDTH_A bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 8 - type: integer 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base__parameterized3' [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-3876] $readmem data file 'FF2_init.mem' is read successfully [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1155]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base__parameterized3' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_sprom__parameterized7' (0#1) [C:/Xilinx/Vivado/2024.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:8897]
+INFO: [Synth 8-226] default block is never used [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:140]
+INFO: [Synth 8-256] done synthesizing module 'feed_forward' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:19]
+INFO: [Synth 8-3491] module 'residual_add' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/residual_add.vhd:6' bound to instance 'residual_add_2' of component 'residual_add' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:498]
+INFO: [Synth 8-3491] module 'weighted_pool' declared at 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/weighted_pool.vhd:6' bound to instance 'weighted_pool_i' of component 'weighted_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:505]
+INFO: [Synth 8-638] synthesizing module 'weighted_pool' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/weighted_pool.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'weighted_pool' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/weighted_pool.vhd:17]
 INFO: [Synth 8-256] done synthesizing module 'top_level' (0#1) [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:32]
 WARNING: [Synth 8-3848] Net aresetn_out in module/entity clk_map_imp_1I4I8XN does not have driver. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ip/design_1_axi_smc_2/bd_0/synth/bd_6e42.v:676]
-WARNING: [Synth 8-6014] Unused sequential element ps_ack_seen_reg was removed.  [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:317]
-WARNING: [Synth 8-3848] Net X_mat_flat in module/entity top_level does not have driver. [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:150]
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module transformer_axi_slave_lite_v1_0_S00_AXI is either unconnected or has no load
-WARNING: [Synth 8-7129] Port prmry_aclk in module cdc_sync is either unconnected or has no load
-WARNING: [Synth 8-7129] Port prmry_resetn in module cdc_sync is either unconnected or has no load
-WARNING: [Synth 8-7129] Port prmry_vect_in[1] in module cdc_sync is either unconnected or has no load
-WARNING: [Synth 8-7129] Port prmry_vect_in[0] in module cdc_sync is either unconnected or has no load
-WARNING: [Synth 8-7129] Port scndry_resetn in module cdc_sync is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET0_GMII_RXD[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_COL in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_CRS in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_DV in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RX_ER in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ENET1_GMII_RXD[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP0_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP0_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP1_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_GP1_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ACP_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_ACP_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP0_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP0_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP1_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP1_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP2_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP2_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP3_ARSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port S_AXI_HP3_AWSIZE[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG3_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG2_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG1_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FCLK_CLKTRIG0_N in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[31] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[30] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[29] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[28] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[27] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[26] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[25] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[24] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[23] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[22] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[21] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[20] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[19] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[18] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[17] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[16] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[15] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[14] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[13] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[12] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[11] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[10] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[9] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[8] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[7] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[6] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[5] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[4] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_DATA[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_VALID in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[3] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[2] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[1] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port FTMD_TRACEIN_ATID[0] in module processing_system7_v5_5_processing_system7 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port din[0] in module sc_util_v1_0_4_onehot_to_binary is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aclk in module sc_util_v1_0_4_pipeline__parameterized0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aclken in module sc_util_v1_0_4_pipeline__parameterized0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port areset in module sc_util_v1_0_4_pipeline__parameterized0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port slow_clk in module sc_util_v1_0_4_sample_cycle_ratio is either unconnected or has no load
-WARNING: [Synth 8-7129] Port fast_clk in module sc_util_v1_0_4_sample_cycle_ratio is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aclk in module sc_util_v1_0_4_pipeline__parameterized9 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aclken in module sc_util_v1_0_4_pipeline__parameterized9 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port areset in module sc_util_v1_0_4_pipeline__parameterized9 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aclk in module sc_node_v1_0_17_reg_slice3 is either unconnected or has no load
+WARNING: [Synth 8-3848] Net X_mat_flat in module/entity top_level does not have driver. [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd:162]
+WARNING: [Synth 8-7129] Port sleep in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regcea in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wea[0] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[15] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[14] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[13] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[12] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[11] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[10] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[9] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[8] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[7] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[6] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[5] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[4] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[3] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[2] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[1] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[0] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectsbiterra in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectdbiterra in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clkb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rstb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regceb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port web[0] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[7] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[6] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[5] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[4] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[3] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[2] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[1] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[0] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[15] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[14] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[13] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[12] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[11] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[10] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[9] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[8] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[7] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[6] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[5] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[4] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[3] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[2] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[1] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[0] in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectsbiterrb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectdbiterrb in module xpm_memory_base__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sleep in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regcea in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wea[0] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[15] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[14] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[13] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[12] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[11] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[10] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[9] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[8] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[7] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[6] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[5] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[4] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[3] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[2] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[1] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dina[0] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectsbiterra in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port injectdbiterra in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clkb in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rstb in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port enb in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port regceb in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port web[0] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[7] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[6] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[5] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[4] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[3] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[2] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[1] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port addrb[0] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[15] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[14] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[13] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[12] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[11] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[10] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[9] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[8] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[7] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[6] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[5] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[4] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[3] in module xpm_memory_base__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port dinb[2] in module xpm_memory_base__parameterized2 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1362.734 ; gain = 764.188
+Finished RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1935.852 ; gain = 1337.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1362.734 ; gain = 764.188
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1935.852 ; gain = 1337.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1362.734 ; gain = 764.188
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1935.852 ; gain = 1337.609
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1362.734 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1935.852 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 26 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -378,24 +479,22 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_pr
 INFO: [Project 1-1714] 14 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1598.051 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2175.355 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 26 instances were transformed.
   FDR => FDRE: 24 instances
   SRL16 => SRL16E: 2 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.135 . Memory (MB): peak = 1598.051 ; gain = 0.000
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.372 . Memory (MB): peak = 2175.355 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
+Finished Constraint Validation : Time (s): cpu = 00:01:16 ; elapsed = 00:01:17 . Memory (MB): peak = 2175.355 ; gain = 1577.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:16 ; elapsed = 00:01:17 . Memory (MB): peak = 2175.355 ; gain = 1577.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -423,20 +522,31 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/xpm_cdc_async_rst_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_wrapper_i/design_1_i/axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/xpm_cdc_async_rst_inst. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1598.051 ; gain = 999.504
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:17 ; elapsed = 00:01:18 . Memory (MB): peak = 2175.355 ; gain = 1577.113
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 2175.355 ; gain = 1577.113
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6702] IncrSynth : Over 50% of reference run partitions are impacted by design changes. Reverting to default synthesis
+residual_add__GBM1design_1__GC0transformer_axi_slave_lite_v1_0_S00_AXI__GB2transformer_axi_slave_lite_v1_0_S00_AXI__GB1IncrSyn: Total reference run partitions are 9, Impacted partitions are 6.
+IncrSyn: List of changed modules: 
+	Changed Module : attention_score
+WARNING: [Synth 8-6702] IncrSynth : Reverting to default synthesis
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:01:28 ; elapsed = 00:01:31 . Memory (MB): peak = 2175.355 ; gain = 1577.113
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'gen_axi.gen_write.write_cs_reg' in module 'sc_mmu_v1_0_14_decerr_slave'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_endpoint.w_state_reg' in module 'sc_mmu_v1_0_14_top'
 INFO: [Synth 8-802] inferred FSM for state register 'gen_endpoint.r_state_reg' in module 'sc_mmu_v1_0_14_top'
 INFO: [Synth 8-802] inferred FSM for state register 'w_state_reg' in module 'sc_si_converter_v1_0_14_axilite_conv'
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_reg' in module 'sc_si_converter_v1_0_14_axilite_conv'
-INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'transformer_axi_slave_lite_v1_0_S00_AXI'
-INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'transformer_axi_slave_lite_v1_0_S00_AXI'
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'qkv_projector'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'attention_score'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'attention_output'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'feed_forward'
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'avg_pool'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'weighted_pool'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -487,81 +597,73 @@ INFO: [Synth 8-3354] encoded FSM with state register 'r_state_reg' using encodin
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    idle |                              001 |                               00
-                   waddr |                              010 |                               10
-                   wdata |                              100 |                               11
+                    idle |                              000 |                              000
+                 compute |                              001 |                              001
+                   scale |                              010 |                              010
+                   clamp |                              011 |                              011
+                output_s |                              100 |                              100
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using encoding 'one-hot' in module 'transformer_axi_slave_lite_v1_0_S00_AXI'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    idle |                               00 |                               00
-                   raddr |                               01 |                               10
-                   rdata |                               10 |                               11
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'transformer_axi_slave_lite_v1_0_S00_AXI'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    idle |                              001 |                               00
-                  load_x |                              010 |                               01
-                 compute |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'qkv_projector'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    idle |                              001 |                               00
-                 compute |                              010 |                               01
-                   scale |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'attention_score'
----------------------------------------------------------------------------------------------------
-                   State |                     New Encoding |                Previous Encoding 
----------------------------------------------------------------------------------------------------
-                    idle |                              001 |                               00
-                 compute |                              010 |                               01
-                  output |                              100 |                               10
----------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'attention_output'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'attention_score'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
                     idle |                               00 |                               00
-             ff1_compute |                               01 |                               01
-             ff2_compute |                               10 |                               10
-                  output |                               11 |                               11
+                 compute |                               01 |                               01
+                   store |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'attention_output'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+             st_ff1_addr |                              001 |                              001
+              st_ff1_mac |                              010 |                              010
+            st_ff1_store |                              011 |                              011
+             st_ff2_addr |                              100 |                              100
+              st_ff2_mac |                              101 |                              101
+            st_ff2_store |                              110 |                              110
+               st_output |                              111 |                              111
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'feed_forward'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-                    idle |                              001 |                               00
-                 compute |                              010 |                               01
-                  output |                              100 |                               10
+                    idle |                               00 |                               00
+                 compute |                               01 |                               01
+                   store |                               10 |                               10
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'avg_pool'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'weighted_pool'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1598.051 ; gain = 999.504
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:50 ; elapsed = 00:01:54 . Memory (MB): peak = 2175.355 ; gain = 1577.113
 ---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : Change is too high
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input   40 Bit       Adders := 1     
 	   2 Input   27 Bit       Adders := 2     
 	   2 Input   24 Bit       Adders := 1     
-	   4 Input   18 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 288   
 	   2 Input   12 Bit       Adders := 2     
 	   2 Input   10 Bit       Adders := 1     
 	   2 Input    9 Bit       Adders := 3     
-	   2 Input    8 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 7     
 	   2 Input    7 Bit       Adders := 2     
 	   2 Input    6 Bit       Adders := 2     
-	   2 Input    5 Bit       Adders := 2     
-	   2 Input    4 Bit       Adders := 7     
-	   2 Input    3 Bit       Adders := 8     
-	   2 Input    2 Bit       Adders := 6     
+	   2 Input    5 Bit       Adders := 7     
+	   2 Input    4 Bit       Adders := 14    
+	   2 Input    3 Bit       Adders := 1     
 	   2 Input    1 Bit       Adders := 5     
 	   3 Input    1 Bit       Adders := 2     
 +---XORs : 
@@ -573,65 +675,78 @@ Detailed RTL Component Info :
 	               70 Bit    Registers := 1     
 	               69 Bit    Registers := 1     
 	               64 Bit    Registers := 4     
+	               55 Bit    Registers := 1     
 	               47 Bit    Registers := 1     
-	               40 Bit    Registers := 11    
+	               40 Bit    Registers := 10    
 	               33 Bit    Registers := 1     
-	               32 Bit    Registers := 54    
+	               32 Bit    Registers := 259   
 	               24 Bit    Registers := 1     
 	               23 Bit    Registers := 1     
-	               16 Bit    Registers := 285   
-	               12 Bit    Registers := 5     
-	                9 Bit    Registers := 6     
-	                8 Bit    Registers := 4     
-	                7 Bit    Registers := 3     
+	               16 Bit    Registers := 1352  
+	               12 Bit    Registers := 7     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 6     
+	                7 Bit    Registers := 4     
 	                6 Bit    Registers := 2     
-	                5 Bit    Registers := 7     
-	                4 Bit    Registers := 14    
-	                3 Bit    Registers := 33    
-	                2 Bit    Registers := 13    
-	                1 Bit    Registers := 156   
+	                5 Bit    Registers := 13    
+	                4 Bit    Registers := 21    
+	                3 Bit    Registers := 24    
+	                2 Bit    Registers := 10    
+	                1 Bit    Registers := 157   
++---Multipliers : 
+	              15x40  Multipliers := 1     
++---RAMs : 
+	               2K Bit	(144 X 16 bit)          RAMs := 1     
++---ROMs : 
+	                    ROMs := 5     
 +---Muxes : 
 	   2 Input 2178 Bit        Muxes := 2     
-	   2 Input   40 Bit        Muxes := 6     
-	   4 Input   40 Bit        Muxes := 1     
-	   3 Input   40 Bit        Muxes := 4     
-	   2 Input   32 Bit        Muxes := 51    
+	   6 Input   40 Bit        Muxes := 3     
+	   5 Input   40 Bit        Muxes := 1     
+	   3 Input   40 Bit        Muxes := 2     
+	   8 Input   40 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 516   
 	   4 Input   32 Bit        Muxes := 2     
-	   3 Input   32 Bit        Muxes := 1     
-	  15 Input   24 Bit        Muxes := 1     
+	  14 Input   24 Bit        Muxes := 1     
 	   2 Input   24 Bit        Muxes := 1     
-	   4 Input   16 Bit        Muxes := 69    
-	   2 Input   16 Bit        Muxes := 10    
-	   8 Input   16 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 592   
 	   2 Input   12 Bit        Muxes := 7     
 	   5 Input   12 Bit        Muxes := 1     
 	   5 Input    9 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 3     
-	   2 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 1022  
 	   4 Input    8 Bit        Muxes := 1     
+	   6 Input    8 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 2     
 	   4 Input    7 Bit        Muxes := 1     
 	   2 Input    7 Bit        Muxes := 8     
+	   6 Input    7 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 2     
-	   2 Input    5 Bit        Muxes := 4     
-	   4 Input    5 Bit        Muxes := 2     
-	   3 Input    4 Bit        Muxes := 6     
-	   2 Input    4 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 15    
-	   5 Input    3 Bit        Muxes := 1     
-	   3 Input    3 Bit        Muxes := 8     
+	   6 Input    5 Bit        Muxes := 1     
+	   5 Input    5 Bit        Muxes := 2     
+	   3 Input    5 Bit        Muxes := 3     
+	   2 Input    5 Bit        Muxes := 3     
+	   8 Input    5 Bit        Muxes := 3     
+	   6 Input    4 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 4     
+	   5 Input    4 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 11    
+	   5 Input    3 Bit        Muxes := 2     
 	   6 Input    3 Bit        Muxes := 1     
-	   4 Input    3 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 19    
-	   4 Input    2 Bit        Muxes := 7     
+	   4 Input    2 Bit        Muxes := 6     
 	   5 Input    2 Bit        Muxes := 1     
-	   3 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 344   
-	   3 Input    1 Bit        Muxes := 160   
-	   6 Input    1 Bit        Muxes := 8     
-	   4 Input    1 Bit        Muxes := 126   
+	   3 Input    2 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 1080  
+	   3 Input    1 Bit        Muxes := 170   
+	   6 Input    1 Bit        Muxes := 161   
+	   4 Input    1 Bit        Muxes := 25    
 	   7 Input    1 Bit        Muxes := 4     
-	   5 Input    1 Bit        Muxes := 16    
-	  15 Input    1 Bit        Muxes := 16    
+	   5 Input    1 Bit        Muxes := 279   
+	   8 Input    1 Bit        Muxes := 503   
+	  14 Input    1 Bit        Muxes := 16    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -647,38 +762,107 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP acc0, operation Mode is: C'+A*B.
-DSP Report: register acc_reg is absorbed into DSP acc0.
-DSP Report: operator acc0 is absorbed into DSP acc0.
-DSP Report: operator acc1 is absorbed into DSP acc0.
-DSP Report: Generating DSP acc0, operation Mode is: C'+A*B.
-DSP Report: register acc_reg is absorbed into DSP acc0.
-DSP Report: operator acc0 is absorbed into DSP acc0.
-DSP Report: operator acc1 is absorbed into DSP acc0.
-DSP Report: Generating DSP acc0, operation Mode is: C'+A*B.
-DSP Report: register acc_reg is absorbed into DSP acc0.
-DSP Report: operator acc0 is absorbed into DSP acc0.
-DSP Report: operator acc1 is absorbed into DSP acc0.
-DSP Report: Generating DSP acc0, operation Mode is: C'+A*B.
-DSP Report: register acc_reg is absorbed into DSP acc0.
-DSP Report: operator acc0 is absorbed into DSP acc0.
-DSP Report: operator acc1 is absorbed into DSP acc0.
-DSP Report: Generating DSP s_clamped3, operation Mode is: A2*(B:0x2d41).
-DSP Report: register s_clamped3 is absorbed into DSP s_clamped3.
-DSP Report: operator s_clamped3 is absorbed into DSP s_clamped3.
-DSP Report: Generating DSP acc_q0, operation Mode is: C'+A*B.
-DSP Report: register acc_q_reg is absorbed into DSP acc_q0.
-DSP Report: operator acc_q0 is absorbed into DSP acc_q0.
-DSP Report: operator acc_q1 is absorbed into DSP acc_q0.
-DSP Report: Generating DSP acc_k0, operation Mode is: C'+A*B.
-DSP Report: register acc_k_reg is absorbed into DSP acc_k0.
-DSP Report: operator acc_k0 is absorbed into DSP acc_k0.
-DSP Report: operator acc_k1 is absorbed into DSP acc_k0.
-DSP Report: Generating DSP acc_v0, operation Mode is: C'+A*B.
-DSP Report: register acc_v_reg is absorbed into DSP acc_v0.
-DSP Report: operator acc_v0 is absorbed into DSP acc_v0.
-DSP Report: operator acc_v1 is absorbed into DSP acc_v0.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\attn_regs_reg[110][15] )
+INFO: [Synth 8-3886] merging instance 'axi_rresp_reg[0]' (FDRE) to 'axi_rresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\axi_rresp_reg[1] )
+INFO: [Synth 8-3886] merging instance 'axi_bresp_reg[0]' (FDRE) to 'axi_bresp_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\axi_bresp_reg[1] )
+INFO: [Synth 8-3936] Found unconnected internal register 'exit_inst/gen_w_cmd_reg.m_write_cmd_mesg_i_reg' and it is trimmed from '33' to '2' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/37bc/hdl/sc_exit_v1_0_vl_rfs.sv:4182]
+INFO: [Synth 8-3936] Found unconnected internal register 'exit_inst/gen_w_cmd_reg.m_write_cmd_mesg_i_reg' and it is trimmed from '32' to '1' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/37bc/hdl/sc_exit_v1_0_vl_rfs.sv:4182]
+INFO: [Synth 8-3936] Found unconnected internal register 'exit_inst/gen_r_cmd_reg.m_read_cmd_mesg_i_reg' and it is trimmed from '47' to '16' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/37bc/hdl/sc_exit_v1_0_vl_rfs.sv:4111]
+INFO: [Synth 8-3936] Found unconnected internal register 'exit_inst/gen_r_cmd_reg.m_read_cmd_mesg_i_reg' and it is trimmed from '32' to '1' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/37bc/hdl/sc_exit_v1_0_vl_rfs.sv:4111]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_reg_fifo.inst_reg_fifo/gen_single_rank.data_reg' and it is trimmed from '156' to '138' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/sc_node_v1_0_vl_rfs.sv:615]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_reg_fifo.inst_reg_fifo/gen_single_rank.data_reg' and it is trimmed from '156' to '138' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/sc_node_v1_0_vl_rfs.sv:615]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_reg_fifo.inst_reg_fifo/gen_single_rank.data_reg' and it is trimmed from '23' to '5' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/sc_node_v1_0_vl_rfs.sv:615]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_reg_fifo.inst_reg_fifo/gen_single_rank.data_reg' and it is trimmed from '69' to '52' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/sc_node_v1_0_vl_rfs.sv:615]
+WARNING: [Synth 8-3936] Found unconnected internal register 'inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_reg_fifo.inst_reg_fifo/gen_single_rank.data_reg' and it is trimmed from '70' to '53' bits. [c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/ipshared/0127/hdl/sc_node_v1_0_vl_rfs.sv:615]
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/clk_map/psr_aclk/U0/SEQ/core_dec_reg[1]' (FD) to 'axi_smc/inst/clk_map/psr_aclk/U0/SEQ/bsr_dec_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to )
+INFO: [Synth 8-3886] merging instance 'rst_ps7_0_100M/U0/SEQ/core_dec_reg[1]' (FD) to 'rst_ps7_0_100M/U0/SEQ/pr_dec_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1028]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1132]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1131]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1132]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1132]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1130]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1130]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/skid_buffer_reg[1129]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /ar_reg_stall/\skid_buffer_reg[1129] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /aw_reg_stall/\skid_buffer_reg[1028] )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/gen_endpoint.gen_r_singleorder.r_singleorder/gen_id_reg.aresetn_d_reg[0]' (FDR) to 'axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/gen_endpoint.gen_w_singleorder.w_singleorder/gen_id_reg.aresetn_d_reg[0]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/gen_endpoint.gen_r_singleorder.r_singleorder/gen_id_reg.aresetn_d_reg[1]' (FDR) to 'axi_smc/inst/s00_entry_pipeline/s00_transaction_regulator/inst/gen_endpoint.gen_w_singleorder.w_singleorder/gen_id_reg.aresetn_d_reg[1]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[3]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[4]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[2]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.r_cnt_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /\gen_endpoint.r_cnt_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_si_converter/inst /\gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[8] )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_enable_reg' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[0]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[1]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[2]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[2]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[3]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[3]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.w_cnt_reg[4]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[1]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[1]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[2]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[2]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[3]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[3]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/gen_endpoint.b_cnt_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /\gen_endpoint.b_cnt_reg[4] )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/m00_exit_pipeline/m00_exit/inst/exit_inst/gen_r_cmd_reg.aresetn_d_reg[0]' (FDR) to 'axi_smc/inst/m00_exit_pipeline/m00_exit/inst/exit_inst/gen_w_cmd_reg.aresetn_d_reg[0]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/m00_exit_pipeline/m00_exit/inst/exit_inst/gen_r_cmd_reg.aresetn_d_reg[1]' (FDR) to 'axi_smc/inst/m00_exit_pipeline/m00_exit/inst/exit_inst/gen_w_cmd_reg.aresetn_d_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2 )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2 )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1028]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1132]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1131]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1132]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1132]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1130]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1130]' (FDE) to 'axi_smc/inst/s00_entry_pipeline/s00_mmu/inst/ar_reg_stall/m_vector_i_reg[1129]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /ar_reg_stall/\m_vector_i_reg[1129] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_mmu/inst /aw_reg_stall/\m_vector_i_reg[1028] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3 )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3 )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[7]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[8]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_sub_reg[7]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[6]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_sub_reg[6]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[5]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_sub_reg[5]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_words_reg[4]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/ar_size_d_reg[2]'
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/r_cnt_sub_reg[4]' (FDRE) to 'axi_smc/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/ar_size_d_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\s00_entry_pipeline/s00_si_converter/inst /\gen_axilite_conv.axilite_conv_inst/ar_size_d_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/ACTIVE_LOW_AUX.ACT_LO_AUX/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d4 )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/EXT_LPF[1].exr_lpf_reg[1] )
+INFO: [Synth 8-3886] merging instance 'axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/EXT_LPF[2].exr_lpf_reg[2]' (FD) to 'axi_smc/inst/clk_map/psr_aclk/U0/EXT_LPF/EXT_LPF[1].exr_lpf_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (axi_smc/inst/\clk_map/psr_aclk/U0/EXT_LPF/lpf_exr_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/AUX_LPF[1].asr_lpf_reg[1] )
+INFO: [Synth 8-3886] merging instance 'rst_ps7_0_100M/U0/EXT_LPF/AUX_LPF[2].asr_lpf_reg[2]' (FD) to 'rst_ps7_0_100M/U0/EXT_LPF/AUX_LPF[1].asr_lpf_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (rst_ps7_0_100M/U0/\EXT_LPF/lpf_asr_reg )
 WARNING: [Synth 8-3332] Sequential element (clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_IN_cdc_to) is unused and will be removed from module bd_6e42.
 WARNING: [Synth 8-3332] Sequential element (clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d2) is unused and will be removed from module bd_6e42.
 WARNING: [Synth 8-3332] Sequential element (clk_map/psr_aclk/U0/EXT_LPF/ACTIVE_LOW_EXT.ACT_LO_EXT/GENERATE_LEVEL_P_S_CDC.SINGLE_BIT.CROSS_PLEVEL_IN2SCNDRY_s_level_out_d3) is unused and will be removed from module bd_6e42.
@@ -703,51 +887,103 @@ WARNING: [Synth 8-3332] Sequential element (FDRE_inst) is unused and will be rem
 WARNING: [Synth 8-3332] Sequential element (BSR_OUT_DFF[0].FDRE_BSR) is unused and will be removed from module proc_sys_reset__parameterized1.
 WARNING: [Synth 8-3332] Sequential element (ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N) is unused and will be removed from module proc_sys_reset__parameterized1.
 WARNING: [Synth 8-3332] Sequential element (PR_OUT_DFF[0].FDRE_PER) is unused and will be removed from module proc_sys_reset__parameterized1.
+INFO: [Synth 8-4471] merging register 'comp_row_reg[4:0]' into 'comp_row_reg[4:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+INFO: [Synth 8-4471] merging register 'comp_col_reg[3:0]' into 'comp_col_reg[3:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+INFO: [Synth 8-4471] merging register 'comp_col_reg[3:0]' into 'comp_col_reg[3:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+INFO: [Synth 8-4471] merging register 'elem_cnt_reg[3:0]' into 'elem_cnt_reg[3:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+INFO: [Synth 8-4471] merging register 'elem_cnt_reg[3:0]' into 'elem_cnt_reg[3:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+INFO: [Synth 8-4471] merging register 'elem_cnt_reg[3:0]' into 'elem_cnt_reg[3:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd:167]
+DSP Report: Generating DSP acc_q0, operation Mode is: C+A*B2.
+DSP Report: register wq_data_reg is absorbed into DSP acc_q0.
+DSP Report: operator acc_q0 is absorbed into DSP acc_q0.
+DSP Report: operator acc_q1 is absorbed into DSP acc_q0.
+DSP Report: Generating DSP acc_k0, operation Mode is: C+A*B2.
+DSP Report: register wk_data_reg is absorbed into DSP acc_k0.
+DSP Report: operator acc_k0 is absorbed into DSP acc_k0.
+DSP Report: operator acc_k1 is absorbed into DSP acc_k0.
+DSP Report: Generating DSP acc_v0, operation Mode is: C+A*B2.
+DSP Report: register wv_data_reg is absorbed into DSP acc_v0.
+DSP Report: operator acc_v0 is absorbed into DSP acc_v0.
+DSP Report: operator acc_v1 is absorbed into DSP acc_v0.
+INFO: [Synth 8-4471] merging register 'acc_reg[39:0]' into 'acc_reg[39:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd:60]
+DSP Report: Generating DSP acc0, operation Mode is: C+A*B.
+DSP Report: operator acc0 is absorbed into DSP acc0.
+DSP Report: operator acc1 is absorbed into DSP acc0.
+INFO: [Synth 8-4471] merging register 'acc_reg[39:0]' into 'acc_reg[39:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd:42]
+DSP Report: Generating DSP acc0, operation Mode is: C+A*B.
+DSP Report: operator acc0 is absorbed into DSP acc0.
+DSP Report: operator acc1 is absorbed into DSP acc0.
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'qkv_projector_i/comp_row_reg[2]__0' (FDRE) to 'qkv_projector_i/comp_row_reg[2]'
+INFO: [Synth 8-3886] merging instance 'qkv_projector_i/comp_row_reg[0]__0' (FDRE) to 'qkv_projector_i/comp_row_reg[0]'
+INFO: [Synth 8-3886] merging instance 'qkv_projector_i/comp_row_reg[3]__0' (FDRE) to 'qkv_projector_i/comp_row_reg[3]'
+INFO: [Synth 8-3886] merging instance 'qkv_projector_i/comp_row_reg[1]__0' (FDRE) to 'qkv_projector_i/comp_row_reg[1]'
+INFO: [Synth 8-3886] merging instance 'qkv_projector_i/comp_row_reg[4]__0' (FDRE) to 'qkv_projector_i/comp_row_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (attention_score_i/\col_j_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (attention_output_i/\row_i_reg[4] )
+INFO: [Synth 8-4471] merging register 'comp_col_reg[4:0]' into 'comp_col_reg[4:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:133]
+INFO: [Synth 8-4471] merging register 'comp_col_reg[4:0]' into 'comp_col_reg[4:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:133]
+INFO: [Synth 8-4471] merging register 'elem_cnt_reg[4:0]' into 'elem_cnt_reg[4:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:133]
+INFO: [Synth 8-4471] merging register 'elem_cnt_reg[4:0]' into 'elem_cnt_reg[4:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd:133]
+INFO: [Synth 8-5544] ROM "FF2_B[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+DSP Report: Generating DSP acc1, operation Mode is: A*B2.
+DSP Report: register ff2_data_reg is absorbed into DSP acc1.
+DSP Report: operator acc1 is absorbed into DSP acc1.
+DSP Report: Generating DSP acc1, operation Mode is: A*B2.
+DSP Report: register ff1_data_reg is absorbed into DSP acc1.
+DSP Report: operator acc1 is absorbed into DSP acc1.
+INFO: [Synth 8-4471] merging register 'acc_reg[39:0]' into 'acc_reg[39:0]' [C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/weighted_pool.vhd:54]
+INFO: [Synth 8-5544] ROM "POOL_W[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+DSP Report: Generating DSP acc0, operation Mode is: C+A*B.
+DSP Report: operator acc0 is absorbed into DSP acc0.
+DSP Report: operator acc1 is absorbed into DSP acc0.
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:16 ; elapsed = 00:01:19 . Memory (MB): peak = 1598.051 ; gain = 999.504
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:02:56 . Memory (MB): peak = 2175.355 ; gain = 1577.113
 ---------------------------------------------------------------------------------
- Sort Area is top_level__GB1 acc0_0 : 0 0 : 2105 2105 : Used 1 time 0
- Sort Area is top_level__GB1 acc0_2 : 0 0 : 2105 2105 : Used 1 time 0
- Sort Area is top_level__GB1 acc0_3 : 0 0 : 2105 2105 : Used 1 time 0
- Sort Area is top_level__GB1 acc_v0_c : 0 0 : 2105 2105 : Used 1 time 0
- Sort Area is top_level__GB1 acc0_4 : 0 0 : 2064 2064 : Used 1 time 0
- Sort Area is top_level__GB1 acc_q0_8 : 0 0 : 1972 1972 : Used 1 time 0
- Sort Area is top_level__GB1 acc_k0_a : 0 0 : 1829 1829 : Used 1 time 0
- Sort Area is top_level__GB1 s_clamped3_6 : 0 0 : 884 884 : Used 1 time 0
+ Sort Area is top_level__GCB0 acc_k0_2 : 0 0 : 2081 2081 : Used 1 time 0
+ Sort Area is top_level__GCB0 acc_q0_0 : 0 0 : 2081 2081 : Used 1 time 0
+ Sort Area is top_level__GCB0 acc_v0_3 : 0 0 : 2081 2081 : Used 1 time 0
+ Sort Area is top_level__GCB0 acc0_4 : 0 0 : 2065 2065 : Used 1 time 0
+ Sort Area is top_level__GCB0 acc0_6 : 0 0 : 2065 2065 : Used 1 time 0
+ Sort Area is top_level__GCB1 acc1_0 : 0 0 : 1953 1953 : Used 1 time 0
+ Sort Area is top_level__GCB1 acc1_2 : 0 0 : 1953 1953 : Used 1 time 0
+ Sort Area is top_level__GCB1 acc0_3 : 0 0 : 1932 1932 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 ROM: Preliminary Mapping Report
-+--------------+------------+---------------+----------------+
-|Module Name   | RTL Object | Depth x Width | Implemented As | 
-+--------------+------------+---------------+----------------+
-|qkv_projector | Wq[0]      | 64x16         | LUT            | 
-|qkv_projector | Wk[0]      | 64x15         | LUT            | 
-|qkv_projector | Wv[0]      | 64x16         | LUT            | 
-|feed_forward  | FF1_W[0]   | 128x16        | LUT            | 
-|feed_forward  | FF2_W[0]   | 128x16        | LUT            | 
-|feed_forward  | FF2_W[0]   | 128x16        | LUT            | 
-|feed_forward  | FF1_W[0]   | 128x16        | LUT            | 
-|qkv_projector | Wq[0]      | 64x16         | LUT            | 
-|qkv_projector | Wk[0]      | 64x15         | LUT            | 
-|qkv_projector | Wv[0]      | 64x16         | LUT            | 
-+--------------+------------+---------------+----------------+
++-------------+------------+---------------+----------------+
+|Module Name  | RTL Object | Depth x Width | Implemented As | 
++-------------+------------+---------------+----------------+
+|feed_forward | FF1_B[0]   | 32x16         | LUT            | 
++-------------+------------+---------------+----------------+
 
+
+Block RAM: Preliminary Mapping Report (see note below)
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|top_level__GCB0 | qkv_projector_i/X_reg_reg | 144 x 16(READ_FIRST)   | W |   | 144 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name      | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|feed_forward     | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_output | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_score  | C'+A*B        | 16     | 16     | 32     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_score  | A2*(B:0x2d41) | 16     | 15     | -      | -      | 31     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 15     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 14     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B        | 16     | 16     | 40     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-+-----------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name      | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|qkv_projector    | C+A*B2      | 16     | 16     | 40     | -      | 40     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
+|qkv_projector    | C+A*B2      | 16     | 16     | 40     | -      | 40     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
+|qkv_projector    | C+A*B2      | 16     | 16     | 40     | -      | 40     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
+|attention_score  | C+A*B       | 16     | 16     | 40     | -      | 40     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|attention_output | C+A*B       | 16     | 16     | 40     | -      | 40     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|feed_forward     | A*B2        | 16     | 16     | -      | -      | 32     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|feed_forward     | A*B2        | 16     | 16     | -      | -      | 32     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|weighted_pool    | C+A*B       | 16     | 15     | 40     | -      | 40     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -757,19 +993,36 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:26 ; elapsed = 00:01:29 . Memory (MB): peak = 1756.781 ; gain = 1158.234
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:51 ; elapsed = 00:03:13 . Memory (MB): peak = 2233.922 ; gain = 1635.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 1916.559 ; gain = 1318.012
+Finished Timing Optimization : Time (s): cpu = 00:03:06 ; elapsed = 00:03:28 . Memory (MB): peak = 2277.008 ; gain = 1678.766
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object                | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|top_level__GCB0 | qkv_projector_i/X_reg_reg | 144 x 16(READ_FIRST)   | W |   | 144 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+---------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance i_0/qkv_projector_i/xpm_Wq/xpm_memory_base_inst/gen_rd_a.gen_rd_a_synth_template.gen_rf_narrow_reg.douta_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_0/qkv_projector_i/xpm_Wk/xpm_memory_base_inst/gen_rd_a.gen_rd_a_synth_template.gen_rf_narrow_reg.douta_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_0/qkv_projector_i/X_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:40 ; elapsed = 00:01:43 . Memory (MB): peak = 1916.559 ; gain = 1318.012
+Finished Technology Mapping : Time (s): cpu = 00:03:18 ; elapsed = 00:03:54 . Memory (MB): peak = 2282.082 ; gain = 1683.840
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -783,59 +1036,57 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance qkv_projector_i/xpm_Wq/xpm_memory_base_inst/gen_rd_a.gen_rd_a_synth_template.gen_rf_narrow_reg.douta_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance qkv_projector_i/xpm_Wk/xpm_memory_base_inst/gen_rd_a.gen_rd_a_synth_template.gen_rf_narrow_reg.douta_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance qkv_projector_i/X_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished IO Insertion : Time (s): cpu = 00:03:31 ; elapsed = 00:04:06 . Memory (MB): peak = 2350.367 ; gain = 1752.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:31 ; elapsed = 00:04:06 . Memory (MB): peak = 2350.367 ; gain = 1752.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:36 ; elapsed = 00:04:11 . Memory (MB): peak = 2366.137 ; gain = 1767.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:36 ; elapsed = 00:04:11 . Memory (MB): peak = 2366.137 ; gain = 1767.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:36 ; elapsed = 00:04:12 . Memory (MB): peak = 2389.012 ; gain = 1790.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:36 ; elapsed = 00:04:12 . Memory (MB): peak = 2389.012 ; gain = 1790.770
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name      | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|attention_output | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_score  | C'+A*B      | 30     | 18     | 48     | -      | 32     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|attention_score  | A'*B        | 30     | 14     | -      | -      | 31     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B      | 15     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|feed_forward     | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-|qkv_projector    | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|attention_score | C'+A*B      | 30     | 18     | 48     | -      | 40     | 0    | 0    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector   | C'+A*B'     | 30     | 18     | 48     | -      | 40     | 0    | 1    | 1    | -    | -     | 0    | 0    | 
+|qkv_projector   | C'+A*B'     | 30     | 18     | 48     | -      | 40     | 0    | 1    | 1    | -    | -     | 0    | 0    | 
++----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -845,52 +1096,54 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+--------+------+
-|      |Cell    |Count |
-+------+--------+------+
-|1     |BIBUF   |   130|
-|2     |BUFG    |     1|
-|3     |CARRY4  |    50|
-|4     |DSP48E1 |     8|
-|6     |LUT1    |    91|
-|7     |LUT2    |   401|
-|8     |LUT3    |   424|
-|9     |LUT4    |   184|
-|10    |LUT5    |   471|
-|11    |LUT6    |  2463|
-|12    |MUXF7   |   886|
-|13    |MUXF8   |   187|
-|14    |PS7     |     1|
-|15    |SRL16   |     2|
-|16    |FDCE    |    42|
-|17    |FDR     |     8|
-|18    |FDRE    |  5297|
-|19    |FDSE    |  1457|
-+------+--------+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BIBUF    |   130|
+|2     |BUFG     |     1|
+|3     |CARRY4   |    93|
+|4     |DSP48E1  |     3|
+|6     |LUT1     |   136|
+|7     |LUT2     |  1106|
+|8     |LUT3     |   334|
+|9     |LUT4     |   746|
+|10    |LUT5     |   607|
+|11    |LUT6     |  6199|
+|12    |MUXF7    |  2417|
+|13    |MUXF8    |  1120|
+|14    |PS7      |     1|
+|15    |RAMB18E1 |     3|
+|18    |SRL16    |     2|
+|19    |FDCE     |    42|
+|20    |FDR      |     8|
+|21    |FDRE     | 13455|
+|22    |FDSE     |  4333|
++------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:47 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:36 ; elapsed = 00:04:12 . Memory (MB): peak = 2389.012 ; gain = 1790.770
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:15 ; elapsed = 00:01:35 . Memory (MB): peak = 2022.043 ; gain = 1188.180
-Synthesis Optimization Complete : Time (s): cpu = 00:01:48 ; elapsed = 00:01:51 . Memory (MB): peak = 2022.043 ; gain = 1423.496
+Synthesis finished with 0 errors, 0 critical warnings and 381 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:33 ; elapsed = 00:03:44 . Memory (MB): peak = 2389.012 ; gain = 1551.266
+Synthesis Optimization Complete : Time (s): cpu = 00:03:37 ; elapsed = 00:04:14 . Memory (MB): peak = 2389.012 ; gain = 1790.770
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.325 . Memory (MB): peak = 2022.043 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1141 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.761 . Memory (MB): peak = 2389.012 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3646 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2034.789 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2416.781 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   FDR => FDRE: 8 instances
   SRL16 => SRL16E: 2 instances
 
-Synth Design complete | Checksum: e7e082ec
+Synth Design complete | Checksum: e3d2da1e
 INFO: [Common 17-83] Releasing license: Synthesis
-182 Infos, 151 Warnings, 0 Critical Warnings and 0 Errors encountered.
+334 Infos, 156 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:02:12 . Memory (MB): peak = 2034.789 ; gain = 1671.270
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2034.789 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:51 ; elapsed = 00:04:41 . Memory (MB): peak = 2416.781 ; gain = 2053.934
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 2416.781 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.runs/synth_1/top_level.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2416.781 ; gain = 0.000
 INFO: [Vivado 12-24828] Executing command : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 24 10:58:10 2026...
+INFO: [Common 17-206] Exiting Vivado at Thu May 14 01:51:52 2026...

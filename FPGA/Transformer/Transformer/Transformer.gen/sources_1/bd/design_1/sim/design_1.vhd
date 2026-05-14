@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Sat Mar 14 04:34:55 2026
+--Date        : Wed May 13 12:33:57 2026
 --Host        : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -14,7 +14,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1 is
   port (
-    Attn_mat_0 : out STD_LOGIC_VECTOR ( 255 downto 0 );
+    Attn_mat_0 : out STD_LOGIC_VECTOR ( 4095 downto 0 );
     DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
     DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
@@ -36,14 +36,14 @@ entity design_1 is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    S_mat_in_0 : in STD_LOGIC_VECTOR ( 255 downto 0 );
-    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 );
+    S_mat_in_0 : in STD_LOGIC_VECTOR ( 4095 downto 0 );
+    X_mat_0 : out STD_LOGIC_VECTOR ( 2303 downto 0 );
     pl_busy_0 : in STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_done_0 : in STD_LOGIC;
     pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
     pl_start_0 : out STD_LOGIC;
-    pooled_in_0 : in STD_LOGIC_VECTOR ( 127 downto 0 )
+    pooled_in_0 : in STD_LOGIC_VECTOR ( 143 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
   attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=4,numReposBlks=4,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,da_ps7_cnt=3,synth_mode=None}";
@@ -129,13 +129,13 @@ architecture STRUCTURE of design_1 is
     pl_start : out STD_LOGIC;
     pl_done : in STD_LOGIC;
     pl_busy : in STD_LOGIC;
-    S_mat_in : in STD_LOGIC_VECTOR ( 255 downto 0 );
-    Attn_mat : out STD_LOGIC_VECTOR ( 255 downto 0 );
-    X_mat : out STD_LOGIC_VECTOR ( 511 downto 0 );
-    pooled_in : in STD_LOGIC_VECTOR ( 127 downto 0 );
+    X_mat : out STD_LOGIC_VECTOR ( 2303 downto 0 );
+    S_mat_in : in STD_LOGIC_VECTOR ( 4095 downto 0 );
+    Attn_mat : out STD_LOGIC_VECTOR ( 4095 downto 0 );
+    pooled_in : in STD_LOGIC_VECTOR ( 143 downto 0 );
     s00_axi_aclk : in STD_LOGIC;
     s00_axi_aresetn : in STD_LOGIC;
-    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 11 downto 0 );
     s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_awvalid : in STD_LOGIC;
     s00_axi_awready : out STD_LOGIC;
@@ -146,7 +146,7 @@ architecture STRUCTURE of design_1 is
     s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s00_axi_bvalid : out STD_LOGIC;
     s00_axi_bready : in STD_LOGIC;
-    s00_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 11 downto 0 );
     s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s00_axi_arvalid : in STD_LOGIC;
     s00_axi_arready : out STD_LOGIC;
@@ -198,7 +198,7 @@ architecture STRUCTURE of design_1 is
     S00_AXI_rlast : out STD_LOGIC;
     S00_AXI_rvalid : out STD_LOGIC;
     S00_AXI_rready : in STD_LOGIC;
-    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    M00_AXI_awaddr : out STD_LOGIC_VECTOR ( 11 downto 0 );
     M00_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     M00_AXI_awvalid : out STD_LOGIC;
     M00_AXI_awready : in STD_LOGIC;
@@ -209,7 +209,7 @@ architecture STRUCTURE of design_1 is
     M00_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M00_AXI_bvalid : in STD_LOGIC;
     M00_AXI_bready : out STD_LOGIC;
-    M00_AXI_araddr : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    M00_AXI_araddr : out STD_LOGIC_VECTOR ( 11 downto 0 );
     M00_AXI_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     M00_AXI_arvalid : out STD_LOGIC;
     M00_AXI_arready : in STD_LOGIC;
@@ -233,11 +233,11 @@ architecture STRUCTURE of design_1 is
     peripheral_aresetn : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component design_1_rst_ps7_0_100M_2;
-  signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal axi_smc_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal axi_smc_M00_AXI_ARPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal axi_smc_M00_AXI_ARREADY : STD_LOGIC;
   signal axi_smc_M00_AXI_ARVALID : STD_LOGIC;
-  signal axi_smc_M00_AXI_AWADDR : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal axi_smc_M00_AXI_AWADDR : STD_LOGIC_VECTOR ( 11 downto 0 );
   signal axi_smc_M00_AXI_AWPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal axi_smc_M00_AXI_AWREADY : STD_LOGIC;
   signal axi_smc_M00_AXI_AWVALID : STD_LOGIC;
@@ -337,11 +337,11 @@ begin
   pl_resetn(0) <= \^pl_resetn\(0);
 axi_smc: component design_1_axi_smc_2
      port map (
-      M00_AXI_araddr(8 downto 0) => axi_smc_M00_AXI_ARADDR(8 downto 0),
+      M00_AXI_araddr(11 downto 0) => axi_smc_M00_AXI_ARADDR(11 downto 0),
       M00_AXI_arprot(2 downto 0) => axi_smc_M00_AXI_ARPROT(2 downto 0),
       M00_AXI_arready => axi_smc_M00_AXI_ARREADY,
       M00_AXI_arvalid => axi_smc_M00_AXI_ARVALID,
-      M00_AXI_awaddr(8 downto 0) => axi_smc_M00_AXI_AWADDR(8 downto 0),
+      M00_AXI_awaddr(11 downto 0) => axi_smc_M00_AXI_AWADDR(11 downto 0),
       M00_AXI_awprot(2 downto 0) => axi_smc_M00_AXI_AWPROT(2 downto 0),
       M00_AXI_awready => axi_smc_M00_AXI_AWREADY,
       M00_AXI_awvalid => axi_smc_M00_AXI_AWVALID,
@@ -483,20 +483,20 @@ rst_ps7_0_100M: component design_1_rst_ps7_0_100M_2
     );
 transformer_axi_0: component design_1_transformer_axi_0_2
      port map (
-      Attn_mat(255 downto 0) => Attn_mat_0(255 downto 0),
-      S_mat_in(255 downto 0) => S_mat_in_0(255 downto 0),
-      X_mat(511 downto 0) => X_mat_0(511 downto 0),
+      Attn_mat(4095 downto 0) => Attn_mat_0(4095 downto 0),
+      S_mat_in(4095 downto 0) => S_mat_in_0(4095 downto 0),
+      X_mat(2303 downto 0) => X_mat_0(2303 downto 0),
       pl_busy => pl_busy_0,
       pl_done => pl_done_0,
       pl_start => pl_start_0,
-      pooled_in(127 downto 0) => pooled_in_0(127 downto 0),
+      pooled_in(143 downto 0) => pooled_in_0(143 downto 0),
       s00_axi_aclk => \^pl_clk0\,
-      s00_axi_araddr(8 downto 0) => axi_smc_M00_AXI_ARADDR(8 downto 0),
+      s00_axi_araddr(11 downto 0) => axi_smc_M00_AXI_ARADDR(11 downto 0),
       s00_axi_aresetn => \^pl_resetn\(0),
       s00_axi_arprot(2 downto 0) => axi_smc_M00_AXI_ARPROT(2 downto 0),
       s00_axi_arready => axi_smc_M00_AXI_ARREADY,
       s00_axi_arvalid => axi_smc_M00_AXI_ARVALID,
-      s00_axi_awaddr(8 downto 0) => axi_smc_M00_AXI_AWADDR(8 downto 0),
+      s00_axi_awaddr(11 downto 0) => axi_smc_M00_AXI_AWADDR(11 downto 0),
       s00_axi_awprot(2 downto 0) => axi_smc_M00_AXI_AWPROT(2 downto 0),
       s00_axi_awready => axi_smc_M00_AXI_AWREADY,
       s00_axi_awvalid => axi_smc_M00_AXI_AWVALID,

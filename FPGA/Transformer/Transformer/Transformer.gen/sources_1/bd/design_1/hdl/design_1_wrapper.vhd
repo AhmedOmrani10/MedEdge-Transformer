@@ -2,7 +2,7 @@
 --Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
---Date        : Sat Mar 14 04:34:55 2026
+--Date        : Wed May 13 12:33:58 2026
 --Host        : DESKTOP-88SD8FS running 64-bit major release  (build 9200)
 --Command     : generate_target design_1_wrapper.bd
 --Design      : design_1_wrapper
@@ -14,7 +14,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_wrapper is
   port (
-    Attn_mat_0 : out STD_LOGIC_VECTOR ( 255 downto 0 );
+    Attn_mat_0 : out STD_LOGIC_VECTOR ( 4095 downto 0 );
     DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
     DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
@@ -36,14 +36,14 @@ entity design_1_wrapper is
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
     FIXED_IO_ps_srstb : inout STD_LOGIC;
-    S_mat_in_0 : in STD_LOGIC_VECTOR ( 255 downto 0 );
-    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 );
+    S_mat_in_0 : in STD_LOGIC_VECTOR ( 4095 downto 0 );
+    X_mat_0 : out STD_LOGIC_VECTOR ( 2303 downto 0 );
     pl_busy_0 : in STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_done_0 : in STD_LOGIC;
     pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
     pl_start_0 : out STD_LOGIC;
-    pooled_in_0 : in STD_LOGIC_VECTOR ( 127 downto 0 )
+    pooled_in_0 : in STD_LOGIC_VECTOR ( 143 downto 0 )
   );
 end design_1_wrapper;
 
@@ -73,19 +73,19 @@ architecture STRUCTURE of design_1_wrapper is
     FIXED_IO_ps_porb : inout STD_LOGIC;
     pl_done_0 : in STD_LOGIC;
     pl_busy_0 : in STD_LOGIC;
-    Attn_mat_0 : out STD_LOGIC_VECTOR ( 255 downto 0 );
-    S_mat_in_0 : in STD_LOGIC_VECTOR ( 255 downto 0 );
+    Attn_mat_0 : out STD_LOGIC_VECTOR ( 4095 downto 0 );
+    S_mat_in_0 : in STD_LOGIC_VECTOR ( 4095 downto 0 );
     pl_start_0 : out STD_LOGIC;
     pl_clk0 : out STD_LOGIC;
     pl_resetn : out STD_LOGIC_VECTOR ( 0 to 0 );
-    X_mat_0 : out STD_LOGIC_VECTOR ( 511 downto 0 );
-    pooled_in_0 : in STD_LOGIC_VECTOR ( 127 downto 0 )
+    X_mat_0 : out STD_LOGIC_VECTOR ( 2303 downto 0 );
+    pooled_in_0 : in STD_LOGIC_VECTOR ( 143 downto 0 )
   );
   end component design_1;
 begin
 design_1_i: component design_1
      port map (
-      Attn_mat_0(255 downto 0) => Attn_mat_0(255 downto 0),
+      Attn_mat_0(4095 downto 0) => Attn_mat_0(4095 downto 0),
       DDR_addr(14 downto 0) => DDR_addr(14 downto 0),
       DDR_ba(2 downto 0) => DDR_ba(2 downto 0),
       DDR_cas_n => DDR_cas_n,
@@ -107,13 +107,13 @@ design_1_i: component design_1
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
       FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      S_mat_in_0(255 downto 0) => S_mat_in_0(255 downto 0),
-      X_mat_0(511 downto 0) => X_mat_0(511 downto 0),
+      S_mat_in_0(4095 downto 0) => S_mat_in_0(4095 downto 0),
+      X_mat_0(2303 downto 0) => X_mat_0(2303 downto 0),
       pl_busy_0 => pl_busy_0,
       pl_clk0 => pl_clk0,
       pl_done_0 => pl_done_0,
       pl_resetn(0) => pl_resetn(0),
       pl_start_0 => pl_start_0,
-      pooled_in_0(127 downto 0) => pooled_in_0(127 downto 0)
+      pooled_in_0(143 downto 0) => pooled_in_0(143 downto 0)
     );
 end STRUCTURE;

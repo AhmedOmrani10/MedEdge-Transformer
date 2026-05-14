@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Mar 14 04:35:00 2026" VIVADOVERSION="2024.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 13 12:34:27 2026" VIVADOVERSION="2024.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="avnet-tria:zedboard:part0:1.5" DEVICE="7z020" NAME="design_1" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="O" LEFT="255" NAME="Attn_mat_0" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_Attn_mat">
+    <PORT DIR="O" LEFT="4095" NAME="Attn_mat_0" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_Attn_mat">
       <CONNECTIONS>
         <CONNECTION INSTANCE="transformer_axi_0" PORT="Attn_mat"/>
       </CONNECTIONS>
@@ -114,12 +114,12 @@
         <CONNECTION INSTANCE="processing_system7_0" PORT="PS_SRSTB"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="255" NAME="S_mat_in_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_S_mat_in_0">
+    <PORT DIR="I" LEFT="4095" NAME="S_mat_in_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_S_mat_in_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="transformer_axi_0" PORT="S_mat_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="511" NAME="X_mat_0" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_X_mat">
+    <PORT DIR="O" LEFT="2303" NAME="X_mat_0" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_X_mat">
       <CONNECTIONS>
         <CONNECTION INSTANCE="transformer_axi_0" PORT="X_mat"/>
       </CONNECTIONS>
@@ -149,7 +149,7 @@
         <CONNECTION INSTANCE="transformer_axi_0" PORT="pl_start"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="127" NAME="pooled_in_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pooled_in_0">
+    <PORT DIR="I" LEFT="143" NAME="pooled_in_0" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pooled_in_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="transformer_axi_0" PORT="pooled_in"/>
       </CONNECTIONS>
@@ -220,7 +220,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="BUS"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="8" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="O" LEFT="11" NAME="M00_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="transformer_axi_0" PORT="s00_axi_araddr"/>
           </CONNECTIONS>
@@ -240,7 +240,7 @@
             <CONNECTION INSTANCE="transformer_axi_0" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="8" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="O" LEFT="11" NAME="M00_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="transformer_axi_0" PORT="s00_axi_awaddr"/>
           </CONNECTIONS>
@@ -591,7 +591,7 @@
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="32" NAME="M00_AXI" TYPE="MASTER" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="9"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="12"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>
@@ -2089,13 +2089,13 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="6" FULLNAME="/transformer_axi_0" HWVERSION="1.0" INSTANCE="transformer_axi_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="transformer_axi" VLNV="xilinx.com:user:transformer_axi:1.0">
+    <MODULE COREREVISION="11" FULLNAME="/transformer_axi_0" HWVERSION="1.0" INSTANCE="transformer_axi_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="transformer_axi" VLNV="xilinx.com:user:transformer_axi:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
       </ADDRESSBLOCKS>
       <PARAMETERS>
-        <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="9"/>
+        <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="12"/>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="Component_Name" VALUE="design_1_transformer_axi_0_2"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
@@ -2103,17 +2103,17 @@
         <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0x43C0FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="255" NAME="Attn_mat" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_Attn_mat">
+        <PORT DIR="O" LEFT="4095" NAME="Attn_mat" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_Attn_mat">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="Attn_mat_0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="255" NAME="S_mat_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_S_mat_in_0">
+        <PORT DIR="I" LEFT="4095" NAME="S_mat_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_S_mat_in_0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="S_mat_in_0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="511" NAME="X_mat" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_X_mat">
+        <PORT DIR="O" LEFT="2303" NAME="X_mat" RIGHT="0" SIGIS="undef" SIGNAME="transformer_axi_0_X_mat">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="X_mat_0"/>
           </CONNECTIONS>
@@ -2133,7 +2133,7 @@
             <CONNECTION INSTANCE="External_Ports" PORT="pl_start_0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="127" NAME="pooled_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pooled_in_0">
+        <PORT DIR="I" LEFT="143" NAME="pooled_in" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pooled_in_0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="pooled_in_0"/>
           </CONNECTIONS>
@@ -2143,7 +2143,7 @@
             <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="8" NAME="s00_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
+        <PORT DIR="I" LEFT="11" NAME="s00_axi_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_araddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_araddr"/>
           </CONNECTIONS>
@@ -2168,7 +2168,7 @@
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_arvalid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="8" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
+        <PORT DIR="I" LEFT="11" NAME="s00_axi_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_smc_M00_AXI_awaddr">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_smc" PORT="M00_AXI_awaddr"/>
           </CONNECTIONS>
@@ -2246,7 +2246,7 @@
       </PORTS>
       <BUSINTERFACES>
         <BUSINTERFACE BUSNAME="axi_smc_M00_AXI" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
-          <PARAMETER NAME="ADDR_WIDTH" VALUE="9"/>
+          <PARAMETER NAME="ADDR_WIDTH" VALUE="12"/>
           <PARAMETER NAME="ARUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="AWUSER_WIDTH" VALUE="0"/>
           <PARAMETER NAME="BUSER_WIDTH" VALUE="0"/>

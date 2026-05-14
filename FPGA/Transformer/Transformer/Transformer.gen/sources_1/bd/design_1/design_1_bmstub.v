@@ -89,9 +89,9 @@ module design_1 (
   (* X_INTERFACE_IGNORE = "true" *)
   input pl_busy_0;
   (* X_INTERFACE_IGNORE = "true" *)
-  output [255:0]Attn_mat_0;
+  output [4095:0]Attn_mat_0;
   (* X_INTERFACE_IGNORE = "true" *)
-  input [255:0]S_mat_in_0;
+  input [4095:0]S_mat_in_0;
   (* X_INTERFACE_IGNORE = "true" *)
   output pl_start_0;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.PL_CLK0 CLK" *)
@@ -101,9 +101,9 @@ module design_1 (
   (* X_INTERFACE_IGNORE = "true" *)
   output [0:0]pl_resetn;
   (* X_INTERFACE_IGNORE = "true" *)
-  output [511:0]X_mat_0;
+  output [2303:0]X_mat_0;
   (* X_INTERFACE_IGNORE = "true" *)
-  input [127:0]pooled_in_0;
+  input [143:0]pooled_in_0;
 
   // stub module has no contents
 

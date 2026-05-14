@@ -78,14 +78,22 @@ set_property ip_output_repo c:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Tran
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+read_mem {
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/Wq_init.mem
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/Wk_init.mem
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/Wv_init.mem
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/FF2_init.mem
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/FF1_init.mem
+}
 read_vhdl -library xil_defaultlib {
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/transformer_pkg.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_output.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/attention_score.vhd
-  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/avg_pool.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/feed_forward.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/qkv_projector.vhd
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/residual_add.vhd
+  C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/weighted_pool.vhd
   C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/new/top_level.vhd
 }
 add_files C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.srcs/sources_1/bd/design_1/design_1.bd

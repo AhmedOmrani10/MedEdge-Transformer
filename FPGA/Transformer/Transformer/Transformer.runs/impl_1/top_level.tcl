@@ -107,7 +107,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 4
   set_param runs.launchOptions { -jobs 8  }
-  open_checkpoint top_level_routed.dcp
+  open_checkpoint top_level_postroute_physopt.dcp
   set_property webtalk.parent_dir C:/Users/Ahmed/Desktop/MedEdge-Transformer/FPGA/Transformer/Transformer/Transformer.cache/wt [current_project]
 set_property TOP top_level [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }

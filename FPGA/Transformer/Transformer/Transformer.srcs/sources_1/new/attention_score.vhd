@@ -4,12 +4,12 @@ use IEEE.NUMERIC_STD.ALL;
 use work.transformer_pkg.all;
 
 entity attention_score is
-    port(
+    port (
         clk     : in  std_logic;
         rst     : in  std_logic;
         start   : in  std_logic;
-        Q_mat   : in  matrix_16x16;
-        K_mat   : in  matrix_16x16;
+        Q_mat   : in  matrix_16x9;
+        K_mat   : in  matrix_16x9;
         S_mat   : out matrix_16x16;
         S_out   : out signed(15 downto 0);
         out_row : out integer range 0 to 15;
@@ -21,124 +21,115 @@ end attention_score;
 
 architecture Behavioral of attention_score is
 
-    -- INV_SQRT16 = floor(1/sqrt(16) * 32768) = floor(32768/4) = 8192
-    constant INV_SQRT16 : signed(15 downto 0) := to_signed(8192, 16);
+    -- INV_SQRT_9 = round(32768 / sqrt(9)) = round(32768/3) = 10923 (Q15)
+    constant INV_SQRT_D : signed(15 downto 0) := to_signed(10923, 16);
 
     signal S_reg     : matrix_16x16 := (others => (others => (others => '0')));
-
-    -- 40-bit accumulator: 16 products of Q1.15 x Q1.15
-    -- worst case = 16 x 32767 x 32767 = 17,178,820,624 needs 34 bits
-    -- 40-bit gives safe headroom
     signal acc       : signed(39 downto 0) := (others => '0');
-
-    type state_type is (IDLE, COMPUTE, SCALE);
-    signal state     : state_type := IDLE;
-
-    signal comp_row  : integer range 0 to 16 := 0;
-    signal comp_col  : integer range 0 to 16 := 0;
-    signal elem_cnt  : integer range 0 to 16 := 0;
-
-    signal S_out_reg : signed(15 downto 0) := (others => '0');
-    signal valid_reg : std_logic := '0';
     signal done_reg  : std_logic := '0';
+    signal valid_reg : std_logic := '0';
+
+    -- Pipeline register: store acc*INV_SQRT_D intermediate (56-bit product)
+    -- then in CLAMP we shift right by 15 and saturate
+    signal prod_reg  : signed(55 downto 0) := (others => '0');
+    signal scale_row : integer range 0 to 15 := 0;
+    signal scale_col : integer range 0 to 15 := 0;
+
+    type state_t is (IDLE, COMPUTE, SCALE, CLAMP, OUTPUT_S);
+    signal state  : state_t := IDLE;
+    signal row_i  : integer range 0 to 16 := 0;
+    signal col_j  : integer range 0 to 16 := 0;
+    signal elem_k : integer range 0 to 9  := 0;
 
 begin
-
-    S_out <= S_out_reg;
-    valid <= valid_reg;
-    done  <= done_reg;
     S_mat <= S_reg;
+    done  <= done_reg;
+    valid <= valid_reg;
 
     process(clk)
-        variable scaled    : signed(31 downto 0);
-        variable s_clamped : signed(15 downto 0);
-        variable raw_acc   : integer;
+        variable shifted : signed(39 downto 0);
+        variable raw     : integer;
     begin
         if rising_edge(clk) then
-
-            valid_reg <= '0';
             done_reg  <= '0';
+            valid_reg <= '0';
 
             if rst = '1' then
                 state     <= IDLE;
-                comp_row  <= 0;
-                comp_col  <= 0;
-                elem_cnt  <= 0;
+                row_i     <= 0; col_j <= 0; elem_k <= 0;
                 acc       <= (others => '0');
-                S_out_reg <= (others => '0');
-
+                prod_reg  <= (others => '0');
+                scale_row <= 0; scale_col <= 0;
+                S_reg     <= (others => (others => (others => '0')));
             else
                 case state is
 
                     when IDLE =>
                         if start = '1' then
-                            state    <= COMPUTE;
-                            comp_row <= 0;
-                            comp_col <= 0;
-                            elem_cnt <= 0;
-                            acc      <= (others => '0');
+                            state  <= COMPUTE;
+                            row_i  <= 0; col_j <= 0; elem_k <= 0;
+                            acc    <= (others => '0');
                         end if;
 
                     when COMPUTE =>
-                        if elem_cnt < 16 then
-                            -- 40-bit accumulation to prevent overflow
-                            -- Q_mat(row, k) * K_mat(col, k) summed over 16 elements
-                            acc      <= acc + to_signed(
-                                to_integer(Q_mat(comp_row, elem_cnt)) *
-                                to_integer(K_mat(comp_col, elem_cnt)), 40);
-                            elem_cnt <= elem_cnt + 1;
+                        if elem_k < 9 then
+                            acc    <= acc + to_signed(
+                                to_integer(Q_mat(row_i, elem_k)) *
+                                to_integer(K_mat(col_j, elem_k)), 40);
+                            elem_k <= elem_k + 1;
                         else
                             state <= SCALE;
                         end if;
 
                     when SCALE =>
-                        -- Step 1: extract Q1.15 result from 40-bit accumulator
-                        -- acc is Q2.30 so acc(30:15) gives Q1.15
-                        -- saturate first using full integer range check
-                        raw_acc := to_integer(acc(39 downto 15));
-                        if raw_acc > 32767 then
-                            scaled := to_signed(32767, 16) * INV_SQRT16;
-                        elsif raw_acc < -32768 then
-                            scaled := to_signed(-32768, 16) * INV_SQRT16;
+                        -- Pipeline stage 1: just do the multiply, register product
+                        -- acc is Q15, INV_SQRT_D is Q15
+                        -- product is Q30 in a 56-bit register
+                        prod_reg  <= acc * INV_SQRT_D;
+                        scale_row <= row_i;
+                        scale_col <= col_j;
+                        state     <= CLAMP;
+
+                    when CLAMP =>
+                        -- Pipeline stage 2: shift right by 15 to get Q15 result
+                        -- then extract integer and saturate
+                        -- prod_reg is 56-bit Q30, shift right 15 gives Q15
+                        -- take bits (39 downto 0) after shift = prod_reg(54 downto 15)
+                        shifted := prod_reg(54 downto 15);
+                        raw := to_integer(shifted(39 downto 15));
+                        if raw > 32767 then
+                            S_reg(scale_row, scale_col) <= to_signed(32767, 16);
+                        elsif raw < -32768 then
+                            S_reg(scale_row, scale_col) <= to_signed(-32768, 16);
                         else
-                            scaled := acc(30 downto 15) * INV_SQRT16;
+                            S_reg(scale_row, scale_col) <= to_signed(raw, 16);
+                        end if;
+                        S_out     <= to_signed(raw, 16);
+                        out_row   <= scale_row;
+                        out_col   <= scale_col;
+                        valid_reg <= '1';
+                        acc       <= (others => '0');
+                        elem_k    <= 0;
+
+                        if col_j < 15 then
+                            col_j <= col_j + 1;
+                            state <= COMPUTE;
+                        elsif row_i < 15 then
+                            col_j <= 0;
+                            row_i <= row_i + 1;
+                            state <= COMPUTE;
+                        else
+                            state <= OUTPUT_S;
                         end if;
 
-                        -- Step 2: extract Q1.15 from scaled result (Q2.30)
-                        -- and saturate again
-                        if scaled(31) = '0' and scaled(30) = '1' then
-                            s_clamped := to_signed(32767, 16);
-                        elsif scaled(31) = '1' and scaled(30) = '0' then
-                            s_clamped := to_signed(-32768, 16);
-                        else
-                            s_clamped := scaled(30 downto 15);
-                        end if;
+                    when OUTPUT_S =>
+                        done_reg <= '1';
+                        state    <= IDLE;
 
-                        S_reg(comp_row, comp_col) <= s_clamped;
-                        S_out_reg                 <= s_clamped;
-                        out_row                   <= comp_row;
-                        out_col                   <= comp_col;
-                        valid_reg                 <= '1';
-
-                        acc      <= (others => '0');
-                        elem_cnt <= 0;
-                        state    <= COMPUTE;
-
-                        if comp_col < 15 then
-                            comp_col <= comp_col + 1;
-                        elsif comp_row < 15 then
-                            comp_col <= 0;
-                            comp_row <= comp_row + 1;
-                        else
-                            done_reg <= '1';
-                            state    <= IDLE;
-                        end if;
-
-                    when others =>
-                        state <= IDLE;
-
+                    when others => state <= IDLE;
                 end case;
             end if;
         end if;
     end process;
+
 end Behavioral;
