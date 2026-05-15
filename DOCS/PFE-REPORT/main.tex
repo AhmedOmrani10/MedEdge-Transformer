@@ -1,0 +1,83 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{parskip}
+
+\pgfplotsset{compat=1.18}
+
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\setstretch{1.3}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small Non-Invasive Glucose Monitoring --- PFE Report}
+\lhead{\small Transformer on Zybo Z7-20 FPGA}
+\cfoot{\thepage}
+
+\hypersetup{colorlinks=true, linkcolor=blue!70!black, citecolor=green!50!black, urlcolor=blue}
+
+% Set path for images
+\graphicspath{{figures/}{figures/part1/}{figures/part2/}{figures/part3/}}
+
+\definecolor{zoneA}{RGB}{0,180,0}
+\definecolor{zoneB}{RGB}{100,200,100}
+\definecolor{zoneC}{RGB}{255,200,0}
+\definecolor{zoneD}{RGB}{255,130,0}
+\definecolor{zoneE}{RGB}{200,0,0}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\LARGE\bfseries Projet de Fin d'\'Etudes\\[0.5em]
+Non-Invasive Glucose Monitoring Using\\
+Transformer Models on Zybo Z7-20 FPGA\par}
+\vspace{2cm}
+{\large A comprehensive analysis of invasive glucose monitoring methods,
+non-invasive spectroscopic approaches, and machine learning architectures
+for real-time glucose measurement.\par}
+\vspace{3cm}
+{\large\itshape Submitted in partial fulfillment of the requirements
+for the degree of Engineering\\[0.5em]
+Academic Year 2024--2025\par}
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ================================================================
+% PART I: INVASIVE METHODS
+% ================================================================
+\input{parts/part1}
+
+% ================================================================
+% PART II: NON-INVASIVE METHODS
+% ================================================================
+% \input{parts/part2}
+
+% ================================================================
+% PART III: TRANSFORMER ARCHITECTURE & FPGA IMPLEMENTATION
+% ================================================================
+% \input{parts/part3}
+
+\end{document}
